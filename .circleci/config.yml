@@ -1,0 +1,49 @@
+version: 2.1
+orbs:
+  cf-validations: contentful/cf-validations@2
+  tech-docs: contentful/tech-docs@1
+
+executors:
+  default:
+    machine:
+      image: ubuntu-2004:202107-02
+      docker_layer_caching: true
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/workspace
+      - run: echo "your build and tests"
+
+workflows:
+  version: 2
+  test-cover-deploy:
+    jobs:
+      - cf-validations/validation: # Validate your backstage config
+          disable-backstage-validate-components: false
+          context:
+            - docker-hub-auth
+            - npm-token-readonly
+            - github-app-read-only
+      - build: # Build the project
+          context:
+            - npm-token
+            - docker-hub-auth
+      - tech-docs/preview-tech-docs: # Prepare the tech-docs preview
+          context:
+            - ci-output
+            - npm-token
+          filters:
+            branches:
+              ignore: main
+      - tech-docs/publish-tech-docs: # Publish the tech-docs
+          entity: default/component/base-template
+          context:
+            - atools-aws
+            - npm-token
+          filters:
+            branches:
+              only: main

@@ -1,0 +1,8 @@
+site_name: 'base-template'
+repo_url: https://github.com/contentful/base-template
+
+nav:
+  - Index: 'index.md'
+
+plugins:
+  - techdocs-core

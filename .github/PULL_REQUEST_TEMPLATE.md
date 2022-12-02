@@ -1,7 +1,7 @@
 **_What will change?_**
 
-* Stuff that is going to change
-* even more interesting stuff that is going to change
+- Stuff that is going to change
+- even more interesting stuff that is going to change
 
 <!-- If this has a larger context, uncomment and put it here
 _Purpose_
@@ -10,7 +10,7 @@ Why do we introduce this change? What problem do we solve? What is the
 story/background for it?
 -->
 
-<!-- # Uncomment if you have any dependencies 
+<!-- # Uncomment if you have any dependencies
 **_Dependencies and/or References_**
 
 * Another related PR
@@ -24,7 +24,7 @@ story/background for it?
 
 -->
 
-<!-- # If there is deployment related information, uncomment and put it here 
+<!-- # If there is deployment related information, uncomment and put it here
 **_Deployment & Risks_**
 
 * [x] All tests and checks are passing (or any failures are well understood and acceptable)

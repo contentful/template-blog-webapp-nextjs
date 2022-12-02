@@ -1,0 +1,58 @@
+{
+  "name": "template-ecommerce-webapp-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "18.12.1",
+    "npm": "Please use Yarn"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "src/**/*.{json,js,ts,jsx,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@next/bundle-analyzer": "^13.0.4",
+    "dotenv": "^16.0.3",
+    "next": "13.0.4",
+    "next-compose-plugins": "^2.2.1",
+    "next-i18next": "^12.1.0",
+    "next-pwa": "^5.6.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@svgr/webpack": "^6.5.1",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^8.0.2",
+    "i18next": "^21.9.2",
+    "i18next-http-backend": "^1.4.4",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "typescript": "4.9.3"
+  }
+}

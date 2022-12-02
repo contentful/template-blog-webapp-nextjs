@@ -57,10 +57,7 @@ module.exports = withPlugins(plugins, {
    * Settings are the defaults
    */
   images: {
-    deviceSizes: [320, 420, 768, 1024, 1200, 1600],
     domains: ['images.ctfassets.net'],
-    path: '/_next/image',
-    loader: 'default',
   },
 
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],

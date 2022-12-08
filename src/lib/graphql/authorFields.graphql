@@ -1,0 +1,7 @@
+fragment AuthorFields on ComponentAuthor {
+  __typename
+  name
+  avatar {
+    ...ImageFields
+  }
+}

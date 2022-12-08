@@ -11,7 +11,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
+    "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -25,6 +27,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^13.0.4",
     "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
     "next": "13.0.4",
     "next-compose-plugins": "^2.2.1",
     "next-i18next": "^12.1.0",
@@ -34,6 +37,9 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "@graphql-codegen/cli": "2.13.12",
+    "@graphql-codegen/client-preset": "1.1.4",
+    "@graphql-codegen/introspection": "2.2.1",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
@@ -53,6 +59,7 @@
     "i18next-http-backend": "^1.4.4",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "typescript": "4.9.3"
+    "typescript": "4.9.3",
+    "typescript-graphql-request": "^4.4.6"
   }
 }

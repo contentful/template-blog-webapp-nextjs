@@ -1,0 +1,8 @@
+fragment RichImageFields on ComponentRichImage {
+  __typename
+  image {
+    ...ImageFields
+  }
+  caption
+  fullWidth
+}

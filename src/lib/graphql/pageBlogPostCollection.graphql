@@ -1,0 +1,7 @@
+query pageBlogPostCollection($locale: String, $preview: Boolean) {
+  pageBlogPostCollection(limit: 100, locale: $locale, preview: $preview) {
+    items {
+      ...PageBlogPostFields
+    }
+  }
+}

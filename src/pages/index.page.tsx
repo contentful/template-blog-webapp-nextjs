@@ -6,7 +6,7 @@ import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <h1>{page.featuredBlogPost.title}</h1>;
+  return <h1 className="text-3xl font-bold underline">{page.featuredBlogPost.title}</h1>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {

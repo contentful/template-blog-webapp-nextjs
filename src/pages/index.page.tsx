@@ -7,13 +7,11 @@ import { revalidateDuration } from '@src/pages/utils/constants';
 
 import { SeoFields } from '@src/components/features/seo';
 
-const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return (
+const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     {page.seoFields && <SeoFields {...page.seoFields} />}
     <h1 className="text-3xl font-bold underline">{page.featuredBlogPost.title}</h1>
   </>);
-};
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   try {
     const data = await client.pageLanding({ locale });

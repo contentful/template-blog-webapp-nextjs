@@ -6,6 +6,7 @@ import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ blogPost }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // TODO add SEO here too.
   return <h1>{blogPost.title}</h1>;
 };
 

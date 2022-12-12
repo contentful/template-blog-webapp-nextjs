@@ -2,9 +2,9 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
 import { SeoFieldsFragment } from '@src/lib/__generated/sdk';
+import path from 'path';
 
-const generateUrl = (locale: string, slug: string) =>
-  new URL(`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/${slug}`).toString(); // TODO - need to check this works, not convinced we need the urijs lib..?
+const generateUrl = (locale: string, slug: string) => new URL(path.join(locale,slug), process.env.NEXT_PUBLIC_BASE_URL!).toString();
 
 export const SeoFields = ({
   pageTitle,

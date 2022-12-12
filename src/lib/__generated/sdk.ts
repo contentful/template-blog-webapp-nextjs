@@ -1478,6 +1478,18 @@ export type SeoFieldsFragment = { __typename: 'ComponentSeo', pageTitle?: string
       & ImageFieldsFragment
     ) | null> } | null };
 
+export type SitemapPagesFieldsFragment = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<{ __typename?: 'PageBlogPost', slug?: string | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null, pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<{ __typename?: 'PageLanding', sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
+
+export type SitemapPagesQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+export type SitemapPagesQuery = (
+  { __typename?: 'Query' }
+  & SitemapPagesFieldsFragment
+);
+
 export const ImageFieldsFragmentDoc = gql`
     fragment ImageFields on Asset {
   __typename
@@ -1595,6 +1607,25 @@ export const PageLandingFieldsFragmentDoc = gql`
   }
 }
     `;
+export const SitemapPagesFieldsFragmentDoc = gql`
+    fragment sitemapPagesFields on Query {
+  pageBlogPostCollection(limit: 100, locale: $locale) {
+    items {
+      slug
+      sys {
+        publishedAt
+      }
+    }
+  }
+  pageLandingCollection(limit: 1, locale: $locale) {
+    items {
+      sys {
+        publishedAt
+      }
+    }
+  }
+}
+    `;
 export const PageBlogPostDocument = gql`
     query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
   pageBlogPostCollection(
@@ -1654,6 +1685,11 @@ ${SeoFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}`;
+export const SitemapPagesDocument = gql`
+    query sitemapPages($locale: String!) {
+  ...sitemapPagesFields
+}
+    ${SitemapPagesFieldsFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1673,6 +1709,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingCollectionQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>(PageLandingCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLandingCollection', 'query');
+    },
+    sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SitemapPagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>(SitemapPagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'sitemapPages', 'query');
     }
   };
 }

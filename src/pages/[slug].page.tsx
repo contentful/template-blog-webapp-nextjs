@@ -4,10 +4,16 @@ import { getServerSideTranslations } from './utils/get-serverside-translations';
 
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
+import { SeoFields } from '@src/components/features/seo';
 
 const Page = ({ blogPost }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <h1>{blogPost.title}</h1>;
-};
+  return (
+    <>
+      {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
+      <h1>{blogPost.title}</h1>
+    </>
+  )
+}
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   if (!params?.slug || !locale) {

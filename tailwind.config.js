@@ -1,5 +1,6 @@
 const tokens = require('@contentful/f36-tokens');
 const plugin = require('tailwindcss/plugin');
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 const colors = Object.entries(tokens).reduce((acc, [key, value]) => {
   // Filter Hex colors from the f36-tokens
@@ -26,6 +27,9 @@ module.exports = {
         '3xl': '1.75rem',
         '4xl': '2.5rem',
       },
+      fontFamily: {
+        sans: ['var(--font-urbanist)', ...fontFamily.sans],
+      }
     },
   },
   plugins: [

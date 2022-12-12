@@ -9,7 +9,7 @@ type SitemapFieldsWithoutTypename = Omit<SitemapPagesFieldsFragment, '__typename
 type SitemapPageCollection = SitemapFieldsWithoutTypename[keyof SitemapFieldsWithoutTypename];
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
-  const { locales, req } = ctx;
+  const { locales } = ctx;
 
   ctx.res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59');
 

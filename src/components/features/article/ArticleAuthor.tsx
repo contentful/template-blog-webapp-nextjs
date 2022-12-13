@@ -13,7 +13,7 @@ export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
       <div className="mr-2 overflow-hidden rounded-full border border-blue500">
         {author?.avatar && (
           <CtfImage
-            imageProps={{
+            nextImageProps={{
               width: 28,
               height: 28,
               sizes: undefined,

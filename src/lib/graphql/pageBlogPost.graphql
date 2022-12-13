@@ -1,5 +1,9 @@
 fragment ReferencePageBlogPostFields on PageBlogPost {
   __typename
+  sys {
+    id
+    spaceId
+  }
   slug
   author {
     ...AuthorFields

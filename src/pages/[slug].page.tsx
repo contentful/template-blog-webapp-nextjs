@@ -1,18 +1,28 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
-import { ArticleContent, ArticleHero } from '@src/components/features/article';
+import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
+import { Container } from '@src/components/shared/container';
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { t } = useTranslation();
+
   return (
     <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
       <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
       <ArticleContent article={blogPost} />
+      {blogPost.relatedBlogPostsCollection?.items && (
+        <Container className="max-w-5xl">
+          <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2>
+          <ArticleTileGrid className="md:grid-cols-2" article={blogPost} />
+        </Container>
+      )}
     </>
   );
 };

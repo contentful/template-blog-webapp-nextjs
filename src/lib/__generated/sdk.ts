@@ -1390,7 +1390,7 @@ export type AuthorFieldsFragment = { __typename: 'ComponentAuthor', name?: strin
 
 export type ImageFieldsFragment = { __typename: 'Asset', title?: string | null, description?: string | null, width?: number | null, height?: number | null, url?: string | null, contentType?: string | null, sys: { __typename?: 'Sys', id: string } };
 
-export type ReferencePageBlogPostFieldsFragment = { __typename: 'PageBlogPost', slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, author?: (
+export type ReferencePageBlogPostFieldsFragment = { __typename: 'PageBlogPost', slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, author?: (
     { __typename?: 'ComponentAuthor' }
     & AuthorFieldsFragment
   ) | null, featuredImage?: (
@@ -1541,6 +1541,10 @@ export const RichImageFieldsFragmentDoc = gql`
 export const ReferencePageBlogPostFieldsFragmentDoc = gql`
     fragment ReferencePageBlogPostFields on PageBlogPost {
   __typename
+  sys {
+    id
+    spaceId
+  }
   slug
   author {
     ...AuthorFields

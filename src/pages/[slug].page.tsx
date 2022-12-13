@@ -2,18 +2,20 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
+import { ArticleContent, ArticleHero } from '@src/components/features/article';
+import { SeoFields } from '@src/components/features/seo';
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
-import { SeoFields } from '@src/components/features/seo';
 
-const Page = ({ blogPost }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
-      <h1>{blogPost.title}</h1>
+      <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
+      <ArticleContent article={blogPost} />
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   if (!params?.slug || !locale) {
@@ -24,8 +26,15 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   }
 
   try {
-    const data = await client.pageBlogPost({ slug: params.slug.toString(), locale });
-    const blogPost = data.pageBlogPostCollection?.items[0];
+    const [blogPagedata, landingePageData] = await Promise.all([
+      client.pageBlogPost({ slug: params.slug.toString(), locale }),
+      client.pageLanding({ locale }),
+    ]);
+
+    const blogPost = blogPagedata.pageBlogPostCollection?.items[0];
+    const landingPage = landingePageData.pageLandingCollection?.items[0];
+
+    const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug;
 
     if (!blogPost) {
       return {
@@ -39,6 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
       props: {
         ...(await getServerSideTranslations(locale)),
         blogPost,
+        isFeatured,
       },
     };
   } catch {

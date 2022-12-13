@@ -41,7 +41,8 @@ fragment PageBlogPostFields on PageBlogPost {
         }
       }
     }
-  }  relatedBlogPostsCollection(limit: 2) {
+  }
+  relatedBlogPostsCollection(limit: 2) {
     items {
       ...ReferencePageBlogPostFields
     }

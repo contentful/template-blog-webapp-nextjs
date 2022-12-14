@@ -1,5 +1,8 @@
 fragment RichImageFields on ComponentRichImage {
   __typename
+  sys {
+    id
+  }
   image {
     ...ImageFields
   }

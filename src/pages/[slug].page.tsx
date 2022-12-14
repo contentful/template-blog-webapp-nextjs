@@ -16,9 +16,9 @@ const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStatic
     <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
       <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
-      <ArticleContent article={blogPost} />
+      <ArticleContent className="mt-8" article={blogPost} />
       {blogPost.relatedBlogPostsCollection?.items && (
-        <Container className="max-w-5xl">
+        <Container className="mt-8 max-w-5xl">
           <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2>
           <ArticleTileGrid className="md:grid-cols-2" article={blogPost} />
         </Container>

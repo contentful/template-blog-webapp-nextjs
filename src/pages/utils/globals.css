@@ -28,7 +28,7 @@
   }
 
   p {
-    @apply text-gray600 tracking-snug font-normal leading-4 md:leading-5;
+    @apply text-gray600 tracking-snug font-normal leading-snug md:leading-normal;
   }
 }
 

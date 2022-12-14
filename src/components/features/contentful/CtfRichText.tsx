@@ -1,9 +1,10 @@
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 
-import { ImageFieldsFragment } from '@src/lib/__generated/sdk';
+import { ArticleImage } from '@src/components/features/article';
+import { ComponentRichImage } from '@src/lib/__generated/sdk';
 
-export type EmbeddedEntryType = ImageFieldsFragment | null;
+export type EmbeddedEntryType = ComponentRichImage | null;
 
 export interface ContentfulRichTextInterface {
   json: Document;
@@ -16,6 +17,15 @@ export interface ContentfulRichTextInterface {
     | any;
 }
 
+export const EmbeddedEntry = (entry: EmbeddedEntryType) => {
+  switch (entry?.__typename) {
+    case 'ComponentRichImage':
+      return <ArticleImage image={entry} />;
+    default:
+      return null;
+  }
+};
+
 export const contentfulBaseRichTextOptions = ({ links }: ContentfulRichTextInterface): Options => ({
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: node => {
@@ -25,7 +35,7 @@ export const contentfulBaseRichTextOptions = ({ links }: ContentfulRichTextInter
 
       if (!entry) return null;
 
-      return <>--PLACEHOLDER-- Embedded entry --PLACEHOLDER--</>;
+      return <EmbeddedEntry {...entry} />;
     },
   },
 });
@@ -33,5 +43,9 @@ export const contentfulBaseRichTextOptions = ({ links }: ContentfulRichTextInter
 export const CtfRichText = ({ json, links }: ContentfulRichTextInterface) => {
   const baseOptions = contentfulBaseRichTextOptions({ links, json });
 
-  return <div>{documentToReactComponents(json, baseOptions)}</div>;
+  return (
+    <article className="prose prose-sm max-w-none">
+      {documentToReactComponents(json, baseOptions)}
+    </article>
+  );
 };

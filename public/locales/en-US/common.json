@@ -2,5 +2,10 @@
   "article": {
     "relatedArticles": "Related articles",
     "featured": "featured"
+  },
+  "footer": {
+    "aboutUs": "about us",
+    "discription": "Our company specialises in the development of advanced technologies for a wide range of industries. We use cutting-edge techniques and algorithms to create intelligent systems that can help businesses automate tasks, improve efficiency, and drive innovation.",
+    "powerBy": "Powered by"
   }
 }

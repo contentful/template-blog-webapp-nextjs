@@ -3,7 +3,6 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
 import { SeoFields } from '@src/components/features/seo';
-import { Container } from '@src/components/shared/container';
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
@@ -11,13 +10,12 @@ const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       {page.seoFields && <SeoFields {...page.seoFields} />}
-      <Container>
-        <h1>h1- {page.featuredBlogPost.title}</h1>
-        <h2>h2 - {page.featuredBlogPost.title}</h2>
-        <h3>h3 - {page.featuredBlogPost.title}</h3>
-        <h4>h4 - {page.featuredBlogPost.title}</h4>
-        <p>p - Foo bar</p>
-      </Container>
+
+      <h1>h1- {page.featuredBlogPost.title}</h1>
+      <h2>h2 - {page.featuredBlogPost.title}</h2>
+      <h3>h3 - {page.featuredBlogPost.title}</h3>
+      <h4>h4 - {page.featuredBlogPost.title}</h4>
+      <p>p - Foo bar</p>
     </>
   );
 };

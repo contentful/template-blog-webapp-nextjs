@@ -1468,7 +1468,7 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', caption?: string | null, fullWidth?: boolean | null, image?: (
+export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null };
@@ -1531,6 +1531,9 @@ export const AuthorFieldsFragmentDoc = gql`
 export const RichImageFieldsFragmentDoc = gql`
     fragment RichImageFields on ComponentRichImage {
   __typename
+  sys {
+    id
+  }
   image {
     ...ImageFields
   }

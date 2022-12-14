@@ -5,7 +5,7 @@ import { Container } from '@src/components/shared/container';
 
 export const Header = () => {
   return (
-    <header className="mt-4 mb-8 lg:mt-5 xl:my-10">
+    <header className="pt-4 pb-8 lg:pt-5 xl:py-10">
       <nav>
         <Container className="flex justify-between py-2">
           <div>

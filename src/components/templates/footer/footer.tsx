@@ -8,8 +8,8 @@ export const Footer = () => {
 
   return (
     <footer className="border-t-color mt-10 border-t border-gray200">
-      <Container className="mt-8">
-        <h2 className="mb-4 text-2xs">{t('footer.aboutUs')}</h2>
+      <Container className="py-8">
+        <h2 className="h4 mb-4">{t('footer.aboutUs')}</h2>
         <div className="max-w-4xl">{t('footer.discription')}</div>
         <div className="mt-8">
           {t('footer.powerBy')}{' '}

@@ -13,7 +13,7 @@ export const Layout = ({ children }: LayoutPropsInterface) => {
   return (
     <>
       <Header />
-      <Container>{children}</Container>
+      {children}
       <Footer />
     </>
   );

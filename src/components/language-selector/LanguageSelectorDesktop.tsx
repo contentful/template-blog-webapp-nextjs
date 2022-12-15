@@ -9,8 +9,12 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   const router = useRouter();
 
   return (
-    <div className="bg-red-600 flex flex-col items-center justify-center">
-      <div onClick={() => setIsOpen(!isOpen)} role="button" tabIndex={0} className="uppercase">
+    <>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        role="button"
+        tabIndex={0}
+        className="font-normal uppercase">
         <LanguageIcon width="18px" height="18px" variant="secondary" className="mr-1 ml-1" />
         {localeName(locale)}
         {isOpen ? (
@@ -19,26 +23,29 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
           <ChevronDownTrimmedIcon variant="secondary" className="pl-1" />
         )}
       </div>
-      {isOpen ? (
-        <ul className="bg-red-600">
-          {locales?.map(availableLocale =>
-            availableLocale === locale ? null : (
-              <li
-                key={availableLocale}
-                onClick={() => {
-                  router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
-                    locale: availableLocale,
-                  });
-                  setIsOpen(false);
-                }}
-                role="menuitem"
-                className="bg-red-600">
-                {displayName(availableLocale).of(localeName(availableLocale))}
-              </li>
-            ),
-          )}
-        </ul>
-      ) : null}
-    </div>
+      <ul
+        className={twMerge(
+          `absolute mt-1.5 w-24 cursor-pointer rounded-md bg-colorWhite py-3 text-center text-base`,
+          isOpen ? 'block' : 'hidden',
+        )}
+        role="listbox"
+        tabIndex={-1}>
+        {locales?.map(availableLocale =>
+          availableLocale === locale ? null : (
+            <li
+              key={availableLocale}
+              onClick={() => {
+                router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
+                  locale: availableLocale,
+                });
+                setIsOpen(false);
+              }}
+              role="menuitem">
+              {displayName(availableLocale).of(localeName(availableLocale))}
+            </li>
+          ),
+        )}
+      </ul>
+    </>
   );
 };

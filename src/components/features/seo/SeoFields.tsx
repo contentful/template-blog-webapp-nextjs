@@ -1,10 +1,12 @@
+import path from 'path';
+
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
 import { SeoFieldsFragment } from '@src/lib/__generated/sdk';
-import path from 'path';
 
-const generateUrl = (locale: string, slug: string) => new URL(path.join(locale,slug), process.env.NEXT_PUBLIC_BASE_URL!).toString();
+const generateUrl = (locale: string, slug: string) =>
+  new URL(path.join(locale, slug), process.env.NEXT_PUBLIC_BASE_URL!).toString();
 
 export const SeoFields = ({
   pageTitle,

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import BlogLogo from '@icons/blog-logo.svg';
+import { LanguageSelector } from '@src/components/language-selector';
 import { Container } from '@src/components/shared/container';
 
 export const Header = () => {
@@ -13,7 +14,7 @@ export const Header = () => {
               <BlogLogo />
             </Link>
           </div>
-          <div className="block bg-gray300">LangSelect</div>
+          <LanguageSelector />
         </Container>
       </nav>
     </header>

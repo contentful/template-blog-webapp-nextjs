@@ -5,8 +5,9 @@ import { twMerge } from 'tailwind-merge';
 
 export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   const { locale, locales } = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -25,7 +26,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
       </div>
       <ul
         className={twMerge(
-          `absolute mt-1.5 w-24 cursor-pointer rounded-md bg-colorWhite py-3 text-center text-base`,
+          `fixed mt-1.5 w-24 cursor-pointer rounded-md bg-colorWhite py-3 text-center text-base`,
           isOpen ? 'block' : 'hidden',
         )}
         role="listbox"

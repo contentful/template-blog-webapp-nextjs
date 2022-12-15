@@ -20,7 +20,7 @@ export const LanguageSelector = () => {
       </div>
 
       <div className="block md:hidden">
-        <LanguageSelectorMobile />
+        <LanguageSelectorMobile displayName={displayName} localeName={localeName} />
       </div>
     </>
   ) : null;

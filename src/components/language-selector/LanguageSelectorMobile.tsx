@@ -14,7 +14,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
     <>
       {showDrawer ? (
         <span
-          className="fixed right-10 top-6 z-50 flex cursor-pointer items-center"
+          className="fixed right-10 top-4 z-50 flex cursor-pointer items-center"
           onClick={() => setShowDrawer(!showDrawer)}
           role="button"
           tabIndex={0}>
@@ -37,9 +37,9 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
         )}>
         <h2 className="py-4 text-xl font-semibold">{t('common.regionalSettings')}</h2>
         <>
-          <p className="pb-2 text-base font-semibold"> {t('common.language')}</p>
+          <p className="pb-2 text-base font-semibold text-colorBlack"> {t('common.language')}</p>
           <select
-            className="block w-9/12 rounded-md border border-gray300 p-2.5 text-sm"
+            className="block w-10/12 rounded-md border border-gray300 py-2 pl-4 pr-8 text-sm"
             defaultValue={locale}
             onChange={event => {
               router.push({ pathname: router.pathname, query: router.query }, router.asPath, {

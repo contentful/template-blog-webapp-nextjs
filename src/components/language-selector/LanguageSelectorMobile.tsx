@@ -2,6 +2,7 @@ import { LanguageIcon, CloseIcon } from '@contentful/f36-icons';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import FocusLock from 'react-focus-lock';
 import { twMerge } from 'tailwind-merge';
 
 export const LanguageSelectorMobile = ({ localeName, displayName }) => {
@@ -11,7 +12,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
   const [showDrawer, setShowDrawer] = useState(false);
 
   return (
-    <>
+    <FocusLock>
       {showDrawer ? (
         <span
           className="fixed right-10 top-4 z-50 flex cursor-pointer items-center"
@@ -55,6 +56,6 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
           </select>
         </>
       </div>
-    </>
+    </FocusLock>
   );
 };

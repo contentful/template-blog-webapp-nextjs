@@ -51,7 +51,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
           role="listbox">
           {locales?.map(availableLocale =>
             availableLocale === locale ? null : (
-              <li id={availableLocale} key={availableLocale} role="menuitem">
+              <li key={availableLocale} role="menuitem">
                 <Link
                   className="block py-2"
                   href={{

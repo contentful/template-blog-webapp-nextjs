@@ -2,5 +2,14 @@
   "article": {
     "relatedArticles": "Verwandte Artikel",
     "featured": "gekennzeichnet"
+  },
+  "common": {
+    "regionalSettings": "Regionale Einstellungen",
+    "language": "Sprache"
+  },
+  "footer": {
+    "aboutUs": "über uns",
+    "description": "",
+    "powerBy": "Unterstützt von"
   }
 }

@@ -1419,6 +1419,7 @@ export type PageBlogPostQueryVariables = Exact<{
   slug: Scalars['String'];
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+  limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
@@ -1430,6 +1431,8 @@ export type PageBlogPostQuery = { __typename?: 'Query', pageBlogPostCollection?:
 export type PageBlogPostCollectionQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  order?: InputMaybe<Array<InputMaybe<PageBlogPostOrder>> | InputMaybe<PageBlogPostOrder>>;
 }>;
 
 
@@ -1634,9 +1637,9 @@ export const SitemapPagesFieldsFragmentDoc = gql`
 }
     `;
 export const PageBlogPostDocument = gql`
-    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
+    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean, $limit: Int) {
   pageBlogPostCollection(
-    limit: 1
+    limit: $limit
     where: {slug: $slug}
     locale: $locale
     preview: $preview
@@ -1653,8 +1656,13 @@ ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
-    query pageBlogPostCollection($locale: String, $preview: Boolean) {
-  pageBlogPostCollection(limit: 100, locale: $locale, preview: $preview) {
+    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder]) {
+  pageBlogPostCollection(
+    limit: $limit
+    locale: $locale
+    preview: $preview
+    order: $order
+  ) {
     items {
       ...PageBlogPostFields
     }

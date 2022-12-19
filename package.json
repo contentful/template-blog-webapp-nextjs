@@ -30,6 +30,7 @@
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@next/bundle-analyzer": "^13.0.4",
     "@next/font": "^13.0.6",
+    "@sentry/nextjs": "^7.27.0",
     "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "next": "^13.0.6",

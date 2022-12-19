@@ -35,6 +35,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
     switch (e.key) {
       case ' ':
       case 'SpaceBar':
+      case 'Enter':
         e.stopPropagation();
         e.preventDefault();
 

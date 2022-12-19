@@ -1419,7 +1419,6 @@ export type PageBlogPostQueryVariables = Exact<{
   slug: Scalars['String'];
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
-  limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
@@ -1637,9 +1636,9 @@ export const SitemapPagesFieldsFragmentDoc = gql`
 }
     `;
 export const PageBlogPostDocument = gql`
-    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean, $limit: Int) {
+    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
   pageBlogPostCollection(
-    limit: $limit
+    limit: 1
     where: {slug: $slug}
     locale: $locale
     preview: $preview

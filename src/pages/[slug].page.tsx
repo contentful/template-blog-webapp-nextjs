@@ -11,6 +11,7 @@ import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
+  const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;
 
   return (
     <>
@@ -20,7 +21,7 @@ const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStatic
       {blogPost.relatedBlogPostsCollection?.items && (
         <Container className="mt-8 max-w-5xl">
           <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2>
-          <ArticleTileGrid className="md:grid-cols-2" article={blogPost} />
+          <ArticleTileGrid className="md:grid-cols-2" articles={relatedPosts} />
         </Container>
       )}
     </>
@@ -71,7 +72,9 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const dataPerLocale = locales
-    ? await Promise.all(locales.map(locale => client.pageBlogPostCollection({ locale })))
+    ? await Promise.all(
+        locales.map(locale => client.pageBlogPostCollection({ locale, limit: 100 })),
+      )
     : [];
 
   const paths = dataPerLocale

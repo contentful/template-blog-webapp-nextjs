@@ -21,9 +21,9 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
         <ArticleHero article={page.featuredBlogPost} />
       </Link>
 
-      <Container className="mt-8 mb-8 md:mb-10 lg:mb-16">
+      <Container className="my-8  md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
-        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articleGrid={posts} />
+        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
     </>
   );
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       await client.pageBlogPostCollection({
         limit: 6,
         locale,
-        order: PageBlogPostOrder.SysPublishedAtDesc,
+        order: PageBlogPostOrder.PublishedDateDesc,
       }),
     ]);
 

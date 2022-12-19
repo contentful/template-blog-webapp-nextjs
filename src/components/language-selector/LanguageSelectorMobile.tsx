@@ -33,7 +33,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
         <LanguageIcon width="18px" height="18px" variant="secondary" />
       </button>
 
-      <Portal onBackdropClick={() => setShowDrawer(false)}>
+      <Portal>
         <FocusLock disabled={!showDrawer} returnFocus={true}>
           <div
             role="button"

@@ -23,7 +23,7 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
 
       <Container className="mt-8 mb-8 md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
-        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" artclePosts={posts} />
+        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articleGrid={posts} />
       </Container>
     </>
   );

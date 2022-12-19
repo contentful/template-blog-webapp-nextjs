@@ -6,16 +6,16 @@ import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileGridProps extends HTMLProps<HTMLDivElement> {
   article?: PageBlogPostFieldsFragment;
-  artclePosts?: PageBlogPostFieldsFragment[];
+  articlePosts?: PageBlogPostFieldsFragment[];
 }
 
 export const ArticleTileGrid = ({
   article,
-  artclePosts,
+  articlePosts,
   className,
   ...props
 }: ArticleTileGridProps) => {
-  const articles = artclePosts || article?.relatedBlogPostsCollection?.items;
+  const articles = articlePosts || article?.relatedBlogPostsCollection?.items;
 
   return articles && articles.length > 0 ? (
     <div

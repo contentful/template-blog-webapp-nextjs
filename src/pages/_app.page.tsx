@@ -9,11 +9,14 @@ const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <main className={`${urbanist.variable} font-sans`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
+    <>
+      <main className={`${urbanist.variable} font-sans`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </main>
+      <div id="portal" className={`${urbanist.variable} font-sans`} />
+    </>
   );
 };
 

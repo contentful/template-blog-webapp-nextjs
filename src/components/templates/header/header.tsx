@@ -8,12 +8,10 @@ export const Header = () => {
   return (
     <header className="pt-4 pb-8 lg:pt-5 xl:py-10">
       <nav>
-        <Container className="flex justify-between py-2">
-          <div>
-            <Link href="/">
-              <BlogLogo />
-            </Link>
-          </div>
+        <Container className="flex items-center justify-between py-2">
+          <Link href="/">
+            <BlogLogo />
+          </Link>
           <LanguageSelector />
         </Container>
       </nav>

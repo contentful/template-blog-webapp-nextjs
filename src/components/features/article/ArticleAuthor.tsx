@@ -23,7 +23,7 @@ export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
           />
         )}
       </div>
-      <span className="leading-none] text-xs text-gray600">{author?.name}</span>
+      <span className="text-xs leading-none text-gray600">{author?.name}</span>
     </div>
   );
 };

@@ -17,12 +17,13 @@ export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
               width: 28,
               height: 28,
               sizes: undefined,
+              placeholder: undefined,
             }}
             {...author.avatar}
           />
         )}
       </div>
-      <span className="text-xs leading-none text-gray600">{author?.name}</span>
+      <span className="leading-none] text-xs text-gray600">{author?.name}</span>
     </div>
   );
 };

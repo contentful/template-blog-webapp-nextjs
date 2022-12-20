@@ -21,6 +21,12 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
         <ArticleHero article={page.featuredBlogPost} />
       </Link>
 
+      {/* Tutorial: contentful-and-the-starter-template.md */}
+      {/* Uncomment the line below to make the Greeting field available to render */}
+      {/*<Container>*/}
+      {/*  <div className="my-5 bg-colorTextLightest p-5 text-colorBlueLightest">{page.greeting}</div>*/}
+      {/*</Container>*/}
+
       <Container className="my-8  md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
@@ -31,7 +37,7 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   try {
-    const [landingePageData, blogPostsData] = await Promise.all([
+    const [landingPageData, blogPostsData] = await Promise.all([
       await client.pageLanding({ locale }),
       await client.pageBlogPostCollection({
         limit: 6,
@@ -40,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       }),
     ]);
 
-    const page = landingePageData.pageLandingCollection?.items[0];
+    const page = landingPageData.pageLandingCollection?.items[0];
     const posts = blogPostsData.pageBlogPostCollection?.items;
 
     if (!page) {

@@ -17,6 +17,7 @@ export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
               width: 28,
               height: 28,
               sizes: undefined,
+              placeholder: undefined,
             }}
             {...author.avatar}
           />

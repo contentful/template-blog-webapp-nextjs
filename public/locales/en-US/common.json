@@ -3,6 +3,9 @@
     "relatedArticles": "Related articles",
     "featured": "featured"
   },
+  "landingPage": {
+    "latestArticles": "Latest articles"
+  },
   "common": {
     "regionalSettings": "Regional Settings",
     "language": "Language"

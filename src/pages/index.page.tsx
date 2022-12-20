@@ -1,22 +1,29 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
+import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
+import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
-const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { t } = useTranslation();
+
   return (
     <>
       {page.seoFields && <SeoFields {...page.seoFields} />}
-      <Container>
-        <h1>h1- {page.featuredBlogPost.title}</h1>
-        <h2>h2 - {page.featuredBlogPost.title}</h2>
-        <h3>h3 - {page.featuredBlogPost.title}</h3>
-        <h4>h4 - {page.featuredBlogPost.title}</h4>
-        <p>p - Foo bar</p>
+      <Link href={`/${page.featuredBlogPost.slug}`}>
+        <ArticleHero article={page.featuredBlogPost} />
+      </Link>
+
+      <Container className="my-8  md:mb-10 lg:mb-16">
+        <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
+        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
     </>
   );
@@ -24,9 +31,17 @@ const Page = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   try {
-    const data = await client.pageLanding({ locale });
+    const [landingePageData, blogPostsData] = await Promise.all([
+      await client.pageLanding({ locale }),
+      await client.pageBlogPostCollection({
+        limit: 6,
+        locale,
+        order: PageBlogPostOrder.PublishedDateDesc,
+      }),
+    ]);
 
-    const page = data.pageLandingCollection?.items[0];
+    const page = landingePageData.pageLandingCollection?.items[0];
+    const posts = blogPostsData.pageBlogPostCollection?.items;
 
     if (!page) {
       return {
@@ -40,6 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         revalidate: revalidateDuration,
         ...(await getServerSideTranslations(locale)),
         page,
+        posts,
       },
     };
   } catch {

@@ -1,5 +1,10 @@
-query pageBlogPostCollection($locale: String, $preview: Boolean) {
-  pageBlogPostCollection(limit: 100, locale: $locale, preview: $preview) {
+query pageBlogPostCollection(
+  $locale: String
+  $preview: Boolean
+  $limit: Int
+  $order: [PageBlogPostOrder]
+) {
+  pageBlogPostCollection(limit: $limit, locale: $locale, preview: $preview, order: $order) {
     items {
       ...PageBlogPostFields
     }

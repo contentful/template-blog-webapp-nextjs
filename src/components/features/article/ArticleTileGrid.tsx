@@ -5,12 +5,10 @@ import { ArticleTile } from '@src/components/features/article/ArticleTile';
 import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileGridProps extends HTMLProps<HTMLDivElement> {
-  article: PageBlogPostFieldsFragment;
+  articles: PageBlogPostFieldsFragment[];
 }
 
-export const ArticleTileGrid = ({ article, className, ...props }: ArticleTileGridProps) => {
-  const articles = article.relatedBlogPostsCollection?.items;
-
+export const ArticleTileGrid = ({ articles, className, ...props }: ArticleTileGridProps) => {
   return articles && articles.length > 0 ? (
     <div
       className={twMerge(

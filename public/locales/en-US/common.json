@@ -14,5 +14,9 @@
     "aboutUs": "about us",
     "description": "Our company specialises in the development of advanced technologies for a wide range of industries. We use cutting-edge techniques and algorithms to create intelligent systems that can help businesses automate tasks, improve efficiency, and drive innovation.",
     "powerBy": "Powered by"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page doesn't seem to exist. <0>Click here</0> to go back the homepage."
   }
 }

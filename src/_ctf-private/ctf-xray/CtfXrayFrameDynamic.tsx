@@ -10,9 +10,9 @@ const DynamicXrayFrame = dynamic(
 );
 export const CtfXrayFrameDynamic = (props: CtfXrayFrameProps) => {
   return (
-    <span className="relative z-[1]">
+    <div className="relative z-[1]">
       {props.children}
       <DynamicXrayFrame {...props} />
-    </span>
+    </div>
   );
 };

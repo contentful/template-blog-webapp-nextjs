@@ -23,7 +23,14 @@ const Page = ({
    * TODO: this is a main-private feature, and should be removed from the main branch during the split
    */
   const { data: page } = useLandingPage({ initialData: ssrPage });
-  const { data: posts } = useBlogPosts({ initialData: ssrPosts, limit: 6 });
+  const { data: posts } = useBlogPosts({
+    initialData: ssrPosts,
+    limit: 6,
+    order: PageBlogPostOrder.PublishedDateDesc,
+    where: {
+      slug_not: page?.featuredBlogPost?.slug,
+    },
+  });
 
   if (!page?.featuredBlogPost || !posts) return;
 
@@ -52,16 +59,17 @@ const Page = ({
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   try {
-    const [landingPageData, blogPostsData] = await Promise.all([
-      await client.pageLanding({ locale }),
-      await client.pageBlogPostCollection({
-        limit: 6,
-        locale,
-        order: PageBlogPostOrder.PublishedDateDesc,
-      }),
-    ]);
-
+    const landingPageData = await client.pageLanding({ locale });
     const page = landingPageData.pageLandingCollection?.items[0];
+
+    const blogPostsData = await client.pageBlogPostCollection({
+      limit: 6,
+      locale,
+      order: PageBlogPostOrder.PublishedDateDesc,
+      where: {
+        slug_not: page?.featuredBlogPost?.slug,
+      },
+    });
     const posts = blogPostsData.pageBlogPostCollection?.items;
 
     if (!page) {

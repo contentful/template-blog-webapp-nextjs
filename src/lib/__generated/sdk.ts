@@ -1432,6 +1432,7 @@ export type PageBlogPostCollectionQueryVariables = Exact<{
   preview?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   order?: InputMaybe<Array<InputMaybe<PageBlogPostOrder>> | InputMaybe<PageBlogPostOrder>>;
+  where?: InputMaybe<PageBlogPostFilter>;
 }>;
 
 
@@ -1656,12 +1657,13 @@ ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
-    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder]) {
+    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
   pageBlogPostCollection(
     limit: $limit
     locale: $locale
     preview: $preview
     order: $order
+    where: $where
   ) {
     items {
       ...PageBlogPostFields

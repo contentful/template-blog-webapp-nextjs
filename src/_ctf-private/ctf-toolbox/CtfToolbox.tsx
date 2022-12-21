@@ -49,6 +49,7 @@ const ParamInput = ({
 
 export const CtfToolbox = () => {
   const toolboxRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [toolboxOpen, setToolboxOpen] = useState(false);
 
   const router = useRouter();
@@ -128,6 +129,8 @@ export const CtfToolbox = () => {
 
   useEffect(() => {
     const handleClickOutside = event => {
+      if (event.target === buttonRef.current || buttonRef.current?.contains(event.target)) return;
+
       if (toolboxRef.current && !toolboxRef.current.contains(event.target)) {
         setToolboxOpen(false);
       }
@@ -152,6 +155,7 @@ export const CtfToolbox = () => {
   return (
     <div className="fixed bottom-12 right-12 z-50 flex w-full max-w-[500px]">
       <button
+        ref={buttonRef}
         onClick={handleToolboxButtonClick}
         className="ml-auto h-14 w-14 rounded-full bg-gray800 p-2 shadow-md">
         <div className="flex h-full w-full items-center justify-center">

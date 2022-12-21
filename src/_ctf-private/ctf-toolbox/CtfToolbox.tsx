@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { ChangeEvent, HTMLProps, ReactNode, useState } from 'react';
+import React, { ChangeEvent, HTMLProps, ReactNode, useEffect, useRef, useState } from 'react';
 
 import ContentfulIcon from '@icons/contentful.svg';
 import {
@@ -48,6 +48,7 @@ const ParamInput = ({
 };
 
 export const CtfToolbox = () => {
+  const toolboxRef = useRef<HTMLDivElement | null>(null);
   const [toolboxOpen, setToolboxOpen] = useState(false);
 
   const router = useRouter();
@@ -125,6 +126,27 @@ export const CtfToolbox = () => {
     router.reload();
   };
 
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (toolboxRef.current && !toolboxRef.current.contains(event.target)) {
+        setToolboxOpen(false);
+      }
+    };
+
+    const handleEscape = event => {
+      if (event.key === 'Escape') {
+        setToolboxOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('keydown', handleEscape, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('keydown', handleEscape, true);
+    };
+  }, []);
+
   if (!activeGuestSpace && process.env.ENVIRONMENT_NAME === 'production') return null;
 
   return (
@@ -140,7 +162,9 @@ export const CtfToolbox = () => {
       </button>
 
       {toolboxOpen && (
-        <div className="absolute right-0 bottom-20 max-h-[70vh] overflow-auto bg-colorWhite shadow-md">
+        <div
+          ref={toolboxRef}
+          className="absolute right-0 bottom-20 max-h-[70vh] overflow-auto bg-colorWhite shadow-md">
           <div className="flex bg-gray800 py-6 px-4 lg:py-8 lg:px-6">
             <div className="h-7 w-7">
               <ContentfulIcon />

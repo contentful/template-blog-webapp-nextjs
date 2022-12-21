@@ -58,7 +58,7 @@ const moduleExports = withPlugins(plugins, {
    * Settings are the defaults
    */
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'images.flinkly.com', 'images.quirely.com'],
   },
 
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
@@ -71,7 +71,7 @@ const moduleExports = withPlugins(plugins, {
 
     return config;
   },
-  
+
   sentry: {
     // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
     // for client-side builds. (This will be the default starting in

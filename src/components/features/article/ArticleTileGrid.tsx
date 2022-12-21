@@ -5,7 +5,7 @@ import { ArticleTile } from '@src/components/features/article/ArticleTile';
 import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileGridProps extends HTMLProps<HTMLDivElement> {
-  articles: PageBlogPostFieldsFragment[];
+  articles?: Array<PageBlogPostFieldsFragment | null>;
 }
 
 export const ArticleTileGrid = ({ articles, className, ...props }: ArticleTileGridProps) => {

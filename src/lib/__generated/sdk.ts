@@ -1432,6 +1432,7 @@ export type PageBlogPostCollectionQueryVariables = Exact<{
   preview?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   order?: InputMaybe<Array<InputMaybe<PageBlogPostOrder>> | InputMaybe<PageBlogPostOrder>>;
+  where?: InputMaybe<PageBlogPostFilter>;
 }>;
 
 
@@ -1470,7 +1471,7 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
+export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null };
@@ -1533,6 +1534,7 @@ export const AuthorFieldsFragmentDoc = gql`
 export const RichImageFieldsFragmentDoc = gql`
     fragment RichImageFields on ComponentRichImage {
   __typename
+  internalName
   sys {
     id
   }
@@ -1655,12 +1657,13 @@ ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
-    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder]) {
+    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
   pageBlogPostCollection(
     limit: $limit
     locale: $locale
     preview: $preview
     order: $order
+    where: $where
   ) {
     items {
       ...PageBlogPostFields

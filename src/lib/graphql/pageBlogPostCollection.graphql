@@ -3,8 +3,9 @@ query pageBlogPostCollection(
   $preview: Boolean
   $limit: Int
   $order: [PageBlogPostOrder]
+  $where: PageBlogPostFilter
 ) {
-  pageBlogPostCollection(limit: $limit, locale: $locale, preview: $preview, order: $order) {
+  pageBlogPostCollection(limit: $limit, locale: $locale, preview: $preview, order: $order where: $where) {
     items {
       ...PageBlogPostFields
     }

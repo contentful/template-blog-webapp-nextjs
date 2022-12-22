@@ -80,8 +80,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     }
 
     return {
+      revalidate: revalidateDuration,
       props: {
-        revalidate: revalidateDuration,
         ...(await getServerSideTranslations(locale)),
         page,
         posts,

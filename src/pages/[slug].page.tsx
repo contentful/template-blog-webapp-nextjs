@@ -21,7 +21,10 @@ const Page = ({
    * TODO: this is a main-private feature, and should be removed from the main branch during the split
    */
   const { data: blogPost } = useBlogPostPage({ slug: ssrBlogPost.slug, initialData: ssrBlogPost });
-  const { data: landingPage } = useLandingPage({ initialData: undefined });
+  const { data: landingPage } = useLandingPage({
+    initialData: undefined,
+    customKey: 'landingBlogDetailPage',
+  });
 
   const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug || ssrIsFeatured;
   const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;

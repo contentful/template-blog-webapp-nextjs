@@ -22,7 +22,7 @@ const Page = ({
   /**
    * TODO: this is a main-private feature, and should be removed from the main branch during the split
    */
-  const { data: page } = useLandingPage({ initialData: ssrPage });
+  const { data: page } = useLandingPage({ initialData: ssrPage, customKey: 'landingPage' });
   const { data: posts } = useBlogPosts({
     initialData: ssrPosts,
     limit: 6,

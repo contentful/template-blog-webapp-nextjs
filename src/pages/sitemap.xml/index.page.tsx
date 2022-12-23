@@ -1,6 +1,7 @@
+import path from 'path';
+
 import { GetServerSideProps } from 'next';
 import { getServerSideSitemap } from 'next-sitemap';
-import path from 'path';
 
 import { SitemapPagesFieldsFragment } from '@src/lib/__generated/sdk';
 import { client } from '@src/lib/client';

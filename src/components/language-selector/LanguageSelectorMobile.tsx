@@ -27,6 +27,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
   return (
     <>
       <button
+        title={t('common.languageDrawer')}
         onClick={() => setShowDrawer(currentState => !currentState)}
         aria-expanded={showDrawer}
         aria-controls="locale-drawer">
@@ -36,7 +37,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
       <Portal>
         <FocusLock disabled={!showDrawer} returnFocus={true}>
           <div
-            role="button"
+            role="presentation"
             tabIndex={-1}
             className={twMerge(
               'fixed top-0 left-0 h-full w-full bg-colorBlack/[0.4] transition-opacity duration-150',
@@ -44,7 +45,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
             )}
             onClick={() => setShowDrawer(false)}
           />
-          <div
+          <dialog
             id="locale-drawer"
             aria-modal="true"
             aria-hidden={!showDrawer}
@@ -76,7 +77,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
                 </option>
               ))}
             </select>
-          </div>
+          </dialog>
         </FocusLock>
       </Portal>
     </>

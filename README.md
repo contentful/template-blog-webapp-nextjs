@@ -12,6 +12,15 @@ $~$
 
 $~$
 
+## DISCLAIMER ⚠️
+
+The Starter Templates experience is currently only available to new users.
+
+To benefit from this experience, please follow this link to create a new
+account: [https://www.contentful.com/sign-up/?action=create_starter_template](https://www.contentful.com/sign-up/?action=create_starter_template).
+
+$~$
+
 ## Features
 
 - Composable content through powerful & flexible content modeling.

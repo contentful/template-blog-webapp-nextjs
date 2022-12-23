@@ -3,36 +3,21 @@ import { useTranslation } from 'next-i18next';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
-import { useBlogPostPage, useLandingPage } from '@src/_ctf-private';
-import { CtfXrayFrameDynamic } from '@src/_ctf-private/ctf-xray';
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
 import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
-const Page = ({
-  blogPost: ssrBlogPost,
-  isFeatured: ssrIsFeatured,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
 
-  /**
-   * TODO: this is a main-private feature, and should be removed from the main branch during the split
-   */
-  const { data: blogPost } = useBlogPostPage({ slug: ssrBlogPost.slug, initialData: ssrBlogPost });
-  const { data: landingPage } = useLandingPage({
-    initialData: undefined,
-    customKey: 'landingBlogDetailPage',
-  });
-
-  const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug || ssrIsFeatured;
   const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;
 
   if (!blogPost || !relatedPosts) return null;
 
   return (
-    <CtfXrayFrameDynamic entry={blogPost}>
+    <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
       <Container>
         <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
@@ -46,7 +31,7 @@ const Page = ({
           <ArticleTileGrid className="md:grid-cols-2" articles={relatedPosts} />
         </Container>
       )}
-    </CtfXrayFrameDynamic>
+    </>
   );
 };
 

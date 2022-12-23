@@ -31,7 +31,6 @@
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@next/bundle-analyzer": "^13.0.4",
     "@next/font": "^13.0.6",
-    "@sentry/nextjs": "^7.27.0",
     "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "next": "^13.0.6",
@@ -43,9 +42,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-focus-lock": "^2.9.2",
-    "react-query": "^3.39.2",
-    "sharp": "^0.31.3",
-    "zustand": "^4.1.5"
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",

@@ -7,8 +7,11 @@
     "latestArticles": "Neueste Artikel"
   },
   "common": {
+    "homepage": "Startseite",
     "regionalSettings": "Regionale Einstellungen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "languageDrawer": "Sprachschublade umschalten"
+
   },
   "footer": {
     "aboutUs": "über uns",

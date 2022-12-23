@@ -1,4 +1,5 @@
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
+import { twMerge } from 'tailwind-merge';
 
 import { ImageFieldsFragment } from '@src/lib/__generated/sdk';
 
@@ -22,6 +23,7 @@ export const CtfImage = ({ url, width, height, title, nextImageProps }: ImagePro
       placeholder="blur"
       blurDataURL={blurURL.toString()}
       {...nextImageProps}
+      className={twMerge(nextImageProps?.className, 'transition-all')}
     />
   );
 };

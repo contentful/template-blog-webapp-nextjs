@@ -29,7 +29,10 @@ export const ArticleHero = ({
       )}>
       <div className="flex-1 basis-1/2">
         {article.featuredImage && (
-          <CtfImage nextImageProps={{ className: 'w-full' }} {...article.featuredImage} />
+          <CtfImage
+            nextImageProps={{ className: 'w-full', priority: true, sizes: undefined }}
+            {...article.featuredImage}
+          />
         )}
       </div>
 

@@ -8,7 +8,9 @@
   },
   "common": {
     "regionalSettings": "Regional Settings",
-    "language": "Language"
+    "homepage": "Homepage",
+    "language": "Language",
+    "languageDrawer": "Toggle language drawer"
   },
   "footer": {
     "aboutUs": "about us",

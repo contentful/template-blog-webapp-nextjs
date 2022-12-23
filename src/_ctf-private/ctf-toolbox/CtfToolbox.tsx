@@ -155,6 +155,7 @@ export const CtfToolbox = () => {
   return (
     <div className="fixed bottom-12 right-12 z-50 flex w-full max-w-[500px]">
       <button
+        title="Toggle the Contentful toolbox"
         ref={buttonRef}
         onClick={handleToolboxButtonClick}
         className="ml-auto h-14 w-14 rounded-full bg-gray800 p-2 shadow-md">

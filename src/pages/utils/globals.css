@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-sm text-gray800 md:text-sm bg-gray100;
+  }
+
+  .h1,
+  h1 {
+    @apply text-xl leading-tighter font-semibold md:text-4xl;
+  }
+
+  .h2,
+  h2 {
+    @apply text-xl leading-tight font-semibold md:text-3xl;
+  }
+
+  .h3,
+  h3 {
+    @apply text-base leading-relaxed font-semibold md:text-xl;
+  }
+
+  .h4,
+  h4 {
+    @apply text-xs leading-normal font-semibold md:text-base;
+  }
+
+  p {
+    @apply text-gray600 tracking-snug font-normal leading-snug md:leading-normal;
+  }
+}
+

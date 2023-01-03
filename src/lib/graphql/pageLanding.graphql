@@ -1,0 +1,25 @@
+fragment PageLandingFields on PageLanding {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  internalName
+  seoFields {
+    ...SeoFields
+  }
+  featuredBlogPost {
+    ...ReferencePageBlogPostFields
+  }
+  # Tutorial: contentful-and-the-starter-template.md
+  # Uncomment the line below to add the Greeting field to the query
+  # greeting
+}
+
+query pageLanding($locale: String, $preview: Boolean) {
+  pageLandingCollection(limit: 1, locale: $locale, preview: $preview) {
+    items {
+      ...PageLandingFields
+    }
+  }
+}

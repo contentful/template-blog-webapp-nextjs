@@ -51,8 +51,8 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
             aria-modal="true"
             aria-hidden={!showDrawer}
             className={twMerge(
-              `fixed top-0 right-0 z-40 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out`,
-              showDrawer ? 'translate-x-0' : 'translate-x-full',
+              `fixed top-0 right-0 z-40 mr-0 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out`,
+              showDrawer ? 'block translate-x-0' : 'translate-x-full',
             )}
           >
             <div className="flex items-center">

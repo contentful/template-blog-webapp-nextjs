@@ -9,7 +9,7 @@ export const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <header className="pt-4 pb-8 lg:pt-5 xl:py-10">
+    <header className="pt-4 pb-8 lg:pt-5 xl:py-5">
       <nav>
         <Container className="flex items-center justify-between py-2">
           <Link href="/" title={t('common.homepage')}>

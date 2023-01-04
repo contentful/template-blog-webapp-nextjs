@@ -1,3 +1,5 @@
+This is a test.
+
 # Contentful Blog Starter Template
 
 A Blog Starter Template powered by Next.js & Contentful, pre-designed with optimized & adjustable pages, components, and data management.

@@ -83,7 +83,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
         <ul
           ref={menuRef}
           className={twMerge(
-            'top-100 fixed absolute right-0 w-24 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow',
+            'top-100 absolute right-0 w-24 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow',
             isOpen ? 'block' : 'hidden',
           )}
           id="menu-locale"

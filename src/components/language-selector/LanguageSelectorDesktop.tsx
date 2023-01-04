@@ -1,16 +1,34 @@
 import { LanguageIcon, ChevronDownTrimmedIcon, ChevronUpTrimmedIcon } from '@contentful/f36-icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { KeyboardEvent, useRef, useState } from 'react';
+import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import FocusLock from 'react-focus-lock';
 import { twMerge } from 'tailwind-merge';
+
+const useClickOutside = (ref, setIsOpen) => {
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(currentState => !currentState);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, setIsOpen]);
+};
 
 export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   const router = useRouter();
   const menuRef = useRef<HTMLUListElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const localesToShow = router.locales?.filter(locale => locale !== router.locale);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  useClickOutside(containerRef, setIsOpen);
 
   const handleMenuKeyDown = (e: KeyboardEvent<HTMLUListElement>) => {
     switch (e.key) {
@@ -64,14 +82,13 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <button
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-controls="menu-locale"
         className="flex items-center font-normal uppercase"
-        onClick={() => setIsOpen(currentState => !currentState)}
-      >
+        onClick={() => setIsOpen(currentState => !currentState)}>
         <LanguageIcon width="18px" height="18px" variant="secondary" className="mr-1 ml-1" />
         {localeName(router.locale)}
         {isOpen ? (
@@ -84,13 +101,12 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
         <ul
           ref={menuRef}
           className={twMerge(
-            'top-100 fixed absolute right-0 w-24 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow',
+            'top-100 absolute right-0 w-24 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow',
             isOpen ? 'block' : 'hidden',
           )}
           id="menu-locale"
           role="menu"
-          onKeyDown={handleMenuKeyDown}
-        >
+          onKeyDown={handleMenuKeyDown}>
           {localesToShow?.map((availableLocale, index) => (
             <li key={availableLocale} role="none">
               <Link
@@ -103,8 +119,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
                 }}
                 as={router.asPath}
                 locale={availableLocale}
-                onClick={() => setIsOpen(false)}
-              >
+                onClick={() => setIsOpen(false)}>
                 {displayName(availableLocale).of(localeName(availableLocale))}
               </Link>
             </li>

@@ -30,8 +30,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
         title={t('common.languageDrawer')}
         onClick={() => setShowDrawer(currentState => !currentState)}
         aria-expanded={showDrawer}
-        aria-controls="locale-drawer"
-      >
+        aria-controls="locale-drawer">
         <LanguageIcon width="18px" height="18px" variant="secondary" />
       </button>
 
@@ -46,15 +45,14 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
             )}
             onClick={() => setShowDrawer(false)}
           />
-          <dialog
+          <div
             id="locale-drawer"
             aria-modal="true"
             aria-hidden={!showDrawer}
             className={twMerge(
-              `fixed top-0 right-0 z-40 mr-0 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out`,
-              showDrawer ? 'block translate-x-0' : 'translate-x-full',
-            )}
-          >
+              `fixed top-0 right-0 z-40 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out `,
+              showDrawer ? 'translate-x-0' : 'translate-x-full',
+            )}>
             <div className="flex items-center">
               <h2 className="text-xl font-semibold">{t('common.regionalSettings')}</h2>
 
@@ -72,15 +70,14 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
                   locale: String(event.target.value),
                 });
                 setShowDrawer(!showDrawer);
-              }}
-            >
+              }}>
               {locales?.map(availableLocale => (
                 <option key={availableLocale} value={availableLocale}>
                   {displayName(availableLocale).of(localeName(availableLocale))}
                 </option>
               ))}
             </select>
-          </dialog>
+          </div>
         </FocusLock>
       </Portal>
     </>

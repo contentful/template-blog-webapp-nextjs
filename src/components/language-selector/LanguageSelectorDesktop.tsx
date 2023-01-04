@@ -1,16 +1,34 @@
 import { LanguageIcon, ChevronDownTrimmedIcon, ChevronUpTrimmedIcon } from '@contentful/f36-icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { KeyboardEvent, useRef, useState } from 'react';
+import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import FocusLock from 'react-focus-lock';
 import { twMerge } from 'tailwind-merge';
+
+const useClickOutside = (ref, setIsOpen) => {
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(currentState => !currentState);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, setIsOpen]);
+};
 
 export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   const router = useRouter();
   const menuRef = useRef<HTMLUListElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const localesToShow = router.locales?.filter(locale => locale !== router.locale);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  useClickOutside(containerRef, setIsOpen);
 
   const handleMenuKeyDown = (e: KeyboardEvent<HTMLUListElement>) => {
     switch (e.key) {
@@ -64,7 +82,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <button
         aria-haspopup="true"
         aria-expanded={isOpen}

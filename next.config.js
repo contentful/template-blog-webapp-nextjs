@@ -63,7 +63,7 @@ const moduleExports = withPlugins(plugins, {
 
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 
-  webpack(config, options) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
@@ -80,6 +80,7 @@ const moduleExports = withPlugins(plugins, {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
     // for more information.
     hideSourceMaps: true,
+    widenClientFileUpload: true,
   },
 });
 

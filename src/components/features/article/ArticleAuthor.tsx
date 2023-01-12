@@ -9,8 +9,8 @@ interface ArticleAuthorProps {
 export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
   const { author } = article;
 
-  return (
-    <CtfXrayFrameDynamic entry={article}>
+  return author ? (
+    <CtfXrayFrameDynamic entry={author}>
       <div className="flex items-center">
         <div className="mr-2 overflow-hidden rounded-full border border-blue500">
           {author?.avatar && (
@@ -28,5 +28,5 @@ export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
         <span className="text-xs leading-none text-gray600">{author?.name}</span>
       </div>
     </CtfXrayFrameDynamic>
-  );
+  ) : null;
 };

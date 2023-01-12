@@ -1,5 +1,9 @@
 fragment AuthorFields on ComponentAuthor {
   __typename
+  sys {
+    id
+    spaceId
+  }
   name
   avatar {
     ...ImageFields

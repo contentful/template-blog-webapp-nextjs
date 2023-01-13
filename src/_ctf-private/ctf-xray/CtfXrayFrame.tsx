@@ -17,7 +17,7 @@ export const CtfXrayFrame = ({ entry }: CtfXrayFrameProps) => {
   const contentfulUrl = `https://app.${domain}/spaces/${entry.sys.spaceId}/entries/${entry.sys.id}`;
 
   return xray ? (
-    <div className="pointer-events-none absolute top-0 left-0 z-[1] z-10 h-full w-full border-[1px] border-dashed border-gray600">
+    <div className="pointer-events-none absolute top-0 left-0 z-[1] h-full w-full border-[1px] border-dashed border-gray600">
       <Link
         className="pointer-events-auto absolute bottom-full left-0 inline-block max-w-full bg-gray300 px-2 py-1"
         href={contentfulUrl}

@@ -22,7 +22,10 @@ export const CtfXrayFrame = ({ entry }: CtfXrayFrameProps) => {
         className="pointer-events-auto absolute bottom-full left-0 inline-block max-w-full bg-gray300 px-2 py-1"
         href={contentfulUrl}
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+        onClick={e => {
+          e.stopPropagation();
+        }}>
         <p className="overflow-hidden text-ellipsis whitespace-nowrap text-colorBlack">
           <strong>{entry.__typename}</strong>
           {entry.internalName && <span> | {entry.internalName}</span>}

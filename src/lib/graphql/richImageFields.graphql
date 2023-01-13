@@ -3,6 +3,7 @@ fragment RichImageFields on ComponentRichImage {
   internalName
   sys {
     id
+    spaceId
   }
   image {
     ...ImageFields

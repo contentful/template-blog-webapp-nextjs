@@ -2,10 +2,10 @@ import { twMerge } from 'tailwind-merge';
 
 import { CtfXrayFrameDynamic } from '@src/_ctf-private/ctf-xray';
 import { CtfImage } from '@src/components/features/contentful';
-import { ComponentRichImage } from '@src/lib/__generated/sdk';
+import { RichImageFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleImageProps {
-  image: ComponentRichImage;
+  image: RichImageFieldsFragment;
 }
 
 export const ArticleImage = ({ image }: ArticleImageProps) => {

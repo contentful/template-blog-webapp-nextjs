@@ -14,7 +14,7 @@ export const CtfCustomQueryClientProvider = ({ children }: CustomQueryClientProv
             retry: false,
             refetchOnMount: true,
             refetchIntervalInBackground: false,
-            refetchOnWindowFocus: false,
+            refetchOnWindowFocus: true,
           },
         },
       }),

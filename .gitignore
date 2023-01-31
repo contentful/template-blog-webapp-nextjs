@@ -48,3 +48,10 @@ next-env.d.ts
 
 # Sentry
 .sentryclirc
+
+# Segment
+typewriter.yml
+analytics/*
+!analytics/plan.json
+!analytics/generateTypewriterConfig.js
+!analytics/readme.md

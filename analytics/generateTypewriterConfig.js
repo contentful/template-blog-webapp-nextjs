@@ -34,8 +34,9 @@ const updateTrackingPlan = doc => {
 };
 
 try {
-  console.log('Typewriter config exists -- continuing to update');
   const doc = yaml.load(fs.readFileSync(config.typewriterFile, 'utf8'));
+
+  console.log('Typewriter config exists -- continuing to update');
 
   updateTrackingPlan(doc);
 } catch {

@@ -8,13 +8,18 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "postinstall": "yarn typewriter:init",
+    "predev": "yarn typewriter:update",
     "dev": "next dev",
+    "prebuild": "yarn typewriter:update",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
-    "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts"
+    "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts",
+    "typewriter:init": "node analytics/generateTypewriterConfig.js && yarn typewriter",
+    "typewriter:update": "yarn typewriter --update"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -59,9 +64,11 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "@types/segment-analytics": "^0.0.34",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.32.0",
     "autoprefixer": "^10.4.13",
+    "js-yaml": "^4.1.0",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.1",
     "eslint-config-prettier": "^8.3.0",
@@ -80,6 +87,7 @@
     "tailwind-merge": "^1.8.0",
     "tailwindcss": "^3.2.4",
     "typescript": "4.9.3",
-    "typescript-graphql-request": "^4.4.6"
+    "typescript-graphql-request": "^4.4.6",
+    "typewriter": "^8.0.10"
   }
 }

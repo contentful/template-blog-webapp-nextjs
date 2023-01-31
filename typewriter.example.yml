@@ -1,0 +1,26 @@
+scripts:
+  token: source .env; echo $SEGMENT_TYPEWRITER_API_TOKEN
+  after: ./node_modules/.bin/prettier --write ./analytics/plan.json
+client:
+  language: typescript
+  sdk: analytics-js
+  languageOptions:
+    outputFilename: index
+    just-types: false
+    nice-property-names: false
+    explicit-unions: false
+    runtime-typecheck: true
+    runtime-typecheck-ignore-unknown-properties: false
+    acronym-style: pascal
+    converters: all-objects
+    raw-type: json
+    prefer-unions: true
+    prefixes:
+      functionName: ''
+      typeName: ''
+    suffixes:
+      functionName: ''
+      typeName: ''
+trackingPlans:
+  - path: analytics
+    id: $SEGMENT_TRACKINGPLAN_ID

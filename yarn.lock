@@ -5191,6 +5191,11 @@ hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   dependencies:
     react-is "^16.7.0"
 
+hostname@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/hostname/-/hostname-1.0.5.tgz#d701157e7cdfbcdb5da2659de0bd475292ad03fb"
+  integrity sha512-xzRtPfVRXQsj+gAkYVDpY6a163nIkqSXb4WN3OO+RJi3t3rn2CZ6fvAsnSWTOJ2XxEjv8io0QidM2/wkTp8/6Q==
+
 html-parse-stringify@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz#dfc1017347ce9f77c8141a507f233040c59c55d2"

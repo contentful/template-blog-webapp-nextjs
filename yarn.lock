@@ -2841,7 +2841,7 @@ ajv@^8.6.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-analytics-node@segmentio/analytics-node:
+"analytics-node@github:segmentio/analytics-node":
   version "6.2.0"
   resolved "https://codeload.github.com/segmentio/analytics-node/tar.gz/cef2c47a47e69ba03e99dc94aa7065d777626668"
   dependencies:
@@ -5231,11 +5231,6 @@ hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
   dependencies:
     react-is "^16.7.0"
-
-hostname@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/hostname/-/hostname-1.0.5.tgz#d701157e7cdfbcdb5da2659de0bd475292ad03fb"
-  integrity sha512-xzRtPfVRXQsj+gAkYVDpY6a163nIkqSXb4WN3OO+RJi3t3rn2CZ6fvAsnSWTOJ2XxEjv8io0QidM2/wkTp8/6Q==
 
 html-parse-stringify@^3.0.1:
   version "3.0.1"
@@ -8494,10 +8489,10 @@ typescript@4.9.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
   integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
 
-typewriter@^8.0.10:
-  version "8.0.10"
-  resolved "https://registry.yarnpkg.com/typewriter/-/typewriter-8.0.10.tgz#c6cada0dc0092401d861b1c81610ce450255f3cd"
-  integrity sha512-du9lQLpOl//S2NhhXL80pKEZObVmnl1pTqDa2INjjiIqBppgNpI4KmutPTLMHbrm8ZmqGRm5tgFhmcbP48IAGQ==
+typewriter@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/typewriter/-/typewriter-8.1.0.tgz#13680515b896a93dfd578a13c9ec356f366f435a"
+  integrity sha512-rpBrUmnnzNDEXrewcQ9jpsT0+lsUecXpRTxHiKwsDh3UkL8xosx9bMjZ8K1q2T3eTIvG4diD8spNvAs2hKaW1A==
   dependencies:
     "@npmcli/ci-detect" "^2.0.0"
     "@oclif/core" "^1.7"

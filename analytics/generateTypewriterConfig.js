@@ -10,6 +10,8 @@ const config = {
 };
 
 const updateTrackingPlan = doc => {
+  console.log('Attempting to update tracking plan');
+
   if (!doc.trackingPlans?.[0]?.id) {
     throw new Error('Malformed typewriter config');
   }
@@ -24,21 +26,26 @@ const updateTrackingPlan = doc => {
     fs.writeFile(config.typewriterFile, yaml.dump(doc), err => {
       if (err) throw err;
     });
+
+    console.log('Successfully created typewriter config');
   } else {
     console.log('Tracking plan already correctly configured');
   }
 };
 
 try {
+  console.log('Typewriter config exists -- continuing to update');
   const doc = yaml.load(fs.readFileSync(config.typewriterFile, 'utf8'));
 
   updateTrackingPlan(doc);
 } catch {
+  console.log('Typewriter config does not exist -- creating config from template');
   fs.copyFile(config.typewriterExampleFile, config.typewriterFile, err => {
     if (err) throw err;
 
     const doc = yaml.load(fs.readFileSync(config.typewriterFile, 'utf8'));
 
+    console.log('Typewriter config created -- continuing to update');
     updateTrackingPlan(doc);
   });
 }

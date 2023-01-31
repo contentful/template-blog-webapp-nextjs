@@ -5,8 +5,8 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const config = {
-  typewriterFile: 'typewriter.yml',
-  typewriterExampleFile: 'typewriter.example.yml',
+  typewriterFile: './typewriter.yml',
+  typewriterExampleFile: './typewriter.example.yml',
 };
 
 const updateTrackingPlan = doc => {

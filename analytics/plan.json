@@ -15,9 +15,6 @@
           "name": "demoEvent",
           "type": "TRACK"
         },
-        "labels": {
-          "team": " contentful-plato"
-        },
         "properties": {
           "bestCompany": {
             "$id": "/properties/bestCompany",
@@ -41,9 +38,6 @@
         "eventMetadata": {
           "name": "test",
           "type": "TRACK"
-        },
-        "labels": {
-          "team": " contentful-plato"
         },
         "properties": {
           "company": {

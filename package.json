@@ -7,19 +7,18 @@
     "npm": "Please use Yarn"
   },
   "scripts": {
-    "prepare": "husky install",
     "postinstall": "yarn typewriter:init",
+    "prepare": "husky install",
     "predev": "yarn typewriter:update",
     "dev": "next dev",
-    "prebuild": "yarn typewriter:update",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
     "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts",
-    "typewriter:init": "node ./analytics/generateTypewriterConfig.js && npx typewriter",
-    "typewriter:update": "npx typewriter --update"
+    "typewriter:init": "node ./analytics/generateTypewriterConfig.js",
+    "typewriter:update": "yarn typewriter --update"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [

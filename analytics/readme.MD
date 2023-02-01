@@ -27,7 +27,7 @@ environment variables.
 
 To work around this, we are generating our `typewriter.yml` file based on a template. This allows us to dynamically
 generate a file, on different variables beyond the possibilities that Typewriter offers out of the box. We've automated
-all of this, after installing, and running a `dev` or `build` command, Typewriter will be automatically initialised and
+all of this, after installing, and running a `dev` command, Typewriter will be automatically initialised and
 configured.
 
 **In theory this should all run automagically but if you manage to break it here's how it works** ✨.
@@ -55,8 +55,8 @@ The aforementioned variables are used in a few places:
 
 ### NPM scripts
 
-We run these scripts at various points; we run the `init` script after installing modules, and the `update` command
-whenever a `dev` or `build` command is ran. If there ever is an issue with the `typewriter.yml`
+We run these scripts at various points; we run the `init` script during the prepare phase, and the `update` command
+whenever a `dev` command is ran. If there ever is an issue with the `typewriter.yml`
 file, `yarn typewriter:init` could be ran to attempt to resolve the issue.
 
 ```npm

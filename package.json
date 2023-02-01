@@ -7,8 +7,7 @@
     "npm": "Please use Yarn"
   },
   "scripts": {
-    "postinstall": "yarn typewriter:init",
-    "prepare": "husky install",
+    "prepare": "husky install && yarn typewriter:init",
     "predev": "yarn typewriter:update",
     "dev": "next dev",
     "build": "next build",

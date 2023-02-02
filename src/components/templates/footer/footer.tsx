@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
+import { CtfConsentManager } from '@src/_ctf-private';
 import { Container } from '@src/components/shared/container';
 
 export const Footer = () => {
@@ -21,6 +22,8 @@ export const Footer = () => {
             Contentful
           </Link>
         </div>
+
+        <CtfConsentManager />
       </Container>
     </footer>
   );

@@ -13,9 +13,7 @@ export const useCtfConsent = () =>
       });
 
       await manager.initialize({
-        getUserConsentData: () => {
-          return undefined;
-        },
+        persistLocalConsent: true,
       });
 
       return manager;

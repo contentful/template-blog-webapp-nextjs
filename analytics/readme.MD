@@ -51,7 +51,7 @@ The aforementioned variables are used in a few places:
 - `src/_ctf-private/ctf-analytics` contains the logic that inject the tracking snippet and initialises the Typewriter
   config. It also sets up error handling
 - `analytics` contains all files generates by Typewriter, this readme and some utility file
-- `segment.example.yml` the template file that is going to generate our `segment.yml` file
+- `typewriter.example.yml` the template file that is going to generate our `typewriter.yml` file
 
 ### NPM scripts
 
@@ -60,6 +60,6 @@ whenever a `dev` command is ran. If there ever is an issue with the `typewriter.
 file, `yarn typewriter:init` could be ran to attempt to resolve the issue.
 
 ```npm
-"typewriter:init": "node analytics/generateTypewriterConfig.js && yarn typewriter",
-"typewriter:update": "yarn typewriter --update"
+  "typewriter:init": "node analytics/generateTypewriterConfig.js",
+  "typewriter:update": "yarn typewriter --update"
 ```

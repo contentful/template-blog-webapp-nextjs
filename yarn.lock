@@ -3386,7 +3386,7 @@ ajv@^8.6.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-"analytics-node@github:segmentio/analytics-node":
+analytics-node@segmentio/analytics-node:
   version "6.2.0"
   resolved "https://codeload.github.com/segmentio/analytics-node/tar.gz/cef2c47a47e69ba03e99dc94aa7065d777626668"
   dependencies:

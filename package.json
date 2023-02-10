@@ -57,7 +57,6 @@
     "@graphql-codegen/cli": "2.13.12",
     "@graphql-codegen/client-preset": "1.1.4",
     "@graphql-codegen/introspection": "2.2.1",
-    "@oclif/core": "^2.0.7",
     "@svgr/webpack": "^6.5.1",
     "@tailwindcss/typography": "^0.5.8",
     "@types/node": "18.11.9",

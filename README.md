@@ -21,7 +21,7 @@ account: [https://www.contentful.com/sign-up/?action=create_starter_template](ht
 
 To immediately start auto installation of this template after creating a new account,
 please follow this link:
-[https://www.contentful.com/sign-up/?action=create_starter_template&template_name=blog]([https://www.contentful.com/sign-up/?action=create_starter_template&template_name=blog&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs]).
+[https://www.contentful.com/sign-up/?action=create_starter_template&template_name=blog](https://www.contentful.com/sign-up/?action=create_starter_template&template_name=blog&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
 
 $~$
 

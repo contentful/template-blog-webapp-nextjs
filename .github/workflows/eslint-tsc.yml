@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      env:
+          NPM_RC: ${{ secrets.NPM_RC }}
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0

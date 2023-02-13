@@ -47,7 +47,7 @@ jobs:
           path: github-actions
           exportEnv: false
           secrets: |
-            secret/data/npm/token_read .Data.token | NPM_TOKEN ;
+            secret/data/npm/token_read NPM_TOKEN | NPM_TOKEN ;
 
       - name: Authenticate with private NPM package
         run: echo "//registry.npmjs.org/:_authToken=${{ steps.vault.outputs.NPM_TOKEN }}" > ~/.npmrc

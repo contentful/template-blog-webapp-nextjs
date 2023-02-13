@@ -1,4 +1,7 @@
-import { injectOsanoGlobalStyles } from '@contentful/experience-consent-manager';
+import {
+  ConsentDrawerAction,
+  injectOsanoGlobalStyles,
+} from '@contentful/experience-consent-manager';
 import { useTranslation } from 'next-i18next';
 
 import { useCtfConsent } from './useCtfConsent';
@@ -10,13 +13,14 @@ export const CtfConsentManager = () => {
 
   const { data: consentManager } = useCtfConsent();
 
-  const handleConsentChange = () => {
-    consentManager?.showConsentDrawer();
-  };
-
-  return (
-    <button className="mt-6 font-medium underline" onClick={handleConsentChange}>
-      {t('footer.manageConsent')}
-    </button>
-  );
+  return consentManager ? (
+    <ConsentDrawerAction
+      consentManager={consentManager}
+      renderAction={({ openDrawer, disabled }) => (
+        <button className="mt-6 font-medium underline" onClick={openDrawer} disabled={disabled}>
+          {t('footer.manageConsent')}
+        </button>
+      )}
+    />
+  ) : null;
 };

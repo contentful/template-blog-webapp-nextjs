@@ -1,7 +1,7 @@
-import { createConsentManager } from '@contentful/experience-consent-manager';
+import { BaseConfig, createConsentManager } from '@contentful/experience-consent-manager';
 import { useQuery } from 'react-query';
 
-export const useCtfConsent = () =>
+export const useCtfConsent = (props?: Pick<BaseConfig, 'onConsentChanged' | 'onError'>) =>
   useQuery({
     queryKey: ['osano-content'],
     queryFn: async () => {
@@ -14,6 +14,7 @@ export const useCtfConsent = () =>
 
       await manager.initialize({
         persistLocalConsent: true,
+        ...props,
       });
 
       return manager;

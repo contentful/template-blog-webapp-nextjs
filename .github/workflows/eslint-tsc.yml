@@ -47,7 +47,7 @@ jobs:
           path: github-actions
           exportEnv: false
           secrets: |
-            github/token/${{ github.event.repository.name }}-template-blog-webapp-nextjs token | NPM_TOKEN ;
+            secret/data/npm_token_read token | NPM_TOKEN ;
 
       - name: Authenticate with private NPM package
         run: echo "//registry.npmjs.org/:_authToken=${{ steps.vault.outputs.NPM_TOKEN }}" > ~/.npmrc

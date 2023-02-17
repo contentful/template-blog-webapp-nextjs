@@ -1,0 +1,66 @@
+{
+  "createdAt": "2023-01-26T13:06:13.000Z",
+  "description": "description",
+  "id": "tp_2Krgyyk8cetTMKJ22QpFo62PiX9",
+  "name": "starter-templates-plato",
+  "resourceSchemaId": "rs_2KrgyvdUzeotA4PnzVlzLMAMdHV",
+  "rules": [
+    {
+      "createdAt": "2023-01-30T09:24:29.000Z",
+      "deprecatedAt": "0001-01-01T00:00:00.000Z",
+      "jsonSchema": {
+        "$id": "demoEvent",
+        "description": "test2",
+        "eventMetadata": {
+          "name": "demoEvent",
+          "type": "TRACK"
+        },
+        "properties": {
+          "bestCompany": {
+            "$id": "/properties/bestCompany",
+            "description": "",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "key": "demoEvent",
+      "type": "TRACK",
+      "updatedAt": "2023-01-30T09:24:29.000Z",
+      "version": 1
+    },
+    {
+      "createdAt": "2023-01-26T13:07:54.000Z",
+      "deprecatedAt": "0001-01-01T00:00:00.000Z",
+      "jsonSchema": {
+        "$id": "test",
+        "description": "test",
+        "eventMetadata": {
+          "name": "test",
+          "type": "TRACK"
+        },
+        "properties": {
+          "company": {
+            "$id": "/properties/company",
+            "description": "Company",
+            "type": "string"
+          },
+          "name": {
+            "$id": "/properties/name",
+            "description": "Name...",
+            "type": "string"
+          }
+        },
+        "required": ["name"],
+        "type": "object"
+      },
+      "key": "test",
+      "type": "TRACK",
+      "updatedAt": "2023-01-27T09:59:48.000Z",
+      "version": 1
+    }
+  ],
+  "slug": "",
+  "type": "LIVE",
+  "updatedAt": "2023-01-31T12:12:51.000Z"
+}

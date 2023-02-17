@@ -48,3 +48,6 @@ next-env.d.ts
 
 # Sentry
 .sentryclirc
+
+# Segment
+typewriter.yml

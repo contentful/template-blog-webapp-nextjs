@@ -16,7 +16,8 @@
   "footer": {
     "aboutUs": "über uns",
     "description": "Unser Unternehmen ist auf die Entwicklung fortschrittlicher Technologien für eine Vielzahl von Branchen spezialisiert. Wir verwenden modernste Techniken und Algorithmen, um intelligente Systeme zu erstellen, die Unternehmen dabei helfen können, Aufgaben zu automatisieren, die Effizienz zu verbessern und Innovationen voranzutreiben.",
-    "powerBy": "Unterstützt von"
+    "powerBy": "Unterstützt von",
+    "manageConsent": "Cookie-Zustimmung verwalten (Zustimmungsänderungen erfordern eine manuelle Seitenaktualisierung)"
   },
   "notFound": {
     "title": "Seite nicht gefunden",

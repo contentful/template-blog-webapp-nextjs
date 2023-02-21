@@ -46,6 +46,9 @@ next-env.d.ts
 .idea/modules.xml
 .idea/vcs.xml
 
+# Visual Studio Code
+.vscode/*
+
 # Sentry
 .sentryclirc
 

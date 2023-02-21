@@ -8,6 +8,7 @@ import {
   guestSpaceRequiredParameters,
   useContentfulEditorialStore,
 } from '@src/_ctf-private';
+import typewriter from 'analytics';
 
 const ParamToggle = ({
   label,
@@ -57,11 +58,19 @@ export const CtfToolbox = () => {
 
   const activeGuestSpace = !!space_id && !!preview_token && !!delivery_token;
 
-  const handleToolboxButtonClick = () => {
-    setToolboxOpen(currentState => !currentState);
+  const handleToolboxInteraction = (isOpen?: boolean) => {
+    setToolboxOpen(currentState => {
+      typewriter.toolboxInteracted({ isOpen: isOpen || !currentState });
+
+      return isOpen || !currentState;
+    });
   };
 
   const handlePreviewMode = (e: ChangeEvent<HTMLInputElement>) => {
+    typewriter.previewModeInteracted({
+      enabled: e.target.checked,
+    });
+
     router.replace({
       pathname: router.pathname,
       query: {
@@ -72,6 +81,10 @@ export const CtfToolbox = () => {
   };
 
   const handleXrayMode = (e: ChangeEvent<HTMLInputElement>) => {
+    typewriter.xrayModeInteracted({
+      enabled: e.target.checked,
+    });
+
     router.replace({
       pathname: router.pathname,
       query: {
@@ -132,13 +145,13 @@ export const CtfToolbox = () => {
       if (event.target === buttonRef.current || buttonRef.current?.contains(event.target)) return;
 
       if (toolboxRef.current && !toolboxRef.current.contains(event.target)) {
-        setToolboxOpen(false);
+        handleToolboxInteraction(false);
       }
     };
 
     const handleEscape = event => {
       if (event.key === 'Escape') {
-        setToolboxOpen(false);
+        handleToolboxInteraction(false);
       }
     };
 
@@ -157,7 +170,7 @@ export const CtfToolbox = () => {
       <button
         title="Toggle the Contentful toolbox"
         ref={buttonRef}
-        onClick={handleToolboxButtonClick}
+        onClick={() => handleToolboxInteraction()}
         className="ml-auto h-14 w-14 rounded-full bg-gray800 p-2 shadow-md">
         <div className="flex h-full w-full items-center justify-center">
           <div className="h-7 w-7 -translate-y-[1px] -translate-x-[1px]">

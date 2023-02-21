@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, HTMLProps, ReactNode, useEffect, useRef, useState } from 'react';
 
-import typewriter from '../../../analytics';
-
 import ContentfulIcon from '@icons/contentful.svg';
 import {
   ContentfulParams,
@@ -10,6 +8,7 @@ import {
   guestSpaceRequiredParameters,
   useContentfulEditorialStore,
 } from '@src/_ctf-private';
+import typewriter from 'analytics';
 
 const ParamToggle = ({
   label,

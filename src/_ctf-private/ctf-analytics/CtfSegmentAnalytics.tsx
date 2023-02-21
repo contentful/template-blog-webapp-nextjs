@@ -1,18 +1,39 @@
 import * as Sentry from '@sentry/browser';
+import { useRouter } from 'next/router';
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-import { useCtfConsent } from '@src/_ctf-private';
+import { useContentfulEditorialStore, useCtfConsent } from '@src/_ctf-private';
 import typewriter from 'analytics';
 
 export const CtfSegmentAnalytics = () => {
+  const router = useRouter();
+
   const [initialized, setInitialized] = useState(false);
+
+  const { xray, preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
+  const guestSpaceActive = !!space_id && !!preview_token && !!delivery_token;
 
   const { data } = useCtfConsent();
 
   data?.on('initialized', () => {
     setInitialized(true);
   });
+
+  const handleRouteChange = useCallback(() => {
+    analytics.page({
+      templateId: 'blog',
+      xRayActive: xray,
+      previewActive: preview,
+      guestSpaceActive,
+    });
+  }, [guestSpaceActive, preview, xray]);
+
+  useEffect(() => {
+    if (guestSpaceActive && initialized) {
+      typewriter.guestSpaceActive({ spaceId: space_id });
+    }
+  }, [guestSpaceActive, initialized, space_id]);
 
   useEffect(() => {
     typewriter.setTypewriterOptions({
@@ -34,7 +55,13 @@ export const CtfSegmentAnalytics = () => {
         }
       },
     });
-  }, []);
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [handleRouteChange, router.events]);
 
   return initialized ? (
     <Script id="segment-tracking-script">

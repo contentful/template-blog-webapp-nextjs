@@ -25,6 +25,16 @@ please follow this link:
 
 $~$
 
+## Begin your journey with Contentful and the Blog Starter Template
+
+Follow this [guide](https://github.com/contentful/template-blog-webapp-nextjs/blob/main/docs/tutorials/contentful-and-the-starter-template.md/?utm_source=github.com-guide&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs) to understand the relationship between
+Contentful and the Starter Template source code through guided steps:
+
+- Entry editing, and updates preview in the Starter Template application (online/locally)
+- Content type editing in the Contentful web app, as well as in the Starter Template's code
+
+$~$
+
 ## Features
 
 - Composable content through powerful & flexible content modeling.

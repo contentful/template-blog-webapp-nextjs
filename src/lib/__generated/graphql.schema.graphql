@@ -121,7 +121,7 @@ enum AssetOrder {
 }
 
 """
-To have author-related properties [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentAuthor)
+This model describes an author for an article [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentAuthor)
 """
 type ComponentAuthor implements Entry {
   avatar(locale: String, preview: Boolean): Asset
@@ -182,7 +182,7 @@ enum ComponentAuthorOrder {
 }
 
 """
-To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentRichImage)
+This model describes an image used in rich text fields. It has additional options that allow changing the layout of the image in a rich text block [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentRichImage)
 """
 type ComponentRichImage implements Entry {
   caption(locale: String): String
@@ -248,7 +248,7 @@ enum ComponentRichImageOrder {
 }
 
 """
-To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentSeo)
+These fields are used to add SEO related properties to the various pages that we render [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentSeo)
 """
 type ComponentSeo implements Entry {
   canonicalUrl(locale: String): String
@@ -543,7 +543,7 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 scalar JSON
 
 """
-To create individual blog posts [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageBlogPost)
+This model is used to create an individual blog post [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageBlogPost)
 """
 type PageBlogPost implements Entry {
   author(locale: String, preview: Boolean): ComponentAuthor
@@ -675,7 +675,7 @@ type PageBlogPostRelatedBlogPostsCollection {
 }
 
 """
-To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageLanding)
+This model serves as the entry point for the app (Homepage). It automatically shows the six most recent articles at the bottom of the page, based on their publish date [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageLanding)
 """
 type PageLanding implements Entry {
   contentfulMetadata: ContentfulMetadata!

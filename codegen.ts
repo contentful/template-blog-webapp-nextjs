@@ -1,11 +1,12 @@
 import { CodegenConfig } from '@graphql-codegen/cli';
 
+export const endpoint = `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT || 'https://graphql.contentful.com/content/v1/spaces'}/${process.env.CONTENTFUL_SPACE_ID}`;
 export const config: CodegenConfig = {
   overwrite: true,
   ignoreNoDocuments: true,
   schema: [
     {
-      [process.env.CONTENTFUL_GRAPHQL_ENDPOINT || '']: {
+      [endpoint || '']: {
         headers: {
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_TOKEN}`,
         },

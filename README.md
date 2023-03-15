@@ -66,7 +66,6 @@ In order to authenticate the requests to the Contentful APIs, the following valu
 - Your space ID: [https://www.contentful.com/help/find-space-id/](https://www.contentful.com/help/find-space-id/)
 - Contentful Delivery API token: [https://www.contentful.com/developers/docs/references/content-delivery-api/](https://www.contentful.com/developers/docs/references/content-delivery-api/)
 - Contentful Preview API token: [https://www.contentful.com/developers/docs/references/content-preview-api/](https://www.contentful.com/developers/docs/references/content-preview-api/)
-- Your space GraphQL endpoint: [https://www.contentful.com/developers/docs/references/graphql/](https://www.contentful.com/developers/docs/references/graphql/)
 
 Rename the `.env.example` file to `.env` and add the necessary values.
 

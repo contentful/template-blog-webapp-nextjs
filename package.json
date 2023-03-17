@@ -14,7 +14,8 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
-    "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts"
+    "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts",
+    "setup": "./bin/setup.sh"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [

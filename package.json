@@ -17,7 +17,8 @@
     "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
     "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts",
     "typewriter:init": "node ./analytics/generateTypewriterConfig.js",
-    "typewriter:update": "yarn typewriter --update"
+    "typewriter:update": "yarn typewriter --update",
+    "setup": "./bin/setup.sh"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [

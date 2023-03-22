@@ -10,7 +10,7 @@ export const config: CodegenConfig = {
     {
       [endpoint || '']: {
         headers: {
-          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
       },
     },

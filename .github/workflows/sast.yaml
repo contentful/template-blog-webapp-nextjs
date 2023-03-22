@@ -2,7 +2,7 @@ name: SAST (Static Application Security Testing)
 
 on:
   push:
-    branches: [master, main]
+    branches: [master, main, main-private]
   pull_request:
     branches: [master, main]
 

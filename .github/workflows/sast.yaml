@@ -4,7 +4,7 @@ on:
   push:
     branches: [master, main, main-private]
   pull_request:
-    branches: [master, main]
+    branches: [master, main, main-private]
 
 jobs:
   polaris:

@@ -8,7 +8,7 @@ import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
-import { client } from '@src/lib/client';
+import { client, previewClient } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -39,18 +39,21 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale, preview }) => {
   try {
-    const landingPageData = await client.pageLanding({ locale });
+    const gqlClient = preview ? previewClient : client;
+
+    const landingPageData = await gqlClient.pageLanding({ locale, preview });
     const page = landingPageData.pageLandingCollection?.items[0];
 
-    const blogPostsData = await client.pageBlogPostCollection({
+    const blogPostsData = await gqlClient.pageBlogPostCollection({
       limit: 6,
       locale,
       order: PageBlogPostOrder.PublishedDateDesc,
       where: {
         slug_not: page?.featuredBlogPost?.slug,
       },
+      preview,
     });
     const posts = blogPostsData.pageBlogPostCollection?.items;
 

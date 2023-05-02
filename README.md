@@ -211,8 +211,11 @@ _*The `slug` field is optional; When not passed we redirect the page to the root
 
 1. Next, you will need to configure your Contentful space to use the correct preview URLs. To do this, go to the "Settings" section of your space, and click on the "Content Preview" tab. From here, you can configure the preview URLs for each of your content models. 
 2. Edit all content models that need a preview url. We usually expect that to only be the models prefixed with `📄 page -`.
-3. Add a new URL with the following format: `https://<your-site>/api/preview?secret=<token>&slug={entry.fields.slug}`. Make sure to replace `<your-site>` with the URL of your Next.js site, and `<token>` with the value of `process.env.CONTENTFUL_PREVIEW_SECRET`.
+3. Add a new URL with the following format: `https://<your-site>/api/preview?secret=<token>&slug={entry.fields.slug}`. Make sure to replace `<your-site>` with the URL of your Next.js site, and `<token>` with the value of `process.env.CONTENTFUL_PREVIEW_SECRET`. Optionally, a `locale` parameter can be passed.
 4. Now, when you view an unpublished entry in Contentful, you should see a "Preview" button that will take you to the preview URL for that entry. Clicking this button should show you a preview of the entry on your Next.js site, using the preview API route that we set up earlier.
+
+### Exiting the Content Preview
+Once the preview is enabled, it persists for the [entire session](https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies). To exit preview mode, use the `clearPreviewData` method and redirect the user back to the index page. This route is already written in the app and can be found in `pages/api/exit-preview.js`. 
 
 $~$
 

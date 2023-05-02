@@ -24,7 +24,11 @@ export default async (req, res) => {
         throw Error();
       }
 
-      res.redirect(`/${blogPost?.slug}`);
+      // Enable Preview Mode by setting the cookies
+      res.setPreviewData({});
+
+      // Redirect to the path from the fetched post
+      res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
     } catch {
       return res.status(401).json({ message: 'Invalid slug' });
     }
@@ -39,7 +43,11 @@ export default async (req, res) => {
         throw Error();
       }
 
-      res.redirect('/');
+      // Enable Preview Mode by setting the cookies
+      res.setPreviewData({});
+
+      // Redirect to the root
+      res.redirect(`/${locale ? `${locale}` : ''}`);
     } catch {
       return res.status(401).json({ message: 'Page not found' });
     }

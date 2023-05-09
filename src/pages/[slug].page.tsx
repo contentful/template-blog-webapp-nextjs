@@ -6,7 +6,7 @@ import { getServerSideTranslations } from './utils/get-serverside-translations';
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
-import { client } from '@src/lib/client';
+import { client, previewClient } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -35,7 +35,7 @@ const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStatic
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale, preview }) => {
   if (!params?.slug || !locale) {
     return {
       notFound: true,
@@ -43,14 +43,16 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     };
   }
 
+  const gqlClient = preview ? previewClient : client;
+
   try {
-    const [blogPagedata, landingePageData] = await Promise.all([
-      client.pageBlogPost({ slug: params.slug.toString(), locale }),
-      client.pageLanding({ locale }),
+    const [blogPageData, landingPageData] = await Promise.all([
+      gqlClient.pageBlogPost({ slug: params.slug.toString(), locale, preview }),
+      gqlClient.pageLanding({ locale, preview }),
     ]);
 
-    const blogPost = blogPagedata.pageBlogPostCollection?.items[0];
-    const landingPage = landingePageData.pageLandingCollection?.items[0];
+    const blogPost = blogPageData.pageBlogPostCollection?.items[0];
+    const landingPage = landingPageData.pageLandingCollection?.items[0];
 
     const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug;
 

@@ -1,6 +1,6 @@
-import { Urbanist } from '@next/font/google';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
+import { Urbanist } from 'next/font/google';
 import './utils/globals.css';
 
 import { Layout } from '@src/components/templates/layout';

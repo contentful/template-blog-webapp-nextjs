@@ -24,8 +24,8 @@ export default async (req, res) => {
         throw Error();
       }
 
-      // Enable Preview Mode by setting the cookies
-      res.setPreviewData({});
+      // Enable Draft Mode by setting the cookies
+      res.setDraftMode({ enable: true });
 
       // Redirect to the path from the fetched post
       res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
@@ -43,8 +43,8 @@ export default async (req, res) => {
         throw Error();
       }
 
-      // Enable Preview Mode by setting the cookies
-      res.setPreviewData({});
+      // Enable Draft Mode by setting the cookies
+      res.setDraftMode({ enable: true });
 
       // Redirect to the root
       res.redirect(`/${locale ? `${locale}` : ''}`);

@@ -20,11 +20,11 @@ export const CtfSignUpBanner = () => {
         The content on this template is managed via Contentful
       </p>
       <Link href={signUpLink} target="_blank" onClick={handleSignUpLinkClick}>
-        <button className="signup-button-transition h-[38px] rounded-[50px] bg-[#FFDA00] py-2 px-6 text-[#464E5B] hover:bg-[#EFC800]">
-          <p className="block font-systemUIFontFamilies text-sm font-semibold  md:hidden">
+        <button className="signup-button-transition h-[38px] rounded-[50px] bg-[#FFDA00] py-2 px-6 hover:bg-[#EFC800]">
+          <p className="block font-systemUIFontFamilies text-sm font-semibold text-[#464E5B] md:hidden">
             Use template
           </p>
-          <p className="hidden font-systemUIFontFamilies text-sm font-semibold  md:block ">
+          <p className="hidden font-systemUIFontFamilies text-sm font-semibold text-[#464E5B] md:block">
             Start with this template
           </p>
         </button>

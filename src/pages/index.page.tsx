@@ -39,7 +39,7 @@ const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) =
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale, preview }) => {
+export const getStaticProps: GetStaticProps = async ({ locale, draftMode: preview }) => {
   try {
     const gqlClient = preview ? previewClient : client;
 

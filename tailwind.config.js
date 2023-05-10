@@ -32,6 +32,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-urbanist)', ...fontFamily.sans],
+        systemUIFontFamilies:
+          '"Avenir Next W01", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
       },
     },
   },

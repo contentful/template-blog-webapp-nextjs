@@ -615,6 +615,7 @@ input PageBlogPostFilter {
   publishedDate_lte: DateTime
   publishedDate_not: DateTime
   publishedDate_not_in: [DateTime]
+  relatedBlogPosts: cfPageBlogPostNestedFilter
   relatedBlogPostsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
   seoFields_exists: Boolean

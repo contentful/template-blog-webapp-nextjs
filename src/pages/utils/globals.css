@@ -33,7 +33,7 @@
 }
 
 @layer components {
-  .upgrade-button {
+  .signup-button-transition {
       transition: 400ms ease;
       transition-property: transform, background-color, border-color, color;
   }

@@ -216,7 +216,7 @@ _*The `slug` field is optional; When not passed we redirect the page to the root
 4. Now, when you view an unpublished entry in Contentful, you should see a "Preview" button that will take you to the preview URL for that entry. Clicking this button should show you a preview of the entry on your Next.js site, using the draft API route that we set up earlier.
 
 ### Exiting the Content Preview
-To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`. e the preview is enabled, it persists for the [entire session](https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies). To exit preview mode, use the `clearPreviewData` method and redirect the user back to the index page. This route is already written in the app and can be found in `pages/api/exit-preview.js`. 
+To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`. 
 
 $~$
 

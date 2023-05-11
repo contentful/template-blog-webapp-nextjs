@@ -35,7 +35,7 @@ const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStatic
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale, preview }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode: preview }) => {
   if (!params?.slug || !locale) {
     return {
       notFound: true,

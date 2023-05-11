@@ -204,7 +204,7 @@ Our Starter Templates are configured to make use of Next.js' [draft mode](https:
 1. Set a unique value for `process.env.CONTENTFUL_PREVIEW_SECRET` in your environment variables. This value should be kept secret and only known to the API route and the CMS.
 2. Configure the entry preview URLs in Contentful to match the draft API route's URL structure. This can be done in the Contentful web interface under "Settings" for each content type. For more information see: https://www.contentful.com/help/setup-content-preview/#preview-content-in-your-online-environment
 3. The draft mode API route is already written in the app and can be found in `pages/api/draft.page.tsx`. This route checks for a valid secret and slug before redirecting to the corresponding page*.
-4. To disable draft mode, navigate to the `/api/disable-draft` route. This route is already exist in the app and can be found in `pages/api/disable-draft.page.tsx`.
+4. To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`.
 
 _*The `slug` field is optional; When not passed we redirect the page to the root of the domain._
 
@@ -216,7 +216,7 @@ _*The `slug` field is optional; When not passed we redirect the page to the root
 4. Now, when you view an unpublished entry in Contentful, you should see a "Preview" button that will take you to the preview URL for that entry. Clicking this button should show you a preview of the entry on your Next.js site, using the draft API route that we set up earlier.
 
 ### Exiting the Content Preview
-To disable draft mode, navigate to the `/api/disable-draft` route. This route is already exist in the app and can be found in `pages/api/disable-draft.page.tsx`. e the preview is enabled, it persists for the [entire session](https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies). To exit preview mode, use the `clearPreviewData` method and redirect the user back to the index page. This route is already written in the app and can be found in `pages/api/exit-preview.js`. 
+To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`. e the preview is enabled, it persists for the [entire session](https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies). To exit preview mode, use the `clearPreviewData` method and redirect the user back to the index page. This route is already written in the app and can be found in `pages/api/exit-preview.js`. 
 
 $~$
 

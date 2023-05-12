@@ -40,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       // Redirect to the path from the fetched post
       res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
-    } catch (e) {
+    } catch {
       return res.status(401).json({ message: 'Page not found' });
     }
   } else {
@@ -59,7 +59,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       // Redirect to the root
       res.redirect(`/${locale ? `${locale}` : ''}`);
-    } catch (e) {
+    } catch {
       return res.status(401).json({ message: 'Page not found' });
     }
   }

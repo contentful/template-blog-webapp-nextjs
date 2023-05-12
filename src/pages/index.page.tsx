@@ -4,33 +4,17 @@ import Link from 'next/link';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
-import { useBlogPosts, useLandingPage } from '@src/_ctf-private';
 import { CtfXrayFrameDynamic } from '@src/_ctf-private/ctf-xray';
 import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
-import { client, previewClient } from '@src/lib/client';
+import { client } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
+import { createPreviewClient } from '@src/pages/utils/create-preview-client';
 
-const Page = ({
-  page: ssrPage,
-  posts: ssrPosts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
-
-  /**
-   * TODO: this is a main-private feature, and should be removed from the main branch during the split
-   */
-  const { data: page } = useLandingPage({ initialData: ssrPage, customKey: 'landingPage' });
-  const { data: posts } = useBlogPosts({
-    initialData: ssrPosts,
-    limit: 6,
-    order: PageBlogPostOrder.PublishedDateDesc,
-    where: {
-      slug_not: page?.featuredBlogPost?.slug,
-    },
-  });
 
   if (!page?.featuredBlogPost || !posts) return;
 
@@ -57,10 +41,14 @@ const Page = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale, draftMode: preview }) => {
-  try {
-    const gqlClient = preview ? previewClient : client;
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  draftMode: preview,
+  previewData,
+}) => {
+  const gqlClient = preview ? createPreviewClient(previewData) : client;
 
+  try {
     const landingPageData = await gqlClient.pageLanding({ locale, preview });
     const page = landingPageData.pageLandingCollection?.items[0];
 

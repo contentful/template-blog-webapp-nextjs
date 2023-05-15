@@ -1704,7 +1704,7 @@
       {
         "kind": "OBJECT",
         "name": "ComponentAuthor",
-        "description": "This model describes an author for an article [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentAuthor)",
+        "description": "To have author-related properties [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentAuthor)",
         "fields": [
           {
             "name": "avatar",
@@ -2427,7 +2427,7 @@
       {
         "kind": "OBJECT",
         "name": "ComponentRichImage",
-        "description": "This model describes an image used in rich text fields. It has additional options that allow changing the layout of the image in a rich text block [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentRichImage)",
+        "description": "To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentRichImage)",
         "fields": [
           {
             "name": "caption",
@@ -3162,7 +3162,7 @@
       {
         "kind": "OBJECT",
         "name": "ComponentSeo",
-        "description": "These fields are used to add SEO related properties to the various pages that we render [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentSeo)",
+        "description": "To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/componentSeo)",
         "fields": [
           {
             "name": "canonicalUrl",
@@ -5134,7 +5134,7 @@
       {
         "kind": "OBJECT",
         "name": "PageBlogPost",
-        "description": "This model is used to create an individual blog post [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageBlogPost)",
+        "description": "To create individual blog posts [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageBlogPost)",
         "fields": [
           {
             "name": "author",
@@ -6149,6 +6149,18 @@
             "deprecationReason": null
           },
           {
+            "name": "relatedBlogPosts",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "cfPageBlogPostNestedFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "relatedBlogPostsCollection_exists",
             "description": null,
             "type": {
@@ -6860,7 +6872,7 @@
       {
         "kind": "OBJECT",
         "name": "PageLanding",
-        "description": "This model serves as the entry point for the app (Homepage). It automatically shows the six most recent articles at the bottom of the page, based on their publish date [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageLanding)",
+        "description": "To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/nvxmqufxogry/content_types/pageLanding)",
         "fields": [
           {
             "name": "contentfulMetadata",

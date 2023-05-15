@@ -1,3 +1,4 @@
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 
@@ -9,10 +10,11 @@ import { Container } from '@src/components/shared/container';
 import { client, previewClient } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
-const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
 
-  const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;
+  const blogPost = useContentfulLiveUpdates(props.blogPost);
+  const relatedPosts = useContentfulLiveUpdates(props.blogPost?.relatedBlogPostsCollection?.items);
 
   if (!blogPost || !relatedPosts) return null;
 
@@ -20,7 +22,7 @@ const Page = ({ blogPost, isFeatured }: InferGetStaticPropsType<typeof getStatic
     <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
       <Container>
-        <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
+        <ArticleHero article={blogPost} isFeatured={props.isFeatured} isReversedLayout={true} />
       </Container>
       <Container className="mt-8 max-w-4xl">
         <ArticleContent article={blogPost} />

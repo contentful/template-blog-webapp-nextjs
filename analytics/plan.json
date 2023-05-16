@@ -9,41 +9,6 @@
       "createdAt": "2023-02-16T15:29:59.000Z",
       "deprecatedAt": "0001-01-01T00:00:00.000Z",
       "jsonSchema": {
-        "$id": "content_model_interacted",
-        "description": "Fired when a user clicks any of the links to the content models visible when the x-ray mode is active.",
-        "eventMetadata": {
-          "name": "content_model_interacted",
-          "type": "TRACK"
-        },
-        "properties": {
-          "entryInternalName": {
-            "$id": "/properties/entryInternalName",
-            "description": "The internal name for a content model in Contentful. This is a custom field specific to templates.",
-            "type": "string"
-          },
-          "entryLink": {
-            "$id": "/properties/entryLink",
-            "description": "Direct link to the entry in Contentful",
-            "type": "string"
-          },
-          "entryTypeName": {
-            "$id": "/properties/entryTypeName",
-            "description": "The __typeName for an entry",
-            "type": "string"
-          }
-        },
-        "required": ["entryTypeName", "entryLink"],
-        "type": "object"
-      },
-      "key": "content_model_interacted",
-      "type": "TRACK",
-      "updatedAt": "2023-02-21T10:25:37.000Z",
-      "version": 1
-    },
-    {
-      "createdAt": "2023-02-16T15:29:59.000Z",
-      "deprecatedAt": "0001-01-01T00:00:00.000Z",
-      "jsonSchema": {
         "$id": "guest_space_active",
         "description": "Fired when a guest space is active. A guest space is active when at least a spaceId, CDA token and CPA token are provided as url parameters. Optionally a domain can be passed.\n\nGuest spaces are used for Contentfuls Entry preview links.",
         "eventMetadata": {
@@ -136,31 +101,6 @@
         "type": "object"
       },
       "key": "toolbox_interacted",
-      "type": "TRACK",
-      "updatedAt": "2023-02-21T10:25:37.000Z",
-      "version": 1
-    },
-    {
-      "createdAt": "2023-02-16T15:29:59.000Z",
-      "deprecatedAt": "0001-01-01T00:00:00.000Z",
-      "jsonSchema": {
-        "$id": "xray_mode_interacted",
-        "description": "Fired when a user interacts with the X-ray mode checkbox in the editorial toolbox.",
-        "eventMetadata": {
-          "name": "xray_mode_interacted",
-          "type": "TRACK"
-        },
-        "properties": {
-          "enabled": {
-            "$id": "/properties/enabled",
-            "description": "",
-            "type": "boolean"
-          }
-        },
-        "required": ["enabled"],
-        "type": "object"
-      },
-      "key": "xray_mode_interacted",
       "type": "TRACK",
       "updatedAt": "2023-02-21T10:25:37.000Z",
       "version": 1

@@ -3,27 +3,6 @@
 //   npx typewriter
 
 /**
- * Fired when a user clicks any of the links to the content models visible when the x-ray
- * mode is active.
- */
-export interface ContentModelInteracted {
-  /**
-   * The internal name for a content model in Contentful. This is a custom field specific to
-   * templates.
-   */
-  entryInternalName?: string;
-  /**
-   * Direct link to the entry in Contentful
-   */
-  entryLink: string;
-  /**
-   * The __typeName for an entry
-   */
-  entryTypeName: string;
-  [property: string]: any;
-}
-
-/**
  * Fired when a guest space is active. A guest space is active when at least a spaceId, CDA
  * token and CPA token are provided as url parameters. Optionally a domain can be passed.
  *
@@ -64,25 +43,9 @@ export interface ToolboxInteracted {
   [property: string]: any;
 }
 
-/**
- * Fired when a user interacts with the X-ray mode checkbox in the editorial toolbox.
- */
-export interface XrayModeInteracted {
-  enabled: boolean;
-  [property: string]: any;
-}
-
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-  public static toContentModelInteracted(json: string): ContentModelInteracted {
-    return cast(JSON.parse(json), r('ContentModelInteracted'));
-  }
-
-  public static contentModelInteractedToJson(value: ContentModelInteracted): string {
-    return JSON.stringify(uncast(value, r('ContentModelInteracted')), null, 2);
-  }
-
   public static toGuestSpaceActive(json: string): GuestSpaceActive {
     return cast(JSON.parse(json), r('GuestSpaceActive'));
   }
@@ -113,14 +76,6 @@ export class Convert {
 
   public static toolboxInteractedToJson(value: ToolboxInteracted): string {
     return JSON.stringify(uncast(value, r('ToolboxInteracted')), null, 2);
-  }
-
-  public static toXrayModeInteracted(json: string): XrayModeInteracted {
-    return cast(JSON.parse(json), r('XrayModeInteracted'));
-  }
-
-  public static xrayModeInteractedToJson(value: XrayModeInteracted): string {
-    return JSON.stringify(uncast(value, r('XrayModeInteracted')), null, 2);
   }
 }
 
@@ -264,19 +219,10 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-  ContentModelInteracted: o(
-    [
-      { json: 'entryInternalName', js: 'entryInternalName', typ: u(undefined, '') },
-      { json: 'entryLink', js: 'entryLink', typ: '' },
-      { json: 'entryTypeName', js: 'entryTypeName', typ: '' },
-    ],
-    'any',
-  ),
   GuestSpaceActive: o([{ json: 'spaceId', js: 'spaceId', typ: '' }], 'any'),
   PreviewModeInteracted: o([{ json: 'enabled', js: 'enabled', typ: true }], 'any'),
   SignUpBannerInteracted: o([{ json: 'ctaClicked', js: 'ctaClicked', typ: true }], 'any'),
   ToolboxInteracted: o([{ json: 'isOpen', js: 'isOpen', typ: true }], 'any'),
-  XrayModeInteracted: o([{ json: 'enabled', js: 'enabled', typ: true }], 'any'),
 };
 
 /**
@@ -484,65 +430,6 @@ function withTypewriterContext(message: Options = {}): Options {
 }
 
 /**
- * Fires a 'ContentModelInteracted' track call.
- *
- * @param ContentModelInteracted props - The analytics properties that will be sent to Segment.
- * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
- * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
- * 	call is fired.
- */
-export function contentModelInteracted(
-  props: ContentModelInteracted,
-  options?: Options,
-  callback?: Callback,
-): void {
-  const schema = {
-    $id: 'content_model_interacted',
-    description:
-      'Fired when a user clicks any of the links to the content models visible when the x-ray mode is active.',
-    properties: {
-      entryInternalName: {
-        $id: '/properties/entryInternalName',
-        description:
-          'The internal name for a content model in Contentful. This is a custom field specific to templates.',
-        type: 'string',
-      },
-      entryLink: {
-        $id: '/properties/entryLink',
-        description: 'Direct link to the entry in Contentful',
-        type: 'string',
-      },
-      entryTypeName: {
-        $id: '/properties/entryTypeName',
-        description: 'The __typeName for an entry',
-        type: 'string',
-      },
-    },
-    required: ['entryTypeName', 'entryLink'],
-    type: 'object',
-  };
-  validateAgainstSchema(props, schema);
-
-  const a = analytics();
-  if (a) {
-    a.track(
-      'content_model_interacted',
-      props || {},
-      {
-        ...options,
-        context: {
-          ...(options?.context || {}),
-          typewriter: {
-            language: 'typescript',
-            version: '',
-          },
-        },
-      },
-      callback,
-    );
-  }
-}
-/**
  * Fires a 'GuestSpaceActive' track call.
  *
  * @param GuestSpaceActive props - The analytics properties that will be sent to Segment.
@@ -721,48 +608,6 @@ export function toolboxInteracted(
     );
   }
 }
-/**
- * Fires a 'XrayModeInteracted' track call.
- *
- * @param XrayModeInteracted props - The analytics properties that will be sent to Segment.
- * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
- * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
- * 	call is fired.
- */
-export function xrayModeInteracted(
-  props: XrayModeInteracted,
-  options?: Options,
-  callback?: Callback,
-): void {
-  const schema = {
-    $id: 'xray_mode_interacted',
-    description:
-      'Fired when a user interacts with the X-ray mode checkbox in the editorial toolbox.',
-    properties: { enabled: { $id: '/properties/enabled', description: '', type: 'boolean' } },
-    required: ['enabled'],
-    type: 'object',
-  };
-  validateAgainstSchema(props, schema);
-
-  const a = analytics();
-  if (a) {
-    a.track(
-      'xray_mode_interacted',
-      props || {},
-      {
-        ...options,
-        context: {
-          ...(options?.context || {}),
-          typewriter: {
-            language: 'typescript',
-            version: '',
-          },
-        },
-      },
-      callback,
-    );
-  }
-}
 
 const clientAPI = {
   /**
@@ -780,15 +625,6 @@ const clientAPI = {
    */
   setTypewriterOptions,
 
-  /**
-   * Fires a 'ContentModelInteracted' track call.
-   *
-   * @param ContentModelInteracted props - The analytics properties that will be sent to Segment.
-   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-   * 	call is fired.
-   */
-  contentModelInteracted,
   /**
    * Fires a 'GuestSpaceActive' track call.
    *
@@ -825,15 +661,6 @@ const clientAPI = {
    * 	call is fired.
    */
   toolboxInteracted,
-  /**
-   * Fires a 'XrayModeInteracted' track call.
-   *
-   * @param XrayModeInteracted props - The analytics properties that will be sent to Segment.
-   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-   * 	call is fired.
-   */
-  xrayModeInteracted,
 };
 
 export default new Proxy<typeof clientAPI>(clientAPI, {

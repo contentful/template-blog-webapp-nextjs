@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { getServerSideTranslations } from './utils/get-serverside-translations';
 
 import { useBlogPosts, useLandingPage } from '@src/_ctf-private';
-import { CtfXrayFrameDynamic } from '@src/_ctf-private/ctf-xray';
 import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
@@ -36,7 +35,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (!page?.featuredBlogPost || !posts) return;
 
   return (
-    <CtfXrayFrameDynamic entry={page}>
+    <>
       {page.seoFields && <SeoFields {...page.seoFields} />}
       <Container>
         <Link href={`/${page.featuredBlogPost.slug}`}>
@@ -54,7 +53,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
-    </CtfXrayFrameDynamic>
+    </>
   );
 };
 

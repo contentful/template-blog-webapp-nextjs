@@ -14,7 +14,6 @@ import {
 import { getSdk } from '@src/lib/__generated/sdk';
 
 interface ContentfulEditorialStore {
-  xray: boolean;
   preview: boolean;
   domain?: 'contentful.com' | 'flinkly.com' | 'quirely.com';
   delivery_token?: string;
@@ -26,7 +25,6 @@ export const useContentfulEditorialStore = create<ContentfulEditorialStore>()(
   persist(
     (_set, _get) => ({
       preview: false,
-      xray: false,
       domain: 'contentful.com',
     }),
     {
@@ -65,7 +63,6 @@ export const useContentfulEditorial = () => {
 
       switch (key) {
         case ContentfulParams.preview:
-        case ContentfulParams.xray:
           if (value === 'true' || value === '1')
             useContentfulEditorialStore.setState({ [key]: true });
           if (value === 'false' || value === '0')
@@ -100,7 +97,7 @@ export const useContentfulEditorial = () => {
   }, [query]);
 
   const store = useContentfulEditorialStore();
-  const { space_id, preview_token, delivery_token, domain, preview, xray } = store;
+  const { space_id, preview_token, delivery_token, domain, preview } = store;
 
   /**
    * Check if we have all required parameters to make a guest space API client, or if we are not trying to reset the properties
@@ -108,7 +105,6 @@ export const useContentfulEditorial = () => {
   if (guestSpaceRequiredParameters.some(key => !store[key]) || query[resetParam]) {
     return {
       preview,
-      xray,
       client: null,
     };
   }
@@ -124,7 +120,6 @@ export const useContentfulEditorial = () => {
   );
   return {
     preview,
-    xray,
     client: getSdk(graphQlClient),
   };
 };

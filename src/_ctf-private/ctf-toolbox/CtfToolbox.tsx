@@ -54,7 +54,7 @@ export const CtfToolbox = () => {
   const [toolboxOpen, setToolboxOpen] = useState(false);
 
   const router = useRouter();
-  const { xray, preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
+  const { preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
 
   const activeGuestSpace = !!space_id && !!preview_token && !!delivery_token;
 
@@ -76,20 +76,6 @@ export const CtfToolbox = () => {
       query: {
         ...router.query,
         [ContentfulParams.preview]: e.target.checked,
-      },
-    });
-  };
-
-  const handleXrayMode = (e: ChangeEvent<HTMLInputElement>) => {
-    typewriter.xrayModeInteracted({
-      enabled: e.target.checked,
-    });
-
-    router.replace({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        [ContentfulParams.xray]: e.target.checked,
       },
     });
   };
@@ -199,13 +185,6 @@ export const CtfToolbox = () => {
               checked={preview}
               onChange={handlePreviewMode}
             />
-            <ParamToggle
-              id="xray-mode"
-              label="X-ray mode"
-              helpText="Highlight components making up a page and provide a deep link to the entry editor."
-              checked={xray}
-              onChange={handleXrayMode}
-            />
             {process.env.ENVIRONMENT_NAME !== 'production' && (
               <>
                 <div className="mb-6">
@@ -243,7 +222,7 @@ export const CtfToolbox = () => {
                         Reset editorial settings
                       </label>
                       <span className="text-gray500">
-                        Reset the guest space functionality, x-ray and preview-mode
+                        Reset the guest space functionality and preview-mode
                       </span>
                     </div>
                     <button

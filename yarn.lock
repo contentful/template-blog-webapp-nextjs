@@ -1097,10 +1097,10 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
   integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
 
-"@contentful/live-preview@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-2.0.1.tgz#10154585f91760a6cc5cf4e22387f4e5a7dc5830"
-  integrity sha512-BIAAudd9rSdfazAZSjyXrxOk9WTiYd5Hb70863SXwnP8kKgIgprvEjPBEHuYLcSZUOq/CJZlSYo1QoATi0EozQ==
+"@contentful/live-preview@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-2.0.2.tgz#0bd84bff7751ca79551fecd17b1631d57f10c05e"
+  integrity sha512-lIQYtoYPon50DpV974Voe0i2rr22GeFowIHugH1oYVln0mQUk8qvSDUTgkyMVKJ4TaT3Oj7h9y48hs/KKuis3g==
   dependencies:
     use-deep-compare-effect "^1.8.1"
 

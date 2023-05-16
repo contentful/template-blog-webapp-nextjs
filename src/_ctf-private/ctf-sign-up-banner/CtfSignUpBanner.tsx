@@ -7,7 +7,7 @@ import typewriter from 'analytics';
 const signUpLink =
   'https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog';
 
-export const CtfSignUpBanner = () => {
+const CtfSignUpBanner = () => {
   const handleSignUpLinkClick = () => typewriter.signUpBannerInteracted({ ctaClicked: true });
 
   return (
@@ -32,3 +32,5 @@ export const CtfSignUpBanner = () => {
     </div>
   );
 };
+
+export default CtfSignUpBanner;

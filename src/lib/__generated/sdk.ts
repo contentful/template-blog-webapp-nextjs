@@ -918,6 +918,7 @@ export type PageBlogPostFilter = {
   publishedDate_lte?: InputMaybe<Scalars['DateTime']>;
   publishedDate_not?: InputMaybe<Scalars['DateTime']>;
   publishedDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  relatedBlogPosts?: InputMaybe<CfPageBlogPostNestedFilter>;
   relatedBlogPostsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;

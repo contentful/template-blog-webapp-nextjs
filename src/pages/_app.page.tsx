@@ -1,7 +1,7 @@
+import { Urbanist } from '@next/font/google';
 import { appWithTranslation } from 'next-i18next';
 import './utils/globals.css';
 import type { AppProps } from 'next/app';
-import { Urbanist } from 'next/font/google';
 
 import { CtfCustomQueryClientProvider } from '@src/_ctf-private';
 import { CtfSegmentAnalytics } from '@src/_ctf-private/ctf-analytics';

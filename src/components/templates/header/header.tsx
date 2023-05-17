@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
 
 import BlogLogo from '@icons/blog-logo.svg';
 import { LanguageSelector } from '@src/components/features/language-selector';
 import { Container } from '@src/components/shared/container';
+import { LinkWithPersistedQuery } from '@src/components/shared/link';
 
 export const Header = () => {
   const { t } = useTranslation();
@@ -12,9 +12,9 @@ export const Header = () => {
     <header className="py-5">
       <nav>
         <Container className="flex items-center justify-between">
-          <Link href="/" title={t('common.homepage')}>
+          <LinkWithPersistedQuery href="/" title={t('common.homepage')}>
             <BlogLogo />
-          </Link>
+          </LinkWithPersistedQuery>
           <LanguageSelector />
         </Container>
       </nav>

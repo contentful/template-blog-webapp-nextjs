@@ -162,6 +162,7 @@ export const CtfToolbox = () => {
       }
     } catch (err) {
       // window.top.location.href is not accessable for non same origin iframes
+      setEnabled(false);
     }
   }, []);
 

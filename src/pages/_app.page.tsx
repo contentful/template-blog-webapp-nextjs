@@ -1,14 +1,14 @@
 import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react';
 import { appWithTranslation } from 'next-i18next';
-import './utils/globals.css';
 import type { AppProps } from 'next/app';
 import { Urbanist } from 'next/font/google';
-import '@contentful/live-preview/style.css';
 import { useRouter } from 'next/router';
 
 import { CtfCustomQueryClientProvider } from '@src/_ctf-private';
 import { CtfSegmentAnalytics } from '@src/_ctf-private/ctf-analytics';
 import { Layout } from '@src/components/templates/layout';
+import './utils/globals.css';
+import '@contentful/live-preview/style.css';
 
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 

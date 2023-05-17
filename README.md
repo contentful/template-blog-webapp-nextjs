@@ -197,16 +197,23 @@ environment variables.
 
 ## Content preview
 
-Our Starter Templates are configured to make use of Next.js' [draft mode](https://nextjs.org/docs/pages/building-your-application/configuring/draft-mode). To make use of Contentful's Content Preview we requires a few changes to be made in the code, and in Contentful.
+Once you have the Starter Template deployed on your hosting provider, you can update the Content preview URL in your
+space settings.
+
+You can follow our guide to learn how to do
+so: [https://www.contentful.com/help/setup-content-preview](https://www.contentful.com/help/setup-content-preview/?utm_source=github.com-preview-guide&utm_medium=referral&utm_campaign=template-marketing-webapp-nextjs).
+
+For the live preview the basic field tagging for the inspector mode and live updates are already implemented.
+For custom components, you can find the instructions at our [guide](https://www.contentful.com/developers/docs/tutorials/general/live-preview/).
 
 ### Adjustments in code
 
 1. Set a unique value for `process.env.CONTENTFUL_PREVIEW_SECRET` in your environment variables. This value should be kept secret and only known to the API route and the CMS.
 2. Configure the entry preview URLs in Contentful to match the draft API route's URL structure. This can be done in the Contentful web interface under "Settings" for each content type. For more information see: https://www.contentful.com/help/setup-content-preview/#preview-content-in-your-online-environment
-3. The draft mode API route is already written in the app and can be found in `pages/api/draft.page.tsx`. This route checks for a valid secret and slug before redirecting to the corresponding page*.
+3. The draft mode API route is already written in the app and can be found in `pages/api/draft.page.tsx`. This route checks for a valid secret and slug before redirecting to the corresponding page\*.
 4. To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`.
 
-_*The `slug` field is optional; When not passed we redirect the page to the root of the domain._
+_\*The `slug` field is optional; When not passed we redirect the page to the root of the domain._
 
 ### Adjustments in Contentful
 
@@ -216,7 +223,8 @@ _*The `slug` field is optional; When not passed we redirect the page to the root
 4. Now, when you view an unpublished entry in Contentful, you should see a "Preview" button that will take you to the preview URL for that entry. Clicking this button should show you a preview of the entry on your Next.js site, using the draft API route that we set up earlier.
 
 ### Exiting the Content Preview
-To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`. 
+
+To disable draft mode, navigate to the `/api/disable-draft` route. This route already exists in the app and can be found in `pages/api/disable-draft.page.tsx`.
 
 $~$
 

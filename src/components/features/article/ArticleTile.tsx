@@ -6,6 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import { ArticleAuthor } from '@src/components/features/article/ArticleAuthor';
 import { CtfImage } from '@src/components/features/contentful';
 import { FormatDate } from '@src/components/shared/format-date';
+import { LinkWithPersistedQuery } from '@src/components/shared/link';
 import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileProps extends HTMLProps<HTMLDivElement> {
@@ -17,7 +18,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
   return (
-    <Link className="flex flex-col" href={`/${article.slug}`}>
+    <LinkWithPersistedQuery className="flex flex-col" href={`/${article.slug}`}>
       <div
         className={twMerge(
           'flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg',
@@ -48,6 +49,6 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
           </div>
         </div>
       </div>
-    </Link>
+    </LinkWithPersistedQuery>
   );
 };

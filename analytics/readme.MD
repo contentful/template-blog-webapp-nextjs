@@ -8,7 +8,7 @@ This document aims at providing additional information in the context of this co
 ## TL:DR;
 
 Make sure you have all the correct environment variables set up, then simply running `yarn install` and `yarn dev`
-should configure everything automagically. If this does not work make sure you have the environment variables set up and
+should configure everything automatically. If this does not work make sure you have the environment variables set up and
 correctly and then try to run `yarn typewriter:init`
 
 ---

@@ -9,7 +9,11 @@ const securityHeaders = [
   },
   {
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN https://app.contentful.com',
+    value: 'SAMEORIGIN',
+  },
+  {
+    key: 'Content-Security-Policy',
+    value: `frame-ancestors 'self' https://app.contentful.com`,
   },
   {
     key: 'X-Content-Type-Options',
@@ -29,7 +33,7 @@ module.exports = async () => {
   return [
     {
       // Apply these headers to all routes in your application.
-      source: '/(.*)',
+      source: '/:path*',
       headers: securityHeaders,
     },
   ];

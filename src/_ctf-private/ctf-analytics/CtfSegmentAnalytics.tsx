@@ -12,7 +12,7 @@ export const CtfSegmentAnalytics = () => {
   const [initialized, setInitialized] = useState(false);
   const [initialPageViewFired, setInitialPageViewFired] = useState(false);
 
-  const { xray, preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
+  const { preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
   const guestSpaceActive = !!space_id && !!preview_token && !!delivery_token;
 
   const { data } = useCtfConsent();
@@ -25,12 +25,11 @@ export const CtfSegmentAnalytics = () => {
     if (initialized && analytics) {
       analytics?.page({
         templateId: 'blog',
-        xRayActive: xray,
         previewActive: preview,
         guestSpaceActive,
       });
     }
-  }, [guestSpaceActive, initialized, preview, xray]);
+  }, [guestSpaceActive, initialized, preview]);
 
   useEffect(() => {
     if (guestSpaceActive && initialized) {

@@ -3,280 +3,226 @@
 //   npx typewriter
 
 /**
- * Fired when a user clicks any of the links to the content models visible when the x-ray
- * mode is active.
- */
-export interface ContentModelInteracted {
-    /**
-     * The internal name for a content model in Contentful. This is a custom field specific to
-     * templates.
-     */
-    entryInternalName?: string;
-    /**
-     * Direct link to the entry in Contentful
-     */
-    entryLink: string;
-    /**
-     * The __typeName for an entry
-     */
-    entryTypeName: string;
-    [property: string]: any;
-}
-
-/**
  * Fired when a guest space is active. A guest space is active when at least a spaceId, CDA
  * token and CPA token are provided as url parameters. Optionally a domain can be passed.
  *
  * Guest spaces are used for Contentfuls Entry preview links.
  */
 export interface GuestSpaceActive {
-    /**
-     * Unique id of a user's space
-     */
-    spaceId: string;
-    [property: string]: any;
+  /**
+   * Unique id of a user's space
+   */
+  spaceId: string;
+  [property: string]: any;
 }
 
 /**
  * Fired when a user interacts with the preview mode checkbox in the editorial toolbox.
  */
 export interface PreviewModeInteracted {
-    enabled: boolean;
-    [property: string]: any;
+  enabled: boolean;
+  [property: string]: any;
 }
 
 /**
  * Fired when a user interacts with the sign up banner on the public template preview.
  */
 export interface SignUpBannerInteracted {
-    /**
-     * The CTA to sign up and auto-install the template from the banner.
-     */
-    ctaClicked: boolean;
-    [property: string]: any;
+  /**
+   * The CTA to sign up and auto-install the template from the banner.
+   */
+  ctaClicked: boolean;
+  [property: string]: any;
 }
 
 /**
  * Fired when the editorial opens or closes
  */
 export interface ToolboxInteracted {
-    isOpen: boolean;
-    [property: string]: any;
-}
-
-/**
- * Fired when a user interacts with the X-ray mode checkbox in the editorial toolbox.
- */
-export interface XrayModeInteracted {
-    enabled: boolean;
-    [property: string]: any;
+  isOpen: boolean;
+  [property: string]: any;
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toContentModelInteracted(json: string): ContentModelInteracted {
-        return cast(JSON.parse(json), r("ContentModelInteracted"));
-    }
+  public static toGuestSpaceActive(json: string): GuestSpaceActive {
+    return cast(JSON.parse(json), r('GuestSpaceActive'));
+  }
 
-    public static contentModelInteractedToJson(value: ContentModelInteracted): string {
-        return JSON.stringify(uncast(value, r("ContentModelInteracted")), null, 2);
-    }
+  public static guestSpaceActiveToJson(value: GuestSpaceActive): string {
+    return JSON.stringify(uncast(value, r('GuestSpaceActive')), null, 2);
+  }
 
-    public static toGuestSpaceActive(json: string): GuestSpaceActive {
-        return cast(JSON.parse(json), r("GuestSpaceActive"));
-    }
+  public static toPreviewModeInteracted(json: string): PreviewModeInteracted {
+    return cast(JSON.parse(json), r('PreviewModeInteracted'));
+  }
 
-    public static guestSpaceActiveToJson(value: GuestSpaceActive): string {
-        return JSON.stringify(uncast(value, r("GuestSpaceActive")), null, 2);
-    }
+  public static previewModeInteractedToJson(value: PreviewModeInteracted): string {
+    return JSON.stringify(uncast(value, r('PreviewModeInteracted')), null, 2);
+  }
 
-    public static toPreviewModeInteracted(json: string): PreviewModeInteracted {
-        return cast(JSON.parse(json), r("PreviewModeInteracted"));
-    }
+  public static toSignUpBannerInteracted(json: string): SignUpBannerInteracted {
+    return cast(JSON.parse(json), r('SignUpBannerInteracted'));
+  }
 
-    public static previewModeInteractedToJson(value: PreviewModeInteracted): string {
-        return JSON.stringify(uncast(value, r("PreviewModeInteracted")), null, 2);
-    }
+  public static signUpBannerInteractedToJson(value: SignUpBannerInteracted): string {
+    return JSON.stringify(uncast(value, r('SignUpBannerInteracted')), null, 2);
+  }
 
-    public static toSignUpBannerInteracted(json: string): SignUpBannerInteracted {
-        return cast(JSON.parse(json), r("SignUpBannerInteracted"));
-    }
+  public static toToolboxInteracted(json: string): ToolboxInteracted {
+    return cast(JSON.parse(json), r('ToolboxInteracted'));
+  }
 
-    public static signUpBannerInteractedToJson(value: SignUpBannerInteracted): string {
-        return JSON.stringify(uncast(value, r("SignUpBannerInteracted")), null, 2);
-    }
-
-    public static toToolboxInteracted(json: string): ToolboxInteracted {
-        return cast(JSON.parse(json), r("ToolboxInteracted"));
-    }
-
-    public static toolboxInteractedToJson(value: ToolboxInteracted): string {
-        return JSON.stringify(uncast(value, r("ToolboxInteracted")), null, 2);
-    }
-
-    public static toXrayModeInteracted(json: string): XrayModeInteracted {
-        return cast(JSON.parse(json), r("XrayModeInteracted"));
-    }
-
-    public static xrayModeInteractedToJson(value: XrayModeInteracted): string {
-        return JSON.stringify(uncast(value, r("XrayModeInteracted")), null, 2);
-    }
+  public static toolboxInteractedToJson(value: ToolboxInteracted): string {
+    return JSON.stringify(uncast(value, r('ToolboxInteracted')), null, 2);
+  }
 }
 
 function invalidValue(typ: any, val: any, key: any = ''): never {
-        if (key) {
-                throw Error(`Invalid value for key "${key}". Expected type ${JSON.stringify(typ)} but got ${JSON.stringify(val)}`);
-        }
-        throw Error(`Invalid value ${JSON.stringify(val)} for type ${JSON.stringify(typ)}`, );
+  if (key) {
+    throw Error(
+      `Invalid value for key "${key}". Expected type ${JSON.stringify(
+        typ,
+      )} but got ${JSON.stringify(val)}`,
+    );
+  }
+  throw Error(`Invalid value ${JSON.stringify(val)} for type ${JSON.stringify(typ)}`);
 }
 
 function jsonToJSProps(typ: any): any {
-        if (typ.jsonToJS === undefined) {
-                const map: any = {};
-                typ.props.forEach((p: any) => map[p.json] = { key: p.js, typ: p.typ });
-                typ.jsonToJS = map;
-        }
-        return typ.jsonToJS;
+  if (typ.jsonToJS === undefined) {
+    const map: any = {};
+    typ.props.forEach((p: any) => (map[p.json] = { key: p.js, typ: p.typ }));
+    typ.jsonToJS = map;
+  }
+  return typ.jsonToJS;
 }
 
 function jsToJSONProps(typ: any): any {
-        if (typ.jsToJSON === undefined) {
-                const map: any = {};
-                typ.props.forEach((p: any) => map[p.js] = { key: p.json, typ: p.typ });
-                typ.jsToJSON = map;
-        }
-        return typ.jsToJSON;
+  if (typ.jsToJSON === undefined) {
+    const map: any = {};
+    typ.props.forEach((p: any) => (map[p.js] = { key: p.json, typ: p.typ }));
+    typ.jsToJSON = map;
+  }
+  return typ.jsToJSON;
 }
 
 function transform(val: any, typ: any, getProps: any, key: any = ''): any {
-        function transformPrimitive(typ: string, val: any): any {
-                if (typeof typ === typeof val) return val;
-                return invalidValue(typ, val, key);
-        }
+  function transformPrimitive(typ: string, val: any): any {
+    if (typeof typ === typeof val) return val;
+    return invalidValue(typ, val, key);
+  }
 
-        function transformUnion(typs: any[], val: any): any {
-                // val must validate against one typ in typs
-                const l = typs.length;
-                for (let i = 0; i < l; i++) {
-                        const typ = typs[i];
-                        try {
-                                return transform(val, typ, getProps);
-                        } catch (_) {}
-                }
-                return invalidValue(typs, val);
-        }
+  function transformUnion(typs: any[], val: any): any {
+    // val must validate against one typ in typs
+    const l = typs.length;
+    for (let i = 0; i < l; i++) {
+      const typ = typs[i];
+      try {
+        return transform(val, typ, getProps);
+      } catch (_) {}
+    }
+    return invalidValue(typs, val);
+  }
 
-        function transformEnum(cases: string[], val: any): any {
-                if (cases.indexOf(val) !== -1) return val;
-                return invalidValue(cases, val);
-        }
+  function transformEnum(cases: string[], val: any): any {
+    if (cases.indexOf(val) !== -1) return val;
+    return invalidValue(cases, val);
+  }
 
-        function transformArray(typ: any, val: any): any {
-                // val must be an array with no invalid elements
-                if (!Array.isArray(val)) return invalidValue("array", val);
-                return val.map(el => transform(el, typ, getProps));
-        }
+  function transformArray(typ: any, val: any): any {
+    // val must be an array with no invalid elements
+    if (!Array.isArray(val)) return invalidValue('array', val);
+    return val.map(el => transform(el, typ, getProps));
+  }
 
-        function transformDate(val: any): any {
-                if (val === null) {
-                        return null;
-                }
-                const d = new Date(val);
-                if (isNaN(d.valueOf())) {
-                        return invalidValue("Date", val);
-                }
-                return d;
-        }
+  function transformDate(val: any): any {
+    if (val === null) {
+      return null;
+    }
+    const d = new Date(val);
+    if (isNaN(d.valueOf())) {
+      return invalidValue('Date', val);
+    }
+    return d;
+  }
 
-        function transformObject(props: { [k: string]: any }, additional: any, val: any): any {
-                if (val === null || typeof val !== "object" || Array.isArray(val)) {
-                        return invalidValue("object", val);
-                }
-                const result: any = {};
-                Object.getOwnPropertyNames(props).forEach(key => {
-                        const prop = props[key];
-                        const v = Object.prototype.hasOwnProperty.call(val, key) ? val[key] : undefined;
-                        result[prop.key] = transform(v, prop.typ, getProps, prop.key);
-                });
-                Object.getOwnPropertyNames(val).forEach(key => {
-                        if (!Object.prototype.hasOwnProperty.call(props, key)) {
-                                result[key] = transform(val[key], additional, getProps, key);
-                        }
-                });
-                return result;
-        }
+  function transformObject(props: { [k: string]: any }, additional: any, val: any): any {
+    if (val === null || typeof val !== 'object' || Array.isArray(val)) {
+      return invalidValue('object', val);
+    }
+    const result: any = {};
+    Object.getOwnPropertyNames(props).forEach(key => {
+      const prop = props[key];
+      const v = Object.prototype.hasOwnProperty.call(val, key) ? val[key] : undefined;
+      result[prop.key] = transform(v, prop.typ, getProps, prop.key);
+    });
+    Object.getOwnPropertyNames(val).forEach(key => {
+      if (!Object.prototype.hasOwnProperty.call(props, key)) {
+        result[key] = transform(val[key], additional, getProps, key);
+      }
+    });
+    return result;
+  }
 
-        if (typ === "any") return val;
-        if (typ === null) {
-                if (val === null) return val;
-                return invalidValue(typ, val);
-        }
-        if (typ === false) return invalidValue(typ, val);
-        while (typeof typ === "object" && typ.ref !== undefined) {
-                typ = typeMap[typ.ref];
-        }
-        if (Array.isArray(typ)) return transformEnum(typ, val);
-        if (typeof typ === "object") {
-                return typ.hasOwnProperty("unionMembers") ? transformUnion(typ.unionMembers, val)
-                        : typ.hasOwnProperty("arrayItems")    ? transformArray(typ.arrayItems, val)
-                        : typ.hasOwnProperty("props")         ? transformObject(getProps(typ), typ.additional, val)
-                        : invalidValue(typ, val);
-        }
-        // Numbers can be parsed by Date but shouldn't be.
-        if (typ === Date && typeof val !== "number") return transformDate(val);
-        return transformPrimitive(typ, val);
+  if (typ === 'any') return val;
+  if (typ === null) {
+    if (val === null) return val;
+    return invalidValue(typ, val);
+  }
+  if (typ === false) return invalidValue(typ, val);
+  while (typeof typ === 'object' && typ.ref !== undefined) {
+    typ = typeMap[typ.ref];
+  }
+  if (Array.isArray(typ)) return transformEnum(typ, val);
+  if (typeof typ === 'object') {
+    return typ.hasOwnProperty('unionMembers')
+      ? transformUnion(typ.unionMembers, val)
+      : typ.hasOwnProperty('arrayItems')
+      ? transformArray(typ.arrayItems, val)
+      : typ.hasOwnProperty('props')
+      ? transformObject(getProps(typ), typ.additional, val)
+      : invalidValue(typ, val);
+  }
+  // Numbers can be parsed by Date but shouldn't be.
+  if (typ === Date && typeof val !== 'number') return transformDate(val);
+  return transformPrimitive(typ, val);
 }
 
 function cast<T>(val: any, typ: any): T {
-        return transform(val, typ, jsonToJSProps);
+  return transform(val, typ, jsonToJSProps);
 }
 
 function uncast<T>(val: T, typ: any): any {
-        return transform(val, typ, jsToJSONProps);
+  return transform(val, typ, jsToJSONProps);
 }
 
 function a(typ: any) {
-        return { arrayItems: typ };
+  return { arrayItems: typ };
 }
 
 function u(...typs: any[]) {
-        return { unionMembers: typs };
+  return { unionMembers: typs };
 }
 
 function o(props: any[], additional: any) {
-        return { props, additional };
+  return { props, additional };
 }
 
 function m(additional: any) {
-        return { props: [], additional };
+  return { props: [], additional };
 }
 
 function r(name: string) {
-        return { ref: name };
+  return { ref: name };
 }
 
 const typeMap: any = {
-    "ContentModelInteracted": o([
-        { json: "entryInternalName", js: "entryInternalName", typ: u(undefined, "") },
-        { json: "entryLink", js: "entryLink", typ: "" },
-        { json: "entryTypeName", js: "entryTypeName", typ: "" },
-    ], "any"),
-    "GuestSpaceActive": o([
-        { json: "spaceId", js: "spaceId", typ: "" },
-    ], "any"),
-    "PreviewModeInteracted": o([
-        { json: "enabled", js: "enabled", typ: true },
-    ], "any"),
-    "SignUpBannerInteracted": o([
-        { json: "ctaClicked", js: "ctaClicked", typ: true },
-    ], "any"),
-    "ToolboxInteracted": o([
-        { json: "isOpen", js: "isOpen", typ: true },
-    ], "any"),
-    "XrayModeInteracted": o([
-        { json: "enabled", js: "enabled", typ: true },
-    ], "any"),
+  GuestSpaceActive: o([{ json: 'spaceId', js: 'spaceId', typ: '' }], 'any'),
+  PreviewModeInteracted: o([{ json: 'enabled', js: 'enabled', typ: true }], 'any'),
+  SignUpBannerInteracted: o([{ json: 'ctaClicked', js: 'ctaClicked', typ: true }], 'any'),
+  ToolboxInteracted: o([{ json: 'isOpen', js: 'isOpen', typ: true }], 'any'),
 };
 
 /**
@@ -284,39 +230,39 @@ const typeMap: any = {
  * to message payloads before passing them on to the underlying analytics instance.
  *
  * Note that the production bundle does not depend on Ajv.
- * 
+ *
  * You can install it with: `npm install --save-dev ajv`.
  */
-import Ajv, { ErrorObject } from 'ajv'
+import Ajv, { ErrorObject } from 'ajv';
 
 /**
  * The analytics.js snippet should be available via window.analytics.
  * You can install it by following instructions at: https://segment.com/docs/sources/website/analytics.js/quickstart/
  * Make sure to also include the TypeScript declarations with: `npm install --dev @types/segment-analytics`
  */
- declare global {
-    interface Window {
-        analytics: SegmentAnalytics.AnalyticsJS
-    }
+declare global {
+  interface Window {
+    analytics: SegmentAnalytics.AnalyticsJS;
+  }
 }
 
 /** The callback exposed by analytics.js. */
-export type Callback = () => void
+export type Callback = () => void;
 
 /** A dictionary of options. For example, enable or disable specific destinations for the call. */
 export interface Options {
-    /**
-     * Selectivly filter destinations. By default all destinations are enabled.
-     * https://segment.com/docs/sources/website/analytics.js/#selecting-destinations
-     */
-    integrations?: {
-        [key: string]: boolean | { [key: string]: any }
-    }
-    /**
-     * A dictionary of extra context to attach to the call.
-     * https://segment.com/docs/spec/common/#context
-     */
-    context?: Context
+  /**
+   * Selectivly filter destinations. By default all destinations are enabled.
+   * https://segment.com/docs/sources/website/analytics.js/#selecting-destinations
+   */
+  integrations?: {
+    [key: string]: boolean | { [key: string]: any };
+  };
+  /**
+   * A dictionary of extra context to attach to the call.
+   * https://segment.com/docs/spec/common/#context
+   */
+  context?: Context;
 }
 
 /**
@@ -324,119 +270,116 @@ export interface Options {
  * @see {@link https://segment.com/docs/spec/common/#context}
  */
 export interface Context extends Record<string, any> {
-    active?: boolean
-    app?: {
-        name?: string
-        version?: string
-        build?: string
-    }
-    campaign?: {
-        name?: string
-        source?: string
-        medium?: string
-        term?: string
-        content?: string
-    }
-    device?: {
-        id?: string
-        manufacturer?: string
-        model?: string
-        name?: string
-        type?: string
-        version?: string
-    }
-    ip?: string
-    locale?: string
-    location?: {
-        city?: string
-        country?: string
-        latitude?: string
-        longitude?: string
-        region?: string
-        speed?: string
-    }
-    network?: {
-        bluetooth?: string
-        carrier?: string
-        cellular?: string
-        wifi?: string
-    }
-    os?: {
-        name?: string
-        version?: string
-    }
-    page?: {
-        hash?: string
-        path?: string
-        referrer?: string
-        search?: string
-        title?: string
-        url?: string
-    }
-    referrer?: {
-        type?: string
-        name?: string
-        url?: string
-        link?: string
-    }
-    screen?: {
-        density?: string
-        height?: string
-        width?: string
-    }
-    timezone?: string
-    groupId?: string
-    traits?: Record<string, any>
-    userAgent?: string
+  active?: boolean;
+  app?: {
+    name?: string;
+    version?: string;
+    build?: string;
+  };
+  campaign?: {
+    name?: string;
+    source?: string;
+    medium?: string;
+    term?: string;
+    content?: string;
+  };
+  device?: {
+    id?: string;
+    manufacturer?: string;
+    model?: string;
+    name?: string;
+    type?: string;
+    version?: string;
+  };
+  ip?: string;
+  locale?: string;
+  location?: {
+    city?: string;
+    country?: string;
+    latitude?: string;
+    longitude?: string;
+    region?: string;
+    speed?: string;
+  };
+  network?: {
+    bluetooth?: string;
+    carrier?: string;
+    cellular?: string;
+    wifi?: string;
+  };
+  os?: {
+    name?: string;
+    version?: string;
+  };
+  page?: {
+    hash?: string;
+    path?: string;
+    referrer?: string;
+    search?: string;
+    title?: string;
+    url?: string;
+  };
+  referrer?: {
+    type?: string;
+    name?: string;
+    url?: string;
+    link?: string;
+  };
+  screen?: {
+    density?: string;
+    height?: string;
+    width?: string;
+  };
+  timezone?: string;
+  groupId?: string;
+  traits?: Record<string, any>;
+  userAgent?: string;
 }
 
-export type ViolationHandler = (
-    message: Record<string, any>,
-    violations: ErrorObject[]
-) => void
+export type ViolationHandler = (message: Record<string, any>, violations: ErrorObject[]) => void;
 
 /**
  * The default handler that is fired if none is supplied with setTypewriterOptions.
  * This handler will log a warning message to the console.
  */
 export const defaultValidationErrorHandler: ViolationHandler = (message, violations) => {
-    const msg = JSON.stringify(
-        {
-            type: 'Typewriter JSON Schema Validation Error',
-            description:
-                `You made an analytics call (${message.event}) using Typewriter that doesn't match the ` +
-                'Tracking Plan spec.',
-            errors: violations,
-        },
-        undefined,
-        2,
-    );
+  const msg = JSON.stringify(
+    {
+      type: 'Typewriter JSON Schema Validation Error',
+      description:
+        `You made an analytics call (${message.event}) using Typewriter that doesn't match the ` +
+        'Tracking Plan spec.',
+      errors: violations,
+    },
+    undefined,
+    2,
+  );
 
-    console.warn(msg);
+  console.warn(msg);
 };
 
-let onViolation = defaultValidationErrorHandler
+let onViolation = defaultValidationErrorHandler;
 
 let analytics: () => SegmentAnalytics.AnalyticsJS | undefined = () => {
-    return window.analytics;
+  return window.analytics;
 };
 
 /** Options to customize the runtime behavior of a Typewriter client. */
 export interface TypewriterOptions {
-    /**
-     * Underlying analytics instance where analytics calls are forwarded on to.
-     * Defaults to window.analytics.
-     */
-    analytics?: SegmentAnalytics.AnalyticsJS;
-    /**
-     * Handler fired when if an event does not match its spec. This handler
-     * does not fire in production mode, because it requires inlining the full
-     * JSON Schema spec for each event in your Tracking Plan.
-     *
-     * By default, it will throw errors if NODE_ENV = "test" so that tests will fail
-     * if a message does not match the spec. Otherwise, errors will be logged to stderr.
-     */
-    onViolation?: ViolationHandler;
+  /**
+   * Underlying analytics instance where analytics calls are forwarded on to.
+   * Defaults to window.analytics.
+   */
+  analytics?: SegmentAnalytics.AnalyticsJS;
+  /**
+   * Handler fired when if an event does not match its spec. This handler
+   * does not fire in production mode, because it requires inlining the full
+   * JSON Schema spec for each event in your Tracking Plan.
+   *
+   * By default, it will throw errors if NODE_ENV = "test" so that tests will fail
+   * if a message does not match the spec. Otherwise, errors will be logged to stderr.
+   */
+  onViolation?: ViolationHandler;
 }
 
 /**
@@ -453,23 +396,20 @@ export interface TypewriterOptions {
  * 		will be logged to stderr.
  */
 export function setTypewriterOptions(options: TypewriterOptions) {
-    analytics = options.analytics ? () => options.analytics || window.analytics : analytics;
-    onViolation = options.onViolation || onViolation
+  analytics = options.analytics ? () => options.analytics || window.analytics : analytics;
+  onViolation = options.onViolation || onViolation;
 }
 
 /**
-    * Validates a message against a JSON Schema using Ajv. If the message
-    * is invalid, the `onViolation` handler will be called.
-    */
-function validateAgainstSchema(
-    message: Record<string, any>,
-    schema: object
-) {
-    const ajv = new Ajv({ allErrors: true, verbose: true })
+ * Validates a message against a JSON Schema using Ajv. If the message
+ * is invalid, the `onViolation` handler will be called.
+ */
+function validateAgainstSchema(message: Record<string, any>, schema: object) {
+  const ajv = new Ajv({ allErrors: true, verbose: true });
 
-    if (!ajv.validate(schema, message) && ajv.errors) {
-        onViolation(message, ajv.errors)
-    }
+  if (!ajv.validate(schema, message) && ajv.errors) {
+    onViolation(message, ajv.errors);
+  }
 }
 
 /**
@@ -477,42 +417,18 @@ function validateAgainstSchema(
  * This is used for attribution and debugging by the Segment team.
  */
 function withTypewriterContext(message: Options = {}): Options {
-    return {
-        ...message,
-        context: {
-            ...(message.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '8.1.0',
-            },
-        },
-    };
+  return {
+    ...message,
+    context: {
+      ...(message.context || {}),
+      typewriter: {
+        language: 'typescript',
+        version: '8.1.0',
+      },
+    },
+  };
 }
 
-/**
- * Fires a 'ContentModelInteracted' track call.
- *
- * @param ContentModelInteracted props - The analytics properties that will be sent to Segment.
- * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
- * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
- * 	call is fired.
- */
-export function contentModelInteracted(props: ContentModelInteracted, options?: Options, callback?: Callback): void {
-
-    const schema = {"$id":"content_model_interacted","description":"Fired when a user clicks any of the links to the content models visible when the x-ray mode is active.","properties":{"entryInternalName":{"$id":"/properties/entryInternalName","description":"The internal name for a content model in Contentful. This is a custom field specific to templates.","type":"string"},"entryLink":{"$id":"/properties/entryLink","description":"Direct link to the entry in Contentful","type":"string"},"entryTypeName":{"$id":"/properties/entryTypeName","description":"The __typeName for an entry","type":"string"}},"required":["entryTypeName","entryLink"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('content_model_interacted', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
-}
 /**
  * Fires a 'GuestSpaceActive' track call.
  *
@@ -521,21 +437,45 @@ export function contentModelInteracted(props: ContentModelInteracted, options?: 
  * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
  * 	call is fired.
  */
-export function guestSpaceActive(props: GuestSpaceActive, options?: Options, callback?: Callback): void {
+export function guestSpaceActive(
+  props: GuestSpaceActive,
+  options?: Options,
+  callback?: Callback,
+): void {
+  const schema = {
+    $id: 'guest_space_active',
+    description:
+      'Fired when a guest space is active. A guest space is active when at least a spaceId, CDA token and CPA token are provided as url parameters. Optionally a domain can be passed.\n\nGuest spaces are used for Contentfuls Entry preview links.',
+    properties: {
+      spaceId: {
+        $id: '/properties/spaceId',
+        description: "Unique id of a user's space",
+        type: 'string',
+      },
+    },
+    required: ['spaceId'],
+    type: 'object',
+  };
+  validateAgainstSchema(props, schema);
 
-    const schema = {"$id":"guest_space_active","description":"Fired when a guest space is active. A guest space is active when at least a spaceId, CDA token and CPA token are provided as url parameters. Optionally a domain can be passed.\n\nGuest spaces are used for Contentfuls Entry preview links.","properties":{"spaceId":{"$id":"/properties/spaceId","description":"Unique id of a user's space","type":"string"}},"required":["spaceId"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('guest_space_active', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
+  const a = analytics();
+  if (a) {
+    a.track(
+      'guest_space_active',
+      props || {},
+      {
+        ...options,
+        context: {
+          ...(options?.context || {}),
+          typewriter: {
+            language: 'typescript',
+            version: '',
+          },
+        },
+      },
+      callback,
+    );
+  }
 }
 /**
  * Fires a 'PreviewModeInteracted' track call.
@@ -545,21 +485,39 @@ export function guestSpaceActive(props: GuestSpaceActive, options?: Options, cal
  * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
  * 	call is fired.
  */
-export function previewModeInteracted(props: PreviewModeInteracted, options?: Options, callback?: Callback): void {
+export function previewModeInteracted(
+  props: PreviewModeInteracted,
+  options?: Options,
+  callback?: Callback,
+): void {
+  const schema = {
+    $id: 'preview_mode_interacted',
+    description:
+      'Fired when a user interacts with the preview mode checkbox in the editorial toolbox.',
+    properties: { enabled: { $id: '/properties/enabled', description: '', type: 'boolean' } },
+    required: ['enabled'],
+    type: 'object',
+  };
+  validateAgainstSchema(props, schema);
 
-    const schema = {"$id":"preview_mode_interacted","description":"Fired when a user interacts with the preview mode checkbox in the editorial toolbox.","properties":{"enabled":{"$id":"/properties/enabled","description":"","type":"boolean"}},"required":["enabled"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('preview_mode_interacted', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
+  const a = analytics();
+  if (a) {
+    a.track(
+      'preview_mode_interacted',
+      props || {},
+      {
+        ...options,
+        context: {
+          ...(options?.context || {}),
+          typewriter: {
+            language: 'typescript',
+            version: '',
+          },
+        },
+      },
+      callback,
+    );
+  }
 }
 /**
  * Fires a 'SignUpBannerInteracted' track call.
@@ -569,21 +527,45 @@ export function previewModeInteracted(props: PreviewModeInteracted, options?: Op
  * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
  * 	call is fired.
  */
-export function signUpBannerInteracted(props: SignUpBannerInteracted, options?: Options, callback?: Callback): void {
+export function signUpBannerInteracted(
+  props: SignUpBannerInteracted,
+  options?: Options,
+  callback?: Callback,
+): void {
+  const schema = {
+    $id: 'sign_up_banner_interacted',
+    description:
+      'Fired when a user interacts with the sign up banner on the public template preview.',
+    properties: {
+      ctaClicked: {
+        $id: '/properties/ctaClicked',
+        description: 'The CTA to sign up and auto-install the template from the banner.',
+        type: 'boolean',
+      },
+    },
+    required: ['ctaClicked'],
+    type: 'object',
+  };
+  validateAgainstSchema(props, schema);
 
-    const schema = {"$id":"sign_up_banner_interacted","description":"Fired when a user interacts with the sign up banner on the public template preview.","properties":{"ctaClicked":{"$id":"/properties/ctaClicked","description":"The CTA to sign up and auto-install the template from the banner.","type":"boolean"}},"required":["ctaClicked"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('sign_up_banner_interacted', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
+  const a = analytics();
+  if (a) {
+    a.track(
+      'sign_up_banner_interacted',
+      props || {},
+      {
+        ...options,
+        context: {
+          ...(options?.context || {}),
+          typewriter: {
+            language: 'typescript',
+            version: '',
+          },
+        },
+      },
+      callback,
+    );
+  }
 }
 /**
  * Fires a 'ToolboxInteracted' track call.
@@ -593,140 +575,114 @@ export function signUpBannerInteracted(props: SignUpBannerInteracted, options?: 
  * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
  * 	call is fired.
  */
-export function toolboxInteracted(props: ToolboxInteracted, options?: Options, callback?: Callback): void {
+export function toolboxInteracted(
+  props: ToolboxInteracted,
+  options?: Options,
+  callback?: Callback,
+): void {
+  const schema = {
+    $id: 'toolbox_interacted',
+    description: 'Fired when the editorial opens or closes',
+    properties: { isOpen: { $id: '/properties/isOpen', description: '', type: 'boolean' } },
+    required: ['isOpen'],
+    type: 'object',
+  };
+  validateAgainstSchema(props, schema);
 
-    const schema = {"$id":"toolbox_interacted","description":"Fired when the editorial opens or closes","properties":{"isOpen":{"$id":"/properties/isOpen","description":"","type":"boolean"}},"required":["isOpen"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('toolbox_interacted', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
-}
-/**
- * Fires a 'XrayModeInteracted' track call.
- *
- * @param XrayModeInteracted props - The analytics properties that will be sent to Segment.
- * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
- * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
- * 	call is fired.
- */
-export function xrayModeInteracted(props: XrayModeInteracted, options?: Options, callback?: Callback): void {
-
-    const schema = {"$id":"xray_mode_interacted","description":"Fired when a user interacts with the X-ray mode checkbox in the editorial toolbox.","properties":{"enabled":{"$id":"/properties/enabled","description":"","type":"boolean"}},"required":["enabled"],"type":"object"};
-    validateAgainstSchema(props, schema);
-
-    const a = analytics();
-    if (a) {
-        a.track('xray_mode_interacted', props || {}, {...options,   context: {
-            ...(options?.context || {}),
-            typewriter: {
-                language: 'typescript',
-                version: '',
-            },
-        },}, callback);
-    }
+  const a = analytics();
+  if (a) {
+    a.track(
+      'toolbox_interacted',
+      props || {},
+      {
+        ...options,
+        context: {
+          ...(options?.context || {}),
+          typewriter: {
+            language: 'typescript',
+            version: '',
+          },
+        },
+      },
+      callback,
+    );
+  }
 }
 
 const clientAPI = {
-    /**
-     * Updates the run-time configuration of this Typewriter client.
-     *
-     * @param {TypewriterOptions} options - the options to upsert
-     *
-     * @typedef {Object} TypewriterOptions
-     * @property {AnalyticsJS} [analytics] - Underlying analytics instance where analytics
-     * 		calls are forwarded on to. Defaults to window.analytics.
-     * @property {Function} [onViolation] - Handler fired when if an event does not match its spec. This handler does not fire in
-     * 		production mode, because it requires inlining the full JSON Schema spec for each event in your Tracking Plan. By default,
-     * 		it will throw errors if NODE_ENV="test" so that tests will fail if a message does not match the spec. Otherwise, errors
-     * 		will be logged to stderr.
-     */
-    setTypewriterOptions,
+  /**
+   * Updates the run-time configuration of this Typewriter client.
+   *
+   * @param {TypewriterOptions} options - the options to upsert
+   *
+   * @typedef {Object} TypewriterOptions
+   * @property {AnalyticsJS} [analytics] - Underlying analytics instance where analytics
+   * 		calls are forwarded on to. Defaults to window.analytics.
+   * @property {Function} [onViolation] - Handler fired when if an event does not match its spec. This handler does not fire in
+   * 		production mode, because it requires inlining the full JSON Schema spec for each event in your Tracking Plan. By default,
+   * 		it will throw errors if NODE_ENV="test" so that tests will fail if a message does not match the spec. Otherwise, errors
+   * 		will be logged to stderr.
+   */
+  setTypewriterOptions,
 
-    /**
-     * Fires a 'ContentModelInteracted' track call.
-     *
-     * @param ContentModelInteracted props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    contentModelInteracted,
-    /**
-     * Fires a 'GuestSpaceActive' track call.
-     *
-     * @param GuestSpaceActive props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    guestSpaceActive,
-    /**
-     * Fires a 'PreviewModeInteracted' track call.
-     *
-     * @param PreviewModeInteracted props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    previewModeInteracted,
-    /**
-     * Fires a 'SignUpBannerInteracted' track call.
-     *
-     * @param SignUpBannerInteracted props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    signUpBannerInteracted,
-    /**
-     * Fires a 'ToolboxInteracted' track call.
-     *
-     * @param ToolboxInteracted props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    toolboxInteracted,
-    /**
-     * Fires a 'XrayModeInteracted' track call.
-     *
-     * @param XrayModeInteracted props - The analytics properties that will be sent to Segment.
-     * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
-     * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
-     * 	call is fired.
-     */
-    xrayModeInteracted,
+  /**
+   * Fires a 'GuestSpaceActive' track call.
+   *
+   * @param GuestSpaceActive props - The analytics properties that will be sent to Segment.
+   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
+   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
+   * 	call is fired.
+   */
+  guestSpaceActive,
+  /**
+   * Fires a 'PreviewModeInteracted' track call.
+   *
+   * @param PreviewModeInteracted props - The analytics properties that will be sent to Segment.
+   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
+   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
+   * 	call is fired.
+   */
+  previewModeInteracted,
+  /**
+   * Fires a 'SignUpBannerInteracted' track call.
+   *
+   * @param SignUpBannerInteracted props - The analytics properties that will be sent to Segment.
+   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
+   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
+   * 	call is fired.
+   */
+  signUpBannerInteracted,
+  /**
+   * Fires a 'ToolboxInteracted' track call.
+   *
+   * @param ToolboxInteracted props - The analytics properties that will be sent to Segment.
+   * @param {Object} [options] - A dictionary of options. For example, enable or disable specific destinations for the call.
+   * @param {Function} [callback] - An optional callback called after a short timeout after the analytics
+   * 	call is fired.
+   */
+  toolboxInteracted,
 };
 
 export default new Proxy<typeof clientAPI>(clientAPI, {
-    get(target, method) {
-        if (typeof method === 'string' && target.hasOwnProperty(method)) {
-            return target[method as keyof typeof clientAPI];
-        }
+  get(target, method) {
+    if (typeof method === 'string' && target.hasOwnProperty(method)) {
+      return target[method as keyof typeof clientAPI];
+    }
 
-        return () => {
-            console.warn(`⚠️  You made an analytics call (${String(method)}) that can't be found. Either:
+    return () => {
+      console.warn(`⚠️  You made an analytics call (${String(method)}) that can't be found. Either:
          a) Re-generate your typewriter client: \`npx typewriter\`
          b) Add it to your Tracking Plan: https://app.segment.com/segment-oscb/protocols/tracking-plans/rs_1zTHJU9fd5mt7cndWnd4PgJbMCE`);
-            const a = analytics();
-            if (a) {
-                a.track(
-                    'Unknown Analytics Call Fired',
-                    {
-                        method,
-                    },
-                    withTypewriterContext(),
-                );
-            }
-        };
-    },
+      const a = analytics();
+      if (a) {
+        a.track(
+          'Unknown Analytics Call Fired',
+          {
+            method,
+          },
+          withTypewriterContext(),
+        );
+      }
+    };
+  },
 });
-

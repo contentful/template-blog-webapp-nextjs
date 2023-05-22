@@ -1,7 +1,7 @@
 # Contentful utilities
 
 This piece of documentation describes the utilities offered for Contentful, including the `guest space` functionality,
-the `xray` and `preview` mode works in this repository, and documents what files are related to the feature.
+the `preview` mode works in this repository, and documents what files are related to the feature.
 
 This feature belongs in the `main-private` branch, and as such during development any files that are created are marked
 with a TODO to indicate that the file is marked for being moved to the private branch
@@ -66,7 +66,3 @@ These additional packages were added for the support of the guest space, they sh
 
 To enable the `preview` mode, pass `&preview=true`, it does not rely on the `guestSpaceRequiredParameters` to be passed,
 but without it simply won't fetch preview data.
-
-## xRay mode
-
-To enable the `xray` mode, pass `&xray=true`

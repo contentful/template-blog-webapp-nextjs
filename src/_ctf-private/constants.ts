@@ -1,5 +1,4 @@
 export enum ContentfulParams {
-  xray = 'xray',
   preview = 'preview',
   reset = 'reset',
   domain = 'domain',
@@ -14,5 +13,5 @@ export const guestSpaceRequiredParameters = [
   ContentfulParams.deliveryToken,
   ContentfulParams.previewToken,
 ];
-export const editorialParameters = [ContentfulParams.preview, ContentfulParams.xray];
+export const editorialParameters = [ContentfulParams.preview];
 export const resetParam = 'reset';

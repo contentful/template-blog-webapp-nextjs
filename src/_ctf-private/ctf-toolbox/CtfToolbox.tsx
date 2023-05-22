@@ -51,10 +51,11 @@ const ParamInput = ({
 export const CtfToolbox = () => {
   const toolboxRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const [enabled, setEnabled] = useState(false);
   const [toolboxOpen, setToolboxOpen] = useState(false);
 
   const router = useRouter();
-  const { xray, preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
+  const { preview, space_id, preview_token, delivery_token } = useContentfulEditorialStore();
 
   const activeGuestSpace = !!space_id && !!preview_token && !!delivery_token;
 
@@ -76,20 +77,6 @@ export const CtfToolbox = () => {
       query: {
         ...router.query,
         [ContentfulParams.preview]: e.target.checked,
-      },
-    });
-  };
-
-  const handleXrayMode = (e: ChangeEvent<HTMLInputElement>) => {
-    typewriter.xrayModeInteracted({
-      enabled: e.target.checked,
-    });
-
-    router.replace({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        [ContentfulParams.xray]: e.target.checked,
       },
     });
   };
@@ -141,6 +128,10 @@ export const CtfToolbox = () => {
   };
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
+
     const handleClickOutside = event => {
       if (event.target === buttonRef.current || buttonRef.current?.contains(event.target)) return;
 
@@ -161,9 +152,21 @@ export const CtfToolbox = () => {
       document.removeEventListener('click', handleClickOutside, true);
       document.removeEventListener('keydown', handleEscape, true);
     };
+  }, [enabled]);
+
+  useEffect(() => {
+    try {
+      if (window.top?.location.href === window.location.href) {
+        // Dont show the settings panel when embedded into an iframe (e.g. live preview)
+        setEnabled(true);
+      }
+    } catch (err) {
+      // window.top.location.href is not accessable for non same origin iframes
+      setEnabled(false);
+    }
   }, []);
 
-  if (!activeGuestSpace && process.env.ENVIRONMENT_NAME === 'production') return null;
+  if ((!activeGuestSpace && process.env.ENVIRONMENT_NAME === 'production') || !enabled) return null;
 
   return (
     <div className="fixed bottom-12 right-12 z-50 flex w-full max-w-[500px]">
@@ -198,13 +201,6 @@ export const CtfToolbox = () => {
               helpText="View draft entries, assets and unpublished content changes."
               checked={preview}
               onChange={handlePreviewMode}
-            />
-            <ParamToggle
-              id="xray-mode"
-              label="X-ray mode"
-              helpText="Highlight components making up a page and provide a deep link to the entry editor."
-              checked={xray}
-              onChange={handleXrayMode}
             />
             {process.env.ENVIRONMENT_NAME !== 'production' && (
               <>
@@ -243,7 +239,7 @@ export const CtfToolbox = () => {
                         Reset editorial settings
                       </label>
                       <span className="text-gray500">
-                        Reset the guest space functionality, x-ray and preview-mode
+                        Reset the guest space functionality and preview-mode
                       </span>
                     </div>
                     <button

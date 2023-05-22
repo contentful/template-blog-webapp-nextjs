@@ -1,3 +1,4 @@
+import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import { useTranslation } from 'next-i18next';
 import { twMerge } from 'tailwind-merge';
 
@@ -18,6 +19,7 @@ export const ArticleHero = ({
   isReversedLayout = false,
 }: ArticleHeroProps) => {
   const { t } = useTranslation();
+  const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
   const { title, shortDescription, publishedDate } = article;
 
@@ -26,9 +28,8 @@ export const ArticleHero = ({
       className={twMerge(
         `flex flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg`,
         isReversedLayout ? 'lg:flex-row-reverse' : 'lg:flex-row',
-      )}
-    >
-      <div className="flex-1 basis-1/2">
+      )}>
+      <div className="flex-1 basis-1/2" {...inspectorProps({ fieldId: 'featuredImage' })}>
         {article.featuredImage && (
           <CtfImage
             nextImageProps={{ className: 'w-full', priority: true, sizes: undefined }}
@@ -45,8 +46,7 @@ export const ArticleHero = ({
               className={twMerge(
                 'ml-auto pl-2 lg:absolute lg:top-8 xl:top-12',
                 isReversedLayout ? 'lg:left-6 xl:left-12' : 'lg:right-6 xl:right-12',
-              )}
-            >
+              )}>
               {t('article.featured')}
             </ArticleLabel>
           )}
@@ -55,13 +55,19 @@ export const ArticleHero = ({
               'ml-auto hidden pl-2 text-xs text-gray600',
               isReversedLayout ? 'lg:block' : '',
             )}
-          >
+            {...inspectorProps({ fieldId: 'publishedDate' })}>
             <FormatDate date={publishedDate} />
           </div>
         </div>
-        <h1>{title}</h1>
-        {shortDescription && <p className="mt-2">{shortDescription}</p>}
-        <div className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}>
+        <h1 {...inspectorProps({ fieldId: 'title' })}>{title}</h1>
+        {shortDescription && (
+          <p className="mt-2" {...inspectorProps({ fieldId: 'shortDescription' })}>
+            {shortDescription}
+          </p>
+        )}
+        <div
+          className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}
+          {...inspectorProps({ fieldId: 'publishedDate' })}>
           <FormatDate date={publishedDate} />
         </div>
       </div>

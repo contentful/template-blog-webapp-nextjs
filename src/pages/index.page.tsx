@@ -1,3 +1,4 @@
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
@@ -11,8 +12,11 @@ import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
-const Page = ({ page, posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
+
+  const page = useContentfulLiveUpdates(props.page);
+  const posts = useContentfulLiveUpdates(props.posts);
 
   if (!page?.featuredBlogPost || !posts) return;
 

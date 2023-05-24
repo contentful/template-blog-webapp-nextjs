@@ -27,9 +27,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   });
 
   const blogPost = useContentfulLiveUpdates(blogPostData);
-  const relatedPosts = useContentfulLiveUpdates(
-    (blogPostData || props.blogPost)?.relatedBlogPostsCollection?.items,
-  );
+  const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;
 
   const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug || props.isFeatured;
 

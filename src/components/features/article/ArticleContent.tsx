@@ -12,7 +12,7 @@ export const ArticleContent = ({ article }: ArticleContentProps) => {
 
   return (
     <div {...inspectorProps({ fieldId: 'content' })}>
-      <CtfRichText json={content?.json} links={content?.links} />;
+      <CtfRichText json={content?.json} links={content?.links} />
     </div>
   );
 };

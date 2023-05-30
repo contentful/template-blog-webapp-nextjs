@@ -1,4 +1,26 @@
+import { COOKIE_NAME_PRERENDER_BYPASS } from 'next/dist/server/api-utils';
+
 import { previewClient } from '@src/lib/client';
+
+function enableDraftMode(res) {
+  res.setDraftMode({ enable: true });
+
+  // Override cookie header for draft mode for usage in live-preview
+  // https://github.com/vercel/next.js/issues/49927
+  // https://github.com/vercel/next.js/blob/62af2007ce78fdbff33013a8145efbcacbf6b8e2/packages/next/src/server/api-utils/node.ts#L293
+  const headers = res.getHeader('Set-Cookie');
+  if (Array.isArray(headers)) {
+    res.setHeader(
+      'Set-Cookie',
+      headers.map((cookie: string) => {
+        if (cookie.includes(COOKIE_NAME_PRERENDER_BYPASS)) {
+          return cookie.replace('SameSite=Lax', 'SameSite=None; Secure');
+        }
+        return cookie;
+      }),
+    );
+  }
+}
 
 export default async (req, res) => {
   const { secret, slug, locale } = req.query;
@@ -24,8 +46,8 @@ export default async (req, res) => {
         throw Error();
       }
 
-      // Enable Draft Mode by setting the cookies
-      res.setDraftMode({ enable: true });
+      // Enable draft mode by setting the cookies
+      enableDraftMode(res);
 
       // Redirect to the path from the fetched post
       res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
@@ -43,8 +65,8 @@ export default async (req, res) => {
         throw Error();
       }
 
-      // Enable Draft Mode by setting the cookies
-      res.setDraftMode({ enable: true });
+      // Enable draft mode by setting the cookies
+      enableDraftMode(res);
 
       // Redirect to the root
       res.redirect(`/${locale ? `${locale}` : ''}`);

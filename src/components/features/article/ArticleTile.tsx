@@ -1,5 +1,4 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import Link from 'next/link';
 import { HTMLProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 

@@ -61,6 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, draftMode: previe
   try {
     const gqlClient = preview ? previewClient : client;
 
+
     const landingPageData = await gqlClient.pageLanding({ locale, preview });
     const page = landingPageData.pageLandingCollection?.items[0];
 
@@ -86,6 +87,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, draftMode: previe
       revalidate: revalidateDuration,
       props: {
         ...(await getServerSideTranslations(locale)),
+        previewActive: !!preview,
         page,
         posts,
       },

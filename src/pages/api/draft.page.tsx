@@ -1,6 +1,12 @@
 import { COOKIE_NAME_PRERENDER_BYPASS } from 'next/dist/server/api-utils';
+import qs from 'query-string';
 
-import { previewClient } from '@src/lib/client';
+import {
+  editorialParameters,
+  guestSpaceOptionalParameters,
+  guestSpaceRequiredParameters,
+} from '@src/_ctf-private';
+import { createGuestSpaceClient, previewClient } from '@src/lib/client';
 
 function enableDraftMode(res) {
   res.setDraftMode({ enable: true });
@@ -22,6 +28,18 @@ function enableDraftMode(res) {
   }
 }
 
+function getGuestSpaceParams(query: Record<string, any>) {
+  if (guestSpaceRequiredParameters.every(param => query[param])) {
+    return [
+      ...guestSpaceRequiredParameters,
+      ...guestSpaceOptionalParameters,
+      ...editorialParameters,
+    ].reduce((prev, curr) => ({ ...prev, [curr]: query[curr] }), {});
+  }
+
+  return null;
+}
+
 export default async (req, res) => {
   const { secret, slug, locale } = req.query;
 
@@ -31,10 +49,17 @@ export default async (req, res) => {
     return res.status(401).json({ message: 'Invalid token' });
   }
 
+  // For main private we need to support guest spaces
+  const guestSpaceParams = getGuestSpaceParams(req.query);
+  const queryString = guestSpaceParams ? `?${qs.stringify(guestSpaceParams)}` : '';
+  const client = queryString.length
+    ? createGuestSpaceClient(guestSpaceParams as any)
+    : previewClient;
+
   // Check for a slug, if no slug is passed we assume we need to redirect to the root
   if (slug) {
     try {
-      const blogPageData = await previewClient.pageBlogPost({
+      const blogPageData = await client.pageBlogPost({
         slug,
         locale,
         preview: true,
@@ -50,13 +75,13 @@ export default async (req, res) => {
       enableDraftMode(res);
 
       // Redirect to the path from the fetched post
-      res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
+      res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}${queryString}`);
     } catch {
       return res.status(401).json({ message: 'Invalid slug' });
     }
   } else {
     try {
-      const landingPageData = await previewClient.pageLanding({
+      const landingPageData = await client.pageLanding({
         locale,
         preview: true,
       });
@@ -69,7 +94,7 @@ export default async (req, res) => {
       enableDraftMode(res);
 
       // Redirect to the root
-      res.redirect(`/${locale ? `${locale}` : ''}`);
+      res.redirect(`/${locale ? `${locale}` : ''}${queryString}`);
     } catch {
       return res.status(401).json({ message: 'Page not found' });
     }

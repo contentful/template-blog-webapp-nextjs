@@ -1,8 +1,8 @@
-# DISCLAIMER
+# DISCLAIMER ⚠️
 
-This document outlines steps to follow as part of Contentful's Starter Templates journey.
+The Starter Templates experience is currently only available to new users.
 
-If your sole curiosity brought you to this repository, you will not be able to follow the tutorial and get the full potential of this Starter Template until an upcoming release.
+To benefit from this experience, please follow this link to create a new account: [https://www.contentful.com/sign-up/?action=create_starter_template](https://www.contentful.com/sign-up/?action=create_starter_template).
 
 $~$
 

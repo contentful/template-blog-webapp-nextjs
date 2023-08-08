@@ -1,4 +1,3 @@
-import { GraphQLClient } from 'graphql-request';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import create from 'zustand';
@@ -11,7 +10,7 @@ import {
   guestSpaceRequiredParameters,
   resetParam,
 } from '@src/_ctf-private/constants';
-import { getSdk } from '@src/lib/__generated/sdk';
+import { createGuestSpaceClient } from '@src/lib/client';
 
 interface ContentfulEditorialStore {
   preview: boolean;
@@ -109,17 +108,8 @@ export const useContentfulEditorial = () => {
     };
   }
 
-  const graphQlClient = new GraphQLClient(
-    `https://graphql.${domain}/content/v1/spaces/${space_id}/`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${preview ? preview_token : delivery_token}`,
-      },
-    },
-  );
   return {
     preview,
-    client: getSdk(graphQlClient),
+    client: createGuestSpaceClient({ domain, preview, preview_token, delivery_token, space_id }),
   };
 };

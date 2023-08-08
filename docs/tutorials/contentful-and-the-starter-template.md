@@ -1,8 +1,13 @@
-# DISCLAIMER
+# DISCLAIMER ⚠️
 
-This document outlines steps to follow as part of Contentful's Starter Templates journey.
+The Starter Templates experience is currently only available to new users.
 
-If your sole curiosity brought you to this repository, you will not be able to follow the tutorial and get the full potential of this Starter Template until an upcoming release.
+To benefit from this experience, please follow this link to create a new
+account and select the template to install: [https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template](https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
+
+Alternatively, to immediately start the auto installation of this template after creating a new account,
+please follow this link:
+[https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog](https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
 
 $~$
 

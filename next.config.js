@@ -58,7 +58,7 @@ const moduleExports = withPlugins(plugins, {
    * Settings are the defaults
    */
   images: {
-    domains: ['images.ctfassets.net', 'images.flinkly.com', 'images.quirely.com'],
+    domains: ['images.ctfassets.net', 'images.flinkly.com', 'images.quirely.com','images.eu.ctfassets.net'],
   },
 
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],

@@ -57,7 +57,7 @@ module.exports = withPlugins(plugins, {
    * Settings are the defaults
    */
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net','images.eu.ctfassets.net'],
   },
 
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],

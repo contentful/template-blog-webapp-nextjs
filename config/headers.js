@@ -13,7 +13,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: `frame-ancestors 'self' https://app.contentful.com https://app.flinkly.com https://app.quirely.com http://localhost:3001`,
+    value: `frame-ancestors 'self' https://app.contentful.com https://app.flinkly.com https://app.quirely.com http://localhost:3001 https://app.eu.contentful.com`,
   },
   {
     key: 'X-Content-Type-Options',

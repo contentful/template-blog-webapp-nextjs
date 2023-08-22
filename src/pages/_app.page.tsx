@@ -14,10 +14,14 @@ const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { locale } = useRouter();
+
+  // As this project uses static pages and it's not completly migrated to the draft mode,
+  // we have to enable the live preview features always.
+  // This can be adjusted onces the client-side preview is dropped.
   return (
     <ContentfulLivePreviewProvider
-      enableInspectorMode={pageProps.previewActive}
-      enableLiveUpdates={pageProps.previewActive}
+      enableInspectorMode={true}
+      enableLiveUpdates={true}
       locale={locale || 'en-US'}>
       <CtfCustomQueryClientProvider>
         <CtfSegmentAnalytics />

@@ -33,7 +33,7 @@
     "@contentful/live-preview": "^2.11.1",
     "@next/bundle-analyzer": "^13.0.4",
     "dotenv": "^16.0.3",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "next": "^13.4.1",
     "next-compose-plugins": "^2.2.1",
     "next-i18next": "^12.1.0",

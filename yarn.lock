@@ -1521,13 +1521,13 @@
   dependencies:
     emotion "^10.0.17"
 
-"@contentful/live-preview@^2.11.1":
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-2.11.1.tgz#dcaa5cd079cf06f0c747f1a5cfab46037e3bc060"
-  integrity sha512-Oh7soO3IYq/PGdOdxdAa9+ecc1kx9jnUaZ2/n+uPP6YRFgMCr1+OAlRhyWHYVkqa2TFBoaROiiZR5RpzauWFMA==
+"@contentful/live-preview@^2.11.4":
+  version "2.11.4"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-2.11.4.tgz#178e080eeaadfc2bbcc15eed2f960173bb55c7f3"
+  integrity sha512-ktRJ1fXoM5wlMg78kFbm/3IIRC0Y8+TsS0i0aG5xUTiVdrqOhM4KwtaRvbAiUMGR9JS6T5J4xySqy5aMXXpGUA==
   dependencies:
     "@contentful/rich-text-types" "^16.2.0"
-    "@contentful/visual-sdk" "^1.0.0-alpha.21"
+    "@contentful/visual-sdk" "^1.0.0-alpha.24"
     lodash.isequal "^4.5.0"
 
 "@contentful/rich-text-react-renderer@^15.16.2":
@@ -1537,20 +1537,15 @@
   dependencies:
     "@contentful/rich-text-types" "^16.0.2"
 
-"@contentful/rich-text-types@^16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.0.2.tgz#779bc76b5159152b3a9e908e6a04cb9342faa9b1"
-  integrity sha512-ovbmCKQjlyGek4NuABoqDesC3FBV3e5jPMMdtT2mpOy9ia31MKO0NSFMRGZu7Q+veZzmDMja8S1i/XeFCUT9Pw==
-
-"@contentful/rich-text-types@^16.2.0":
+"@contentful/rich-text-types@^16.0.2", "@contentful/rich-text-types@^16.2.0":
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.2.0.tgz#5a98cb119340f4da46555216913e96d7ce58df70"
   integrity sha512-4BHC+mfa50JB70epzpnas4EkiuB3mGdBZ5Rp8w7R5wXvswEf8TLg5yGau2FxmZeEjrAkDrt4vzBLVQ8v3Y//Jw==
 
-"@contentful/visual-sdk@^1.0.0-alpha.21":
-  version "1.0.0-alpha.21"
-  resolved "https://registry.yarnpkg.com/@contentful/visual-sdk/-/visual-sdk-1.0.0-alpha.21.tgz#f58b5030b55d20747c84ad094644c8b577715172"
-  integrity sha512-mqq9t42msPo3hXHdiRmqbjkwgOFMhyXRONyyeesPTCXNgyIIRV8DY+zkrn4p36JNc3L1W3u9lic2d9vY6LfWNQ==
+"@contentful/visual-sdk@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@contentful/visual-sdk/-/visual-sdk-1.0.0-alpha.24.tgz#d2d4d550ce7a49f99e961c0b34b40c766fae88e8"
+  integrity sha512-tteYw0rCT3eq+J0SLZ/2hqNdaf3WaPDwV4V9HhxbqAJDehVxJMfphULtcEYlzj7S+ZvHF/0QAxhAWsDpCtENNg==
 
 "@corex/deepmerge@^4.0.29":
   version "4.0.29"

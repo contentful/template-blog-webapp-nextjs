@@ -7,7 +7,6 @@ registries:
     token: '${{secrets.NPM_REGISTRY_REGISTRY_NPMJS_ORG_TOKEN}}'
 
 updates:
-  # main branch
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
@@ -38,38 +37,3 @@ updates:
     commit-message:
       prefix: build
       include: scope
-
-  # main-private branch
-  - package-ecosystem: 'npm'
-    directory: '/'
-    schedule:
-      interval: 'daily'
-      time: '05:00'
-      timezone: UTC
-    commit-message:
-      prefix: build
-      include: scope
-    labels:
-      - 'dependencies'
-      - 'dependabot'
-      - 'main-private'
-    open-pull-requests-limit: 2
-    reviewers:
-      - 'contentful/team-tolkien'
-    registries:
-      - npm-registry-registry-npmjs-org
-    allow:
-      - dependency-name: '@contentful/live-preview'
-    target-branch: 'main-private'
-
-  - package-ecosystem: github-actions
-    directory: '/'
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: UTC
-    open-pull-requests-limit: 15
-    commit-message:
-      prefix: build
-      include: scope
-    target-branch: 'main-private'

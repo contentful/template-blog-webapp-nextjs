@@ -36,7 +36,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       {/*</Container>*/}
 
       <Container className="my-8  md:mb-10 lg:mb-16">
-        <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
+        <h2 className="mb-4 md:mb-6">sadas</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
     </>

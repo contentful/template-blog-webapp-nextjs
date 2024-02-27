@@ -13,7 +13,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: `frame-ancestors 'self' https://app.contentful.com https://app.eu.contentful.com`,
+    value: `frame-ancestors 'self' http://localhost:3001 https://app.contentful.com https://app.eu.contentful.com`,
   },
   {
     key: 'X-Content-Type-Options',

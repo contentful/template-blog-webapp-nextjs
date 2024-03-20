@@ -9,15 +9,13 @@ import { Layout } from '@src/components/templates/layout';
 
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps: _pageProps }: AppProps) => {
   const { locale } = useRouter();
+
+  const pageProps = Object.assign({}, _pageProps, { previewActive: true });
+  console.log({ pageProps });
   return (
-    <ContentfulLivePreviewProvider
-      enableInspectorMode={pageProps.previewActive}
-      enableLiveUpdates={pageProps.previewActive}
-      targetOrigin={['http://localhost:3001', 'https://app.contentful.com']}
-      locale={locale ?? 'en-US'}
-    >
+    <ContentfulLivePreviewProvider enableInspectorMode enableLiveUpdates locale={locale ?? 'en-US'}>
       <>
         <main className={`${urbanist.variable} font-sans`}>
           <Layout>

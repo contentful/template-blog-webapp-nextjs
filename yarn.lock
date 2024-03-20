@@ -1055,10 +1055,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@^0.2.0-alpha.11":
-  version "0.2.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.2.0-alpha.11.tgz#c7470e87641dca389e4fef96741995b58aae869d"
-  integrity sha512-gg+2iITeEiCtPbWOduzHjXybtnHahFqyTdLgJKlf6fmwkAigIIvJkz3DGhlDEGf5gJlPX0eLq1Dj27NScbZwsQ==
+"@contentful/content-source-maps@^0.2.0-alpha.12":
+  version "0.2.0-alpha.12"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.2.0-alpha.12.tgz#bce6ae11f3e4c975553ad312455b3db220cd6e0e"
+  integrity sha512-AQHgB69wbgOFOkCsxSZEEBOSiq5OP33pPR6SgE6Hqok2/emmbh0bsnt9C/jUIv55OIC1aIKq12SXk0cGSvhLFA==
   dependencies:
     "@vercel/stega" "^0.1.0"
     json-pointer "^0.6.2"
@@ -1098,15 +1098,16 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
   integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
 
-"@contentful/live-preview@3.0.0-alpha.22":
-  version "3.0.0-alpha.22"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-3.0.0-alpha.22.tgz#3442f5d69983e2cdd89d3e45c7a1f64a2f960022"
-  integrity sha512-10tjrBEQFNS/BTRaDHpd0L9bKWkKj6qIMKSK6iON4HF78ZNJMAnn+DmZKQ9/OBubBhPCn4KR44rWp1DaqG4ODQ==
+"@contentful/live-preview@3.0.0-alpha.33":
+  version "3.0.0-alpha.33"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-3.0.0-alpha.33.tgz#9b1caf942aa1028de2893314985811c13ba39b4d"
+  integrity sha512-xDN4fomSnq+X/u9XcyErpnvTNXU2FOCk5I34B62IJrTgsj2gXGyaSgyd7zZO+Tp7N05zaxlHxYyrzls5CQ+alA==
   dependencies:
-    "@contentful/content-source-maps" "^0.2.0-alpha.11"
+    "@contentful/content-source-maps" "^0.2.0-alpha.12"
     "@contentful/rich-text-types" "^16.2.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
+    json-pointer "^0.6.2"
     lodash.isequal "^4.5.0"
 
 "@contentful/rich-text-react-renderer@^15.16.2":

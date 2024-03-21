@@ -9,7 +9,7 @@ import { getServerSideTranslations } from './utils/get-serverside-translations';
 import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
-import { fetchAssets, fetchEntries, getAllBlogsForHome } from '@src/lib/restClient';
+import { fetchEntries, getAllBlogsForHome } from '@src/lib/restClient';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -55,52 +55,10 @@ export const getStaticProps: GetStaticProps = async ({ locale, draftMode: previe
       limit: 6,
       // @ts-expect-error
       'fields.slug[ne]': page?.fields?.featuredBlogPost.fields?.slug,
-      // @TODO: added to avoid premature circular dependency
-      include: 0,
       content_type: 'pageBlogPost',
     });
 
-    // @TODO: Workaround for missing author and featuredImage
-    // if we remove the include: 0 from the fetchEntries query
-    // we should remove this workaround
-    const postsWithAuthor = await Promise.all(
-      blogPostsData.map(async post => {
-        // @ts-expect-error
-        const authorId = post?.fields?.author?.sys?.id;
-        // @ts-expect-error
-        const featuredImageId = post?.fields?.featuredImage?.sys?.id;
-
-        const fields = post?.fields;
-        if (authorId) {
-          const author = (await fetchEntries({
-            limit: 1,
-            'sys.id': authorId,
-            include: 0,
-          })) as any[];
-
-          fields.author = author[0];
-        }
-
-        if (featuredImageId) {
-          const featuredImage = (await fetchAssets({
-            limit: 1,
-            'sys.id': featuredImageId,
-            include: 0,
-          })) as any[];
-
-          fields.featuredImage = featuredImage[0];
-        }
-
-        const data = {
-          ...post,
-          fields,
-        };
-
-        return data;
-      }),
-    );
-
-    const posts = stringify(postsWithAuthor);
+    const posts = stringify(blogPostsData);
 
     if (!posts) {
       return {

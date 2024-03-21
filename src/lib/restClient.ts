@@ -56,7 +56,16 @@ export async function getBlog(slug: string): Promise<Entry<Blog>> {
 export async function getAllBlogsForHome(): Promise<Entry<Blog>[]> {
   const entries = await fetchEntries({
     content_type: 'pageLanding',
-    include: 1,
+    include: 2,
+  });
+
+  return entries;
+}
+
+export async function getAllBlogs(): Promise<Entry<Blog>[]> {
+  const entries = await fetchEntries({
+    content_type: 'pageBlogPost',
+    include: 2,
   });
 
   return entries;

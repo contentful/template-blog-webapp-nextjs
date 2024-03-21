@@ -8,7 +8,7 @@ import { getServerSideTranslations } from './utils/get-serverside-translations';
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
-import { getAllBlogsForHome, getBlog } from '@src/lib/restClient';
+import { getAllBlogs, getAllBlogsForHome, getBlog } from '@src/lib/restClient';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -88,28 +88,25 @@ export const getStaticProps: GetStaticProps = async ({
   }
 };
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const dataPerLocale = locales
-    ? await Promise.all(locales.map(locale => getAllBlogsForHome()))
-    : [];
+// @ts-expect-error
+export const getStaticPaths: GetStaticPaths = async () => {
+  const dataPerLocale = await getAllBlogs();
 
   const paths = dataPerLocale
-    .flatMap((data, index) =>
-      data.map(blogPost =>
-        blogPost?.fields.slug
-          ? {
-              params: {
-                slug: blogPost.fields.slug,
-              },
-              locale: locales?.[index],
-            }
-          : undefined,
-      ),
+    .map(blogPost =>
+      blogPost?.fields.slug
+        ? {
+            params: {
+              slug: blogPost.fields.slug,
+            },
+          }
+        : undefined,
     )
 
     .filter(Boolean);
+
   return {
-    paths: [{ params: { slug: 'test' } }], //paths,
+    paths,
     fallback: 'blocking',
   };
 };

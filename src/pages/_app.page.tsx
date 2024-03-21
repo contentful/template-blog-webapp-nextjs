@@ -14,12 +14,7 @@ const App = ({ Component, pageProps: _pageProps }: AppProps) => {
 
   const pageProps = Object.assign({}, _pageProps, { previewActive: true });
   return (
-    <ContentfulLivePreviewProvider
-      targetOrigin={'http://localhost:3001'}
-      enableInspectorMode
-      enableLiveUpdates
-      locale={locale ?? 'en-US'}
-    >
+    <ContentfulLivePreviewProvider enableInspectorMode enableLiveUpdates locale={locale ?? 'en-US'}>
       <>
         <main className={`${urbanist.variable} font-sans`}>
           <Layout>

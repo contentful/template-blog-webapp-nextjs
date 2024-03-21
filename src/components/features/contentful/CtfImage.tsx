@@ -1,21 +1,38 @@
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
-import { ImageFieldsFragment } from '@src/lib/__generated/sdk';
-
-interface ImageProps extends Omit<ImageFieldsFragment, '__typename'> {
+interface ImageProps {
   nextImageProps?: Omit<NextImageProps, 'src' | 'alt'>;
+  title: string;
+  description: string;
+  file: {
+    url: string;
+    details: {
+      image: {
+        width: number;
+        height: number;
+      };
+    };
+  };
 }
 
-export const CtfImage = ({ url, width, height, title, nextImageProps }: ImageProps) => {
-  if (!url || !width || !height) return null;
+export const CtfImage = ({ file, title, nextImageProps }: ImageProps) => {
+  if (!file) return null;
 
-  const blurURL = new URL(url);
+  const {
+    url,
+    details: {
+      image: { width, height },
+    },
+  } = file;
+
+  const formattedUrl = `https:${url}`;
+  const blurURL = new URL(formattedUrl);
   blurURL.searchParams.set('w', '10');
 
   return (
     <NextImage
-      src={url}
+      src={formattedUrl}
       width={width}
       height={height}
       alt={title || ''}

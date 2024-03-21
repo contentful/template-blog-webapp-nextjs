@@ -2,13 +2,26 @@ import { HTMLProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { ArticleTile } from '@src/components/features/article/ArticleTile';
-import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileGridProps extends HTMLProps<HTMLDivElement> {
-  articles?: Array<PageBlogPostFieldsFragment | null>;
+  articles?: Array<{
+    sys: {
+      id: string;
+    };
+    fields: {
+      internalName: string;
+      author: any;
+      publishedDate: Date;
+      title: string;
+      shortDescription: string;
+      slug: string;
+      featuredImage: any;
+    };
+  }>;
 }
 
 export const ArticleTileGrid = ({ articles, className, ...props }: ArticleTileGridProps) => {
+  console.log('ArticleTileGrid', { articles });
   return articles && articles.length > 0 ? (
     <div
       className={twMerge(

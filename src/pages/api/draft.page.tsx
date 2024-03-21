@@ -1,6 +1,6 @@
 import { COOKIE_NAME_PRERENDER_BYPASS } from 'next/dist/server/api-utils';
 
-import { previewClient } from '@src/lib/client';
+import { getAllBlogsForHome, getBlog } from '@src/lib/restClient';
 
 function enableDraftMode(res) {
   res.setDraftMode({ enable: true });
@@ -34,13 +34,7 @@ export default async (req, res) => {
   // Check for a slug, if no slug is passed we assume we need to redirect to the root
   if (slug) {
     try {
-      const blogPageData = await previewClient.pageBlogPost({
-        slug,
-        locale,
-        preview: true,
-      });
-
-      const blogPost = blogPageData.pageBlogPostCollection?.items[0];
+      const blogPost = await getBlog(slug);
 
       if (!blogPost) {
         throw Error();
@@ -50,16 +44,13 @@ export default async (req, res) => {
       enableDraftMode(res);
 
       // Redirect to the path from the fetched post
-      res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
+      res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.fields.slug}`);
     } catch {
       return res.status(401).json({ message: 'Invalid slug' });
     }
   } else {
     try {
-      const landingPageData = await previewClient.pageLanding({
-        locale,
-        preview: true,
-      });
+      const landingPageData = await getAllBlogsForHome();
 
       if (!landingPageData) {
         throw Error();

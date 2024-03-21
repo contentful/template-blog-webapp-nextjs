@@ -17,7 +17,7 @@ export interface ContentfulRichTextInterface {
     | any;
 }
 
-export const EmbeddedEntry = (entry: EmbeddedEntryType) => {
+export const EmbeddedEntry = (entry: any) => {
   switch (entry?.__typename) {
     case 'ComponentRichImage':
       return <ArticleImage image={entry} />;
@@ -40,12 +40,13 @@ export const contentfulBaseRichTextOptions = ({ links }: ContentfulRichTextInter
   },
 });
 
-export const CtfRichText = ({ json, links }: ContentfulRichTextInterface) => {
+export const CtfRichText = ({ content }: any) => {
+  const { json, links } = content;
   const baseOptions = contentfulBaseRichTextOptions({ links, json });
 
   return (
     <article className="prose prose-sm max-w-none">
-      {documentToReactComponents(json, baseOptions)}
+      {documentToReactComponents(content, baseOptions)}
     </article>
   );
 };

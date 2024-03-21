@@ -6,28 +6,41 @@ import { twMerge } from 'tailwind-merge';
 import { ArticleAuthor } from '@src/components/features/article/ArticleAuthor';
 import { CtfImage } from '@src/components/features/contentful';
 import { FormatDate } from '@src/components/shared/format-date';
-import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleTileProps extends HTMLProps<HTMLDivElement> {
-  article: PageBlogPostFieldsFragment;
+  article: {
+    sys: {
+      id: string;
+    };
+    fields: {
+      internalName: string;
+      author: any;
+      publishedDate: Date;
+      title: string;
+      shortDescription: string;
+      slug: string;
+      featuredImage: any;
+    };
+  };
 }
 
 export const ArticleTile = ({ article, className }: ArticleTileProps) => {
-  const { title, publishedDate } = article;
+  const { title, publishedDate, slug, featuredImage } = article.fields;
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
   return (
-    <Link className="flex flex-col" href={`/${article.slug}`}>
+    <Link className="flex flex-col" href={`/${slug}`}>
       <div
         className={twMerge(
           'flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg',
           className,
-        )}>
-        {article.featuredImage && (
+        )}
+      >
+        {featuredImage && (
           <div {...inspectorProps({ fieldId: 'featuredImage' })}>
             <CtfImage
               nextImageProps={{ className: 'object-cover aspect-[16/10] w-full' }}
-              {...article.featuredImage}
+              {...featuredImage.fields}
             />
           </div>
         )}
@@ -42,7 +55,8 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
             <ArticleAuthor article={article} />
             <div
               className={twMerge('ml-auto pl-2 text-xs text-gray600')}
-              {...inspectorProps({ fieldId: 'publishedDate' })}>
+              {...inspectorProps({ fieldId: 'publishedDate' })}
+            >
               <FormatDate date={publishedDate} />
             </div>
           </div>

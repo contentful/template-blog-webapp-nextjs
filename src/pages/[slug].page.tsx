@@ -1,4 +1,5 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
+import { parse, stringify } from 'flatted';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 
@@ -7,20 +8,21 @@ import { getServerSideTranslations } from './utils/get-serverside-translations';
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
-import { client, previewClient } from '@src/lib/client';
+import { getAllBlogsForHome, getBlog } from '@src/lib/restClient';
 import { revalidateDuration } from '@src/pages/utils/constants';
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
 
-  const blogPost = useContentfulLiveUpdates(props.blogPost);
-  const relatedPosts = blogPost?.relatedBlogPostsCollection?.items;
+  const blogPost = useContentfulLiveUpdates(parse(props.blogPost));
+
+  const relatedPosts = blogPost?.fields.relatedBlogPosts;
 
   if (!blogPost || !relatedPosts) return null;
 
   return (
     <>
-      {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
+      {blogPost.seoFields && <SeoFields {...blogPost.seoFields.fields} />}
       <Container>
         <ArticleHero article={blogPost} isFeatured={props.isFeatured} isReversedLayout={true} />
       </Container>
@@ -37,7 +39,11 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode: preview }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  locale,
+  draftMode: preview = true,
+}) => {
   if (!params?.slug || !locale) {
     return {
       notFound: true,
@@ -45,18 +51,18 @@ export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode
     };
   }
 
-  const gqlClient = preview ? previewClient : client;
-
   try {
     const [blogPageData, landingPageData] = await Promise.all([
-      gqlClient.pageBlogPost({ slug: params.slug.toString(), locale, preview }),
-      gqlClient.pageLanding({ locale, preview }),
+      getBlog(params.slug.toString()),
+      getAllBlogsForHome(),
     ]);
 
-    const blogPost = blogPageData.pageBlogPostCollection?.items[0];
-    const landingPage = landingPageData.pageLandingCollection?.items[0];
+    const blogPost = blogPageData;
+    const landingPage = landingPageData[0];
 
-    const isFeatured = landingPage?.featuredBlogPost?.slug === blogPost?.slug;
+    const isFeatured = landingPage?.fields.featuredBlogPost?.slug === blogPost?.fields.slug;
+
+    //const post = await getBlog(params.slug as string);
 
     if (!blogPost) {
       return {
@@ -70,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode
       props: {
         ...(await getServerSideTranslations(locale)),
         previewActive: !!preview,
-        blogPost,
+        blogPost: stringify(blogPost),
         isFeatured,
       },
     };
@@ -84,28 +90,26 @@ export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const dataPerLocale = locales
-    ? await Promise.all(
-        locales.map(locale => client.pageBlogPostCollection({ locale, limit: 100 })),
-      )
+    ? await Promise.all(locales.map(locale => getAllBlogsForHome()))
     : [];
 
   const paths = dataPerLocale
     .flatMap((data, index) =>
-      data.pageBlogPostCollection?.items.map(blogPost =>
-        blogPost?.slug
+      data.map(blogPost =>
+        blogPost?.fields.slug
           ? {
               params: {
-                slug: blogPost.slug,
+                slug: blogPost.fields.slug,
               },
               locale: locales?.[index],
             }
           : undefined,
       ),
     )
-    .filter(Boolean);
 
+    .filter(Boolean);
   return {
-    paths,
+    paths: [{ params: { slug: 'test' } }], //paths,
     fallback: 'blocking',
   };
 };

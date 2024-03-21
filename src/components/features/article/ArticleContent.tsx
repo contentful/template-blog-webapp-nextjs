@@ -1,18 +1,27 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 
 import { CtfRichText } from '@src/components/features/contentful';
-import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleContentProps {
-  article: PageBlogPostFieldsFragment;
+  article: {
+    sys: {
+      id: string;
+    };
+    fields: {
+      content?: {
+        json: any;
+        links: any;
+      };
+    };
+  };
 }
 export const ArticleContent = ({ article }: ArticleContentProps) => {
-  const { content } = article;
+  const { content } = article.fields;
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
   return (
     <div {...inspectorProps({ fieldId: 'content' })}>
-      <CtfRichText json={content?.json} links={content?.links} />
+      <CtfRichText content={content} />
     </div>
   );
 };

@@ -6,10 +6,22 @@ import { ArticleAuthor } from '@src/components/features/article/ArticleAuthor';
 import { ArticleLabel } from '@src/components/features/article/ArticleLabel';
 import { CtfImage } from '@src/components/features/contentful';
 import { FormatDate } from '@src/components/shared/format-date';
-import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ArticleHeroProps {
-  article: PageBlogPostFieldsFragment;
+  article: {
+    sys: {
+      id: string;
+    };
+    fields: {
+      internalName: string;
+      author: any;
+      publishedDate: Date;
+      title: string;
+      shortDescription: string;
+      slug: string;
+      featuredImage: any;
+    };
+  };
   isFeatured?: boolean;
   isReversedLayout?: boolean;
 }
@@ -21,19 +33,20 @@ export const ArticleHero = ({
   const { t } = useTranslation();
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
-  const { title, shortDescription, publishedDate } = article;
+  const { title, shortDescription, publishedDate, featuredImage } = article.fields;
 
   return (
     <div
       className={twMerge(
         `flex flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg`,
         isReversedLayout ? 'lg:flex-row-reverse' : 'lg:flex-row',
-      )}>
+      )}
+    >
       <div className="flex-1 basis-1/2" {...inspectorProps({ fieldId: 'featuredImage' })}>
-        {article.featuredImage && (
+        {featuredImage && (
           <CtfImage
             nextImageProps={{ className: 'w-full', priority: true, sizes: undefined }}
-            {...article.featuredImage}
+            {...featuredImage.fields}
           />
         )}
       </div>
@@ -46,7 +59,8 @@ export const ArticleHero = ({
               className={twMerge(
                 'ml-auto pl-2 lg:absolute lg:top-8 xl:top-12',
                 isReversedLayout ? 'lg:left-6 xl:left-12' : 'lg:right-6 xl:right-12',
-              )}>
+              )}
+            >
               {t('article.featured')}
             </ArticleLabel>
           )}
@@ -55,7 +69,8 @@ export const ArticleHero = ({
               'ml-auto hidden pl-2 text-xs text-gray600',
               isReversedLayout ? 'lg:block' : '',
             )}
-            {...inspectorProps({ fieldId: 'publishedDate' })}>
+            {...inspectorProps({ fieldId: 'publishedDate' })}
+          >
             <FormatDate date={publishedDate} />
           </div>
         </div>
@@ -67,7 +82,8 @@ export const ArticleHero = ({
         )}
         <div
           className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}
-          {...inspectorProps({ fieldId: 'publishedDate' })}>
+          {...inspectorProps({ fieldId: 'publishedDate' })}
+        >
           <FormatDate date={publishedDate} />
         </div>
       </div>

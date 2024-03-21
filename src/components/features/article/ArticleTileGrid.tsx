@@ -21,7 +21,6 @@ interface ArticleTileGridProps extends HTMLProps<HTMLDivElement> {
 }
 
 export const ArticleTileGrid = ({ articles, className, ...props }: ArticleTileGridProps) => {
-  console.log('ArticleTileGrid', { articles });
   return articles && articles.length > 0 ? (
     <div
       className={twMerge(

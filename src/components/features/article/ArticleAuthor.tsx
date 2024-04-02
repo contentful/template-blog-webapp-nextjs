@@ -46,7 +46,7 @@ interface ArticleAuthorProps {
 
 export const ArticleAuthor = ({ article }: ArticleAuthorProps) => {
   const { author } = article.fields;
-  const inspectorProps = useContentfulInspectorMode({ entryId: author?.fields?.avatar.sys.id });
+  const inspectorProps = useContentfulInspectorMode({ entryId: author?.sys?.id });
 
   return (
     <div className="flex items-center">

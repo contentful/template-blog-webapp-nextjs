@@ -8,7 +8,6 @@ import { CtfCustomQueryClientProvider } from '@src/_ctf-private';
 import { CtfSegmentAnalytics } from '@src/_ctf-private/ctf-analytics';
 import { Layout } from '@src/components/templates/layout';
 import './utils/globals.css';
-import '@contentful/live-preview/style.css';
 
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 

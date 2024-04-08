@@ -47,10 +47,12 @@ jobs:
           path: github-actions
           exportEnv: false
           secrets: |
-            secret/data/npm/token_read NPM_TOKEN | NPM_TOKEN ;
+            secret/data/github/github_packages_read GITHUB_PACKAGES_READ_TOKEN | GITHUB_PACKAGES_READ_TOKEN ;
 
       - name: Authenticate with private NPM package
-        run: echo "//registry.npmjs.org/:_authToken=${{ steps.vault.outputs.NPM_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ steps.vault.outputs.GITHUB_PACKAGES_READ_TOKEN }}" > ~/.npmrc
+          echo "@contentful:registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --prefer-offline --ignore-scripts

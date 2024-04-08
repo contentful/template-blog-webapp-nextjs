@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@contentful/experience-consent-manager": "^2.3.1",
+    "@contentful/experience-consent-manager": "^2.3.26",
     "@contentful/f36-icons": "^4.23.2",
     "@contentful/f36-tokens": "^4.0.1",
     "@contentful/live-preview": "^3.0.0",

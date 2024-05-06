@@ -1143,12 +1143,12 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.4.1.tgz#f8e79bdc7004a42fef45444574499baa6686dc65"
-  integrity sha512-W3NGxQq51tm17gWCMcHbATLsmsi1Gin2dq3wYReeLcTS9SBbS+KpiCZqbFAroIfPrJbAYwd/BX+j0k+AH81VUA==
+"@contentful/content-source-maps@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.4.2.tgz#3155dceb0fa4b0f9187122741b1190c2e7cbe0e4"
+  integrity sha512-FU5JRF5mFmelAjtQWT0WW0E73slvMabwDrzOJ0Q3PnF2gSw+JS8glxTuyUi4L+pV3MZBbbY94O/3wjnjucT7aQ==
   dependencies:
-    "@vercel/stega" "^0.1.0"
+    "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
 
 "@contentful/f36-core@^4.23.2", "@contentful/f36-core@^4.23.3":
@@ -1186,12 +1186,12 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
   integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
 
-"@contentful/live-preview@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-3.3.2.tgz#90da3fb6dc50d3362dde639838e3fe7bb470eb31"
-  integrity sha512-uT3cVBreut2lJ1eYm1IdQa0/QQ4a03FSIrhncStL5HzPwCzJceJelXRhEoLEjLh+lwVjJjYx4uAoKeFvE9jjAA==
+"@contentful/live-preview@^3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-3.3.4.tgz#100ec7aaf2152e6cdcaaa3cf4005f516938a879a"
+  integrity sha512-mjQZAE/UkTE8H3c9WuBhq/OD+QM/2fUy+y7TDAzzVmgw3i5DlDclkLaBG1dYL2o5KvxWeFU7pHksq+jawPjjgQ==
   dependencies:
-    "@contentful/content-source-maps" "^0.4.1"
+    "@contentful/content-source-maps" "^0.4.2"
     "@contentful/rich-text-types" "^16.2.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
@@ -2501,10 +2501,10 @@
     "@typescript-eslint/types" "5.45.0"
     eslint-visitor-keys "^3.3.0"
 
-"@vercel/stega@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@vercel/stega/-/stega-0.1.0.tgz#2eadbbc9eb0eaab26d28b0c443a922d78c23b6e3"
-  integrity sha512-5b0PkOJsFBX5alChuIO3qpkt5vIZBevzLPhUQ1UP8UzVjL3F1VllnZxp/thfD8R5ol7D7WHkgZHIjdUBX4tDpQ==
+"@vercel/stega@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@vercel/stega/-/stega-0.1.2.tgz#0c20c5c9419c4288b1de58a64b5f9f26c763b25f"
+  integrity sha512-P7mafQXjkrsoyTRppnt0N21udKS9wUmLXHRyP9saLXLHw32j/FgUJ3FscSWgvSqRs4cj7wKZtwqJEvWJ2jbGmA==
 
 "@whatwg-node/fetch@0.5.3", "@whatwg-node/fetch@^0.5.0":
   version "0.5.3"

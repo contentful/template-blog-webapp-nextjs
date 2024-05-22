@@ -33,7 +33,7 @@
     "@contentful/experience-consent-manager": "^2.3.26",
     "@contentful/f36-icons": "^4.23.2",
     "@contentful/f36-tokens": "^4.0.1",
-    "@contentful/live-preview": "^3.0.0",
+    "@contentful/live-preview": "^4.1.1",
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@next/bundle-analyzer": "^13.0.4",
     "@sentry/nextjs": "^7.27.0",

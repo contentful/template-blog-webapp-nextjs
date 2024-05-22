@@ -1157,12 +1157,12 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@0.2.0-alpha.13":
-  version "0.2.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.2.0-alpha.13.tgz#43f27367c316069fbf30eb7bf22c5e898d7f924d"
-  integrity sha512-zlwdaA4TFgCIUJjWNtVH4V5MJ3nMQo/XiFGgPbMELz8c3xnoXDaPu9Z8tB0JPCndqSbBcS+ejCVwT2r5lEB5rA==
+"@contentful/content-source-maps@^0.5.0":
+  version "0.5.0"
+  resolved "https://npm.pkg.github.com/download/@contentful/content-source-maps/0.5.0/3561c705f49ec3411aa90ff8a3606ceb5da1fc5b#3561c705f49ec3411aa90ff8a3606ceb5da1fc5b"
+  integrity sha512-Ui14m5QvgFWteAXsv5pmFtbm2deGUJrn1WPHoBa79SK3Z3nV47wQb3/aDZhnXushgpJlk2HmH32Fda/0XZqq1w==
   dependencies:
-    "@vercel/stega" "^0.1.0"
+    "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
 
 "@contentful/experience-consent-manager@^2.3.26":
@@ -1617,12 +1617,12 @@
   dependencies:
     emotion "^10.0.17"
 
-"@contentful/live-preview@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-3.0.0.tgz#4934e556cd66a4bc7fe52fbf6f893c93f6438867"
-  integrity sha512-8um0ug2LKeWVfhDGFvn1mqKjP3MkgIWCC7SHavQE8wDWHpgx5Bi6ji69+fh4DdT6vsRM+OpASu7V2NO18x7IRw==
+"@contentful/live-preview@^4.1.1":
+  version "4.1.1"
+  resolved "https://npm.pkg.github.com/download/@contentful/live-preview/4.1.1/cfa1e2674c71cef6794c6cf5e50abe2c331c85ad#cfa1e2674c71cef6794c6cf5e50abe2c331c85ad"
+  integrity sha512-OENe/mcmdICv/MkHuW9XZMpQ4hRdi++wRxuJ7evSlAbFMB/wrF/8Yd4TgIyIiGZgELpnZcG7dQ0EZMj4j8dARA==
   dependencies:
-    "@contentful/content-source-maps" "0.2.0-alpha.13"
+    "@contentful/content-source-maps" "^0.5.0"
     "@contentful/rich-text-types" "^16.2.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
@@ -3435,10 +3435,10 @@
     "@typescript-eslint/types" "5.45.0"
     eslint-visitor-keys "^3.3.0"
 
-"@vercel/stega@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@vercel/stega/-/stega-0.1.0.tgz#2eadbbc9eb0eaab26d28b0c443a922d78c23b6e3"
-  integrity sha512-5b0PkOJsFBX5alChuIO3qpkt5vIZBevzLPhUQ1UP8UzVjL3F1VllnZxp/thfD8R5ol7D7WHkgZHIjdUBX4tDpQ==
+"@vercel/stega@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@vercel/stega/-/stega-0.1.2.tgz#0c20c5c9419c4288b1de58a64b5f9f26c763b25f"
+  integrity sha512-P7mafQXjkrsoyTRppnt0N21udKS9wUmLXHRyP9saLXLHw32j/FgUJ3FscSWgvSqRs4cj7wKZtwqJEvWJ2jbGmA==
 
 "@whatwg-node/fetch@0.5.3", "@whatwg-node/fetch@^0.5.0":
   version "0.5.3"

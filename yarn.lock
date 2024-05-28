@@ -1186,10 +1186,10 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
   integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
 
-"@contentful/live-preview@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.1.1.tgz#cfa1e2674c71cef6794c6cf5e50abe2c331c85ad"
-  integrity sha512-OENe/mcmdICv/MkHuW9XZMpQ4hRdi++wRxuJ7evSlAbFMB/wrF/8Yd4TgIyIiGZgELpnZcG7dQ0EZMj4j8dARA==
+"@contentful/live-preview@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.1.4.tgz#394645468a442e81c4ec46225cba91734f4c529b"
+  integrity sha512-Tkj2+r11+aN8gfNWRRrlXrbZKfxo9dBQ6DNy0gyczgzybKSvtMml7banH9T+JodiX6F7YwT8w3n4UfEidKmT8g==
   dependencies:
     "@contentful/content-source-maps" "^0.5.0"
     "@contentful/rich-text-types" "^16.2.0"

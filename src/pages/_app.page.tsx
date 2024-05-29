@@ -9,6 +9,16 @@ import { CtfSegmentAnalytics } from '@src/_ctf-private/ctf-analytics';
 import { Layout } from '@src/components/templates/layout';
 import './utils/globals.css';
 
+const allowedOriginList = [
+  'https://app.contentful.com',
+  'https://app.eu.contentful.com',
+  'https://app.flinkly.com',
+  'https://app.eu.flinkly.com',
+  'https://app.quirely.com',
+  'https://app.eu.quirely.com',
+  'http://localhost:3001',
+];
+
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -21,7 +31,8 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ContentfulLivePreviewProvider
       enableInspectorMode={true}
       enableLiveUpdates={true}
-      locale={locale || 'en-US'}>
+      locale={locale || 'en-US'}
+      targetOrigin={allowedOriginList}>
       <CtfCustomQueryClientProvider>
         <CtfSegmentAnalytics />
         <main className={`${urbanist.variable} font-sans`}>

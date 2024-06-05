@@ -1617,10 +1617,10 @@
   dependencies:
     emotion "^10.0.17"
 
-"@contentful/live-preview@^4.1.1":
-  version "4.1.1"
-  resolved "https://npm.pkg.github.com/download/@contentful/live-preview/4.1.1/cfa1e2674c71cef6794c6cf5e50abe2c331c85ad#cfa1e2674c71cef6794c6cf5e50abe2c331c85ad"
-  integrity sha512-OENe/mcmdICv/MkHuW9XZMpQ4hRdi++wRxuJ7evSlAbFMB/wrF/8Yd4TgIyIiGZgELpnZcG7dQ0EZMj4j8dARA==
+"@contentful/live-preview@^4.2.1":
+  version "4.2.1"
+  resolved "https://npm.pkg.github.com/download/@contentful/live-preview/4.2.1/984179e3db14e874a5c8f9d93d624ec97eadfa76#984179e3db14e874a5c8f9d93d624ec97eadfa76"
+  integrity sha512-1TRwtwyI+gyqaqJAtZpxBnq3Nnvs2D7b565fzAlBwmOeji/a0y6eLMrxIAnesOWt0Ta1KAmnPvg22K/OQWZhUQ==
   dependencies:
     "@contentful/content-source-maps" "^0.5.0"
     "@contentful/rich-text-types" "^16.2.0"

@@ -1157,10 +1157,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@^0.5.0":
-  version "0.5.0"
-  resolved "https://npm.pkg.github.com/download/@contentful/content-source-maps/0.5.0/3561c705f49ec3411aa90ff8a3606ceb5da1fc5b#3561c705f49ec3411aa90ff8a3606ceb5da1fc5b"
-  integrity sha512-Ui14m5QvgFWteAXsv5pmFtbm2deGUJrn1WPHoBa79SK3Z3nV47wQb3/aDZhnXushgpJlk2HmH32Fda/0XZqq1w==
+"@contentful/content-source-maps@^0.10.0":
+  version "0.10.0"
+  resolved "https://npm.pkg.github.com/download/@contentful/content-source-maps/0.10.0/ff77954daa74da79aa2aa9e8f3692302e2a4c48f#ff77954daa74da79aa2aa9e8f3692302e2a4c48f"
+  integrity sha512-MFuZQSznXmNGuxTNUeL0Nrt8h0tMfGEOODqkgUxRSfqDorP3e1pJNlgXL8SuTQfx+3Ho4De0liZaLJHBDWyMWg==
   dependencies:
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
@@ -1618,11 +1618,11 @@
     emotion "^10.0.17"
 
 "@contentful/live-preview@^4.2.1":
-  version "4.2.1"
-  resolved "https://npm.pkg.github.com/download/@contentful/live-preview/4.2.1/984179e3db14e874a5c8f9d93d624ec97eadfa76#984179e3db14e874a5c8f9d93d624ec97eadfa76"
-  integrity sha512-1TRwtwyI+gyqaqJAtZpxBnq3Nnvs2D7b565fzAlBwmOeji/a0y6eLMrxIAnesOWt0Ta1KAmnPvg22K/OQWZhUQ==
+  version "4.5.1"
+  resolved "https://npm.pkg.github.com/download/@contentful/live-preview/4.5.1/b01146e25d68018fba759b607c84bd22612874b8#b01146e25d68018fba759b607c84bd22612874b8"
+  integrity sha512-UEnmvoAsS80QkLx1qVOyO+1igKiM7uwT+Jpo6I3JpTBx86RkTjj/M9W9+hc3vNMvRWEXHLxPCpxqMjeIvXwQpg==
   dependencies:
-    "@contentful/content-source-maps" "^0.5.0"
+    "@contentful/content-source-maps" "^0.10.0"
     "@contentful/rich-text-types" "^16.2.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
@@ -1642,9 +1642,9 @@
   integrity sha512-ovbmCKQjlyGek4NuABoqDesC3FBV3e5jPMMdtT2mpOy9ia31MKO0NSFMRGZu7Q+veZzmDMja8S1i/XeFCUT9Pw==
 
 "@contentful/rich-text-types@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.2.0.tgz#5a98cb119340f4da46555216913e96d7ce58df70"
-  integrity sha512-4BHC+mfa50JB70epzpnas4EkiuB3mGdBZ5Rp8w7R5wXvswEf8TLg5yGau2FxmZeEjrAkDrt4vzBLVQ8v3Y//Jw==
+  version "16.8.3"
+  resolved "https://npm.pkg.github.com/download/@contentful/rich-text-types/16.8.3/f0effea5d0ed23f9abfd992c9b1be8a00f4d63e9#f0effea5d0ed23f9abfd992c9b1be8a00f4d63e9"
+  integrity sha512-vXwXDQMDbqITCWfTkU5R/q+uvXWCc1eYNvdZyjtrs0YDIYr4L7QJ2s1r4ZheIs3iVf3AFucKIHgDSpwCAm2wKA==
 
 "@corex/deepmerge@^4.0.29":
   version "4.0.29"
@@ -9365,10 +9365,15 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.4.1, tslib@~2.4.0:
+tslib@^2.0.0, tslib@^2.0.3, tslib@^2.4.0, tslib@^2.4.1, tslib@~2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
+
+tslib@^2.1.0:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.3.tgz#0438f810ad7a9edcde7a241c3d80db693c8cbfe0"
+  integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
 
 tslib@^2.3.0:
   version "2.5.0"

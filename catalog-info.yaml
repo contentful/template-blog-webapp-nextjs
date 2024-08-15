@@ -24,4 +24,4 @@ metadata:
 spec:
   type: template
   lifecycle: production
-  owner: group:team-plato 
+  owner: group:team-isotopes 

@@ -1,5 +1,5 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
@@ -8,10 +8,9 @@ import { useBlogPostPage, useLandingPage } from '@src/_ctf-private';
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
-import { client, previewClient } from '@src/lib/client';
-import { revalidateDuration } from '@src/pages/utils/constants';
+import { client } from '@src/lib/client';
 
-const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { t } = useTranslation();
 
   /**
@@ -52,15 +51,16 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode: preview }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params, locale, query }) => {
+  const preview = Boolean(query.preview);
+
   if (!params?.slug || !locale) {
     return {
       notFound: true,
-      revalidate: revalidateDuration,
     };
   }
 
-  const gqlClient = preview ? previewClient : client;
+  const gqlClient = client;
 
   try {
     const [blogPageData, landingPageData] = await Promise.all([
@@ -76,12 +76,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode
     if (!blogPost) {
       return {
         notFound: true,
-        revalidate: revalidateDuration,
       };
     }
 
     return {
-      revalidate: revalidateDuration,
       props: {
         ...(await getServerSideTranslations(locale)),
         previewActive: !!preview,
@@ -92,37 +90,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale, draftMode
   } catch {
     return {
       notFound: true,
-      revalidate: revalidateDuration,
     };
   }
-};
-
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const dataPerLocale = locales
-    ? await Promise.all(
-        locales.map(locale => client.pageBlogPostCollection({ locale, limit: 100 })),
-      )
-    : [];
-
-  const paths = dataPerLocale
-    .flatMap((data, index) =>
-      data.pageBlogPostCollection?.items.map(blogPost =>
-        blogPost?.slug
-          ? {
-              params: {
-                slug: blogPost.slug,
-              },
-              locale: locales?.[index],
-            }
-          : undefined,
-      ),
-    )
-    .filter(Boolean);
-
-  return {
-    paths,
-    fallback: 'blocking',
-  };
 };
 
 export default Page;

@@ -1,5 +1,5 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 
 import { getServerSideTranslations } from './utils/get-serverside-translations';
@@ -10,10 +10,9 @@ import { SeoFields } from '@src/components/features/seo';
 import { Container } from '@src/components/shared/container';
 import { LinkWithPersistedQuery } from '@src/components/shared/link';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
-import { client, previewClient } from '@src/lib/client';
-import { revalidateDuration } from '@src/pages/utils/constants';
+import { client } from '@src/lib/client';
 
-const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { t } = useTranslation();
 
   /**
@@ -57,10 +56,11 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale, draftMode: preview }) => {
-  try {
-    const gqlClient = preview ? previewClient : client;
+export const getServerSideProps: GetServerSideProps = async ({ locale, query }) => {
+  const preview = Boolean(query.preview);
 
+  try {
+    const gqlClient = client;
 
     const landingPageData = await gqlClient.pageLanding({ locale, preview });
     const page = landingPageData.pageLandingCollection?.items[0];
@@ -78,13 +78,11 @@ export const getStaticProps: GetStaticProps = async ({ locale, draftMode: previe
 
     if (!page) {
       return {
-        revalidate: revalidateDuration,
         notFound: true,
       };
     }
 
     return {
-      revalidate: revalidateDuration,
       props: {
         ...(await getServerSideTranslations(locale)),
         previewActive: !!preview,
@@ -94,7 +92,6 @@ export const getStaticProps: GetStaticProps = async ({ locale, draftMode: previe
     };
   } catch {
     return {
-      revalidate: revalidateDuration,
       notFound: true,
     };
   }

@@ -1,32 +1,57 @@
 {
-    "compilerOptions": {
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true,
-      "jsx": "preserve",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "noEmit": true,
-      "preserveConstEnums": true,
-      "removeComments": false,
-      "skipLibCheck": true,
-      "sourceMap": true,
-      "strict": true,
-      "noImplicitAny": false,
-      "target": "esnext",
-      "baseUrl": "./",
-      "paths": {
-        "@public/*": ["./public/*"],
-        "@src/*": ["./src/*"],
-        "@icons/*": ["./public/assets/svg/*"]
-      },
-      "typeRoots": ["./@types", "./node_modules/@types"],
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "forceConsistentCasingInFileNames": true,
-      "esModuleInterop": true,
-      "isolatedModules": true,
-      "incremental": true
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "target": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@public/*": [
+        "./public/*"
+      ],
+      "@src/*": [
+        "./src/*"
+      ],
+      "@icons/*": [
+        "./public/assets/svg/*"
+      ]
     },
-    "exclude": ["node_modules"],
-    "include": ["**/*.ts", "**/*.tsx", "@types/**/*.d.ts"]
-  }
+    "typeRoots": [
+      "./@types",
+      "./node_modules/@types"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "@types/**/*.d.ts",
+    ".next/types/**/*.ts"
+  ]
+}

@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
+'use client';
 
-import { LanguageSelectorDesktop } from './LanguageSelectorDesktop';
-import { LanguageSelectorMobile } from './LanguageSelectorMobile';
+import { LanguageSelectorDesktop } from '@src/components/features/language-selector/LanguageSelectorDesktop';
+import { LanguageSelectorMobile } from '@src/components/features/language-selector/LanguageSelectorMobile';
+import { locales } from '@src/i18n/config';
 
 const localeName = locale => locale.split('-')[0];
 
@@ -11,8 +12,6 @@ const displayName = locale =>
   });
 
 export const LanguageSelector = () => {
-  const { locales } = useRouter();
-
   return locales && locales.length > 1 ? (
     <>
       <div className="hidden md:block">

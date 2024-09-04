@@ -2,7 +2,10 @@ import { CodegenConfig } from '@graphql-codegen/cli';
 
 const endpointOverride = process.env.CONTENTFUL_GRAPHQL_ENDPOINT;
 const productionEndpoint = 'https://graphql.contentful.com/content/v1/spaces';
-export const endpoint = `${endpointOverride || productionEndpoint}/${process.env.CONTENTFUL_SPACE_ID}`;
+export const endpoint = `${endpointOverride || productionEndpoint}/${
+  process.env.CONTENTFUL_SPACE_ID
+}/environments/${process.env.CONTENTFUL_SPACE_ENVIRONMENT || 'master'}`;
+
 export const config: CodegenConfig = {
   overwrite: true,
   ignoreNoDocuments: true,

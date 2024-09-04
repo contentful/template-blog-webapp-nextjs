@@ -1,3 +1,5 @@
+'use client';
+
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import { twMerge } from 'tailwind-merge';
 

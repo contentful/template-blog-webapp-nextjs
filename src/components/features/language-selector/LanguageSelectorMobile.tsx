@@ -1,17 +1,24 @@
+'use client';
+
 import { LanguageIcon, CloseIcon } from '@contentful/f36-icons';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
+import { useCurrentLocale } from 'next-i18n-router/client';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import FocusLock from 'react-focus-lock';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 
 import { Portal } from '@src/components/shared/portal';
+import i18nConfig, { locales } from '@src/i18n/config';
 
 export const LanguageSelectorMobile = ({ localeName, displayName }) => {
-  const { locale, locales } = useRouter();
+  const currentLocale = useCurrentLocale(i18nConfig);
+  const pathname = usePathname();
   const router = useRouter();
   const { t } = useTranslation();
   const [showDrawer, setShowDrawer] = useState(false);
+  const pathnameHasLocale = locales.includes(pathname.slice(1, 6));
+  const pathnameWithoutLocale = pathname.slice(6);
 
   useEffect(() => {
     const close = e => {
@@ -66,11 +73,15 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
             <p className="mt-8 text-base font-semibold text-colorBlack"> {t('common.language')}</p>
             <select
               className="mt-2 block w-full rounded-md border border-gray300 py-2 px-2 text-sm"
-              defaultValue={locale}
+              defaultValue={currentLocale}
               onChange={event => {
-                router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
-                  locale: String(event.target.value),
-                });
+                const locale = String(event.target.value);
+                router.push(
+                  pathnameHasLocale
+                    ? `/${locale}${pathnameWithoutLocale}`
+                    : `/${locale}${pathname}`,
+                  {},
+                );
                 setShowDrawer(!showDrawer);
               }}
             >

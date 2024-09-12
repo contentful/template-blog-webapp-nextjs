@@ -13,10 +13,6 @@ import { locales } from '@src/i18n/config';
 export async function generateMetadata() {
   const metatadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
-    other: {
-      'msapplication-TileColor': '#ffffff',
-      'msapplication-config': '/favicons/browserconfig.xml',
-    },
   } as Metadata;
 
   return metatadata;

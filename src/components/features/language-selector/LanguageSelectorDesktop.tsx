@@ -30,6 +30,7 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
   const localesToShow = locales.filter(locale => locale !== currentLocale);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  // Try to extract and match a locale from a pattern of `/en-US/:slug`
   const pathnameHasLocale = locales.includes(pathname.slice(1, 6));
   const pathnameWithoutLocale = pathname.slice(6);
 

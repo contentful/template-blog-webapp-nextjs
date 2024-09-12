@@ -17,6 +17,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
   const router = useRouter();
   const { t } = useTranslation();
   const [showDrawer, setShowDrawer] = useState(false);
+  // Try to extract and match a locale from a pattern of `/en-US/:slug`
   const pathnameHasLocale = locales.includes(pathname.slice(1, 6));
   const pathnameWithoutLocale = pathname.slice(6);
 

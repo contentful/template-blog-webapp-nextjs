@@ -2,7 +2,6 @@
 
 import { LanguageIcon, CloseIcon } from '@contentful/f36-icons';
 import { useCurrentLocale } from 'next-i18n-router/client';
-import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import FocusLock from 'react-focus-lock';
 import { useTranslation } from 'react-i18next';
@@ -11,15 +10,11 @@ import { twMerge } from 'tailwind-merge';
 import { Portal } from '@src/components/shared/portal';
 import i18nConfig, { locales } from '@src/i18n/config';
 
-export const LanguageSelectorMobile = ({ localeName, displayName }) => {
+export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) => {
   const currentLocale = useCurrentLocale(i18nConfig);
-  const pathname = usePathname();
-  const router = useRouter();
   const { t } = useTranslation();
   const [showDrawer, setShowDrawer] = useState(false);
   // Try to extract and match a locale from a pattern of `/en-US/:slug`
-  const pathnameHasLocale = locales.includes(pathname.slice(1, 6));
-  const pathnameWithoutLocale = pathname.slice(6);
 
   useEffect(() => {
     const close = e => {
@@ -75,16 +70,7 @@ export const LanguageSelectorMobile = ({ localeName, displayName }) => {
             <select
               className="mt-2 block w-full rounded-md border border-gray300 py-2 px-2 text-sm"
               defaultValue={currentLocale}
-              onChange={event => {
-                const locale = String(event.target.value);
-                router.push(
-                  pathnameHasLocale
-                    ? `/${locale}${pathnameWithoutLocale}`
-                    : `/${locale}${pathname}`,
-                  {},
-                );
-                setShowDrawer(!showDrawer);
-              }}
+              onChange={onChange}
             >
               {locales?.map(availableLocale => (
                 <option key={availableLocale} value={availableLocale}>

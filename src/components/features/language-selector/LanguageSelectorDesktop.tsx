@@ -1,4 +1,4 @@
-import { LanguageIcon, ChevronDownTrimmedIcon, ChevronUpTrimmedIcon } from '@contentful/f36-icons';
+import { LanguageIcon, ChevronDownIcon, ChevronUpIcon } from '@contentful/f36-icons';
 import { useCurrentLocale } from 'next-i18n-router/client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,7 +23,7 @@ const useClickOutside = (ref, setIsOpen) => {
   }, [ref, setIsOpen]);
 };
 
-export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
+export const LanguageSelectorDesktop = ({ localeName, onChange, displayName }) => {
   const currentLocale = useCurrentLocale(i18nConfig);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -99,9 +99,9 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
         <LanguageIcon width="18px" height="18px" variant="secondary" className="mr-1 ml-1" />
         {localeName(currentLocale)}
         {isOpen ? (
-          <ChevronUpTrimmedIcon variant="secondary" className="pl-1" />
+          <ChevronUpIcon variant="secondary" className="pl-1" />
         ) : (
-          <ChevronDownTrimmedIcon variant="secondary" className="pl-1" />
+          <ChevronDownIcon variant="secondary" className="pl-1" />
         )}
       </button>
       <FocusLock disabled={!isOpen} returnFocus={true}>
@@ -128,7 +128,10 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
                       : `/${availableLocale}${pathname}`
                   }
                   locale={availableLocale}
-                  onClick={() => setIsOpen(false)}
+                  onClick={event => {
+                    onChange(event);
+                    setIsOpen(false);
+                  }}
                 >
                   {displayName(availableLocale).of(localeName(availableLocale))}
                 </Link>

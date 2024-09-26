@@ -28,6 +28,16 @@ export async function generateStaticParams(): Promise<LayoutProps['params'][]> {
 
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
+const allowedOriginList = [
+  'https://app.contentful.com',
+  'https://app.eu.contentful.com',
+  'https://app.flinkly.com',
+  'https://app.eu.flinkly.com',
+  'https://app.quirely.com',
+  'https://app.eu.quirely.com',
+  'http://localhost:3001',
+];
+
 interface LayoutProps {
   children: React.ReactNode;
   params: { locale: string };
@@ -50,7 +60,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
             locale={locale}
             enableInspectorMode={preview}
             enableLiveUpdates={preview}
-            targetOrigin={'https://app.contentful.com'}
+            targetOrigin={allowedOriginList}
           >
             <main className={`${urbanist.variable} font-sans`}>
               <Header />

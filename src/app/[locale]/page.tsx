@@ -22,10 +22,6 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
   const gqlClient = preview ? previewClient : client;
   const landingPageData = await gqlClient.pageLanding({ locale: params.locale, preview });
   const page = landingPageData.pageLandingCollection?.items[0];
-
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || [];
-
   const languages = locales.length > 1 ? {} : undefined;
 
   if (languages) {

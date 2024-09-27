@@ -14,7 +14,6 @@ export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) =>
   const currentLocale = useCurrentLocale(i18nConfig);
   const { t } = useTranslation();
   const [showDrawer, setShowDrawer] = useState(false);
-  // Try to extract and match a locale from a pattern of `/en-US/:slug`
 
   useEffect(() => {
     const close = e => {

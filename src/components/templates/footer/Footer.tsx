@@ -1,5 +1,7 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from '@src/components/shared/container';
 

@@ -1,9 +1,12 @@
-import { LanguageIcon, ChevronDownTrimmedIcon, ChevronUpTrimmedIcon } from '@contentful/f36-icons';
+import { LanguageIcon, ChevronDownIcon, ChevronUpIcon } from '@contentful/f36-icons';
+import { useCurrentLocale } from 'next-i18n-router/client';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import FocusLock from 'react-focus-lock';
 import { twMerge } from 'tailwind-merge';
+
+import i18nConfig, { locales } from '@src/i18n/config';
 
 const useClickOutside = (ref, setIsOpen) => {
   useEffect(() => {
@@ -20,13 +23,16 @@ const useClickOutside = (ref, setIsOpen) => {
   }, [ref, setIsOpen]);
 };
 
-export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
-  const router = useRouter();
+export const LanguageSelectorDesktop = ({ localeName, onChange, displayName }) => {
+  const currentLocale = useCurrentLocale(i18nConfig);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const localesToShow = router.locales?.filter(locale => locale !== router.locale);
-
+  const localesToShow = locales.filter(locale => locale !== currentLocale);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  // Try to extract and match a locale from a pattern of `/en-US/:slug`
+  const pathnameHasLocale = locales.includes(pathname.slice(1, 6));
+  const pathnameWithoutLocale = pathname.slice(6);
 
   useClickOutside(containerRef, setIsOpen);
 
@@ -91,11 +97,11 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
         onClick={() => setIsOpen(currentState => !currentState)}
       >
         <LanguageIcon width="18px" height="18px" variant="secondary" className="mr-1 ml-1" />
-        {localeName(router.locale)}
+        {localeName(currentLocale)}
         {isOpen ? (
-          <ChevronUpTrimmedIcon variant="secondary" className="pl-1" />
+          <ChevronUpIcon variant="secondary" className="pl-1" />
         ) : (
-          <ChevronDownTrimmedIcon variant="secondary" className="pl-1" />
+          <ChevronDownIcon variant="secondary" className="pl-1" />
         )}
       </button>
       <FocusLock disabled={!isOpen} returnFocus={true}>
@@ -109,24 +115,29 @@ export const LanguageSelectorDesktop = ({ localeName, displayName }) => {
           role="menu"
           onKeyDown={handleMenuKeyDown}
         >
-          {localesToShow?.map((availableLocale, index) => (
-            <li key={availableLocale} role="none">
-              <Link
-                onKeyDown={e => handleMenuItemKeydown(e, index)}
-                role="menuitem"
-                className="block py-2"
-                href={{
-                  pathname: router.pathname,
-                  query: router.query,
-                }}
-                as={router.asPath}
-                locale={availableLocale}
-                onClick={() => setIsOpen(false)}
-              >
-                {displayName(availableLocale).of(localeName(availableLocale))}
-              </Link>
-            </li>
-          ))}
+          {localesToShow?.map((availableLocale, index) => {
+            return (
+              <li key={availableLocale} role="none">
+                <Link
+                  onKeyDown={e => handleMenuItemKeydown(e, index)}
+                  role="menuitem"
+                  className="block py-2"
+                  href={
+                    pathnameHasLocale
+                      ? `/${availableLocale}${pathnameWithoutLocale}`
+                      : `/${availableLocale}${pathname}`
+                  }
+                  locale={availableLocale}
+                  onClick={event => {
+                    onChange(event);
+                    setIsOpen(false);
+                  }}
+                >
+                  {displayName(availableLocale).of(localeName(availableLocale))}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </FocusLock>
     </div>

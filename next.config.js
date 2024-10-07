@@ -3,7 +3,6 @@ const nextComposePlugins = require('next-compose-plugins');
 
 const headers = require('./config/headers');
 const plugins = require('./config/plugins');
-const { i18n } = require('./next-i18next.config.js');
 
 /**
  * https://github.com/cyrilwanner/next-compose-plugins/issues/59
@@ -15,7 +14,6 @@ const { withPlugins } = nextComposePlugins.extend(() => ({}));
  * documentation: https://nextjs.org/docs/api-reference/next.config.js/introduction
  */
 module.exports = withPlugins(plugins, {
-  i18n,
   /**
    * add the environment variables you would like exposed to the client here
    * documentation: https://nextjs.org/docs/api-reference/next.config.js/environment-variables
@@ -42,7 +40,6 @@ module.exports = withPlugins(plugins, {
   // swcMinify: true,
 
   poweredByHeader: false,
-  reactStrictMode: false,
   compress: true,
 
   /**
@@ -57,10 +54,17 @@ module.exports = withPlugins(plugins, {
    * Settings are the defaults
    */
   images: {
-    domains: ['images.ctfassets.net','images.eu.ctfassets.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.eu.ctfassets.net',
+      },
+    ],
   },
-
-  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 
   webpack(config) {
     config.module.rules.push({

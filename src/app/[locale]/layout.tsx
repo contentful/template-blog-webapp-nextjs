@@ -28,15 +28,7 @@ export async function generateStaticParams(): Promise<LayoutProps['params'][]> {
 
 const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
-const allowedOriginList = [
-  'https://app.contentful.com',
-  'https://app.eu.contentful.com',
-  'https://app.flinkly.com',
-  'https://app.eu.flinkly.com',
-  'https://app.quirely.com',
-  'https://app.eu.quirely.com',
-  'http://localhost:3001',
-];
+const allowedOriginList = ['https://app.contentful.com', 'https://app.eu.contentful.com'];
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -1341,13 +1341,13 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.5.tgz#20fbaa7f58115be7b31998fb1af618c3bb85bfbe"
   integrity sha512-s2EB5De7ZCRASS6LnUIg42nyckP3yvZXAK+unROeYEzsV1hyV2WtdCfedHrNa3FA/mYnkPE7U/2XTUXNMKk+mA==
 
-"@contentful/live-preview@^4.5.13":
-  version "4.5.13"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.5.13.tgz#2c61c1faf41c9bd05427138f7cb2e49c4e0c661b"
-  integrity sha512-yg1ruivq5DYmLTBHfk0XJUFHZDv7y4YZqxfTBPAc9xa94vIyikIIuod/ggDQd1lyOmB9qlRg57Eo+Pq1RAG+VQ==
+"@contentful/live-preview@^4.5.14":
+  version "4.5.14"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.5.14.tgz#dd702aeaadf01cfff1d55d1d77358200ad392a82"
+  integrity sha512-XhFrcnfMAlhj8ZY1jAxrIyMwI+Z06P82pUyCaoyADqIYjErIw8hHq9YIZ3TCQuHv7ulWX9m+GAUQqTJkgzNnWw==
   dependencies:
     "@contentful/content-source-maps" "^0.11.6"
-    "@contentful/rich-text-types" "^16.2.0"
+    "@contentful/rich-text-types" "^17.0.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
     json-pointer "^0.6.2"
@@ -1360,10 +1360,17 @@
   dependencies:
     "@contentful/rich-text-types" "^16.0.2"
 
-"@contentful/rich-text-types@^16.0.2", "@contentful/rich-text-types@^16.2.0":
+"@contentful/rich-text-types@^16.0.2":
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.2.0.tgz#5a98cb119340f4da46555216913e96d7ce58df70"
   integrity sha512-4BHC+mfa50JB70epzpnas4EkiuB3mGdBZ5Rp8w7R5wXvswEf8TLg5yGau2FxmZeEjrAkDrt4vzBLVQ8v3Y//Jw==
+
+"@contentful/rich-text-types@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-17.0.0.tgz#f58badfe01fa10860e065c02fd584f428a70ecc6"
+  integrity sha512-x50t6sILzFHBdFpAo0foJRnH8fHWyidheWhAv3uwt9aOnNqTh893gxyoc3Q0RVEZxXfHpTi+O9gmakHcdlRdTA==
+  dependencies:
+    is-plain-obj "^3.0.0"
 
 "@discoveryjs/json-ext@0.5.7":
   version "0.5.7"
@@ -5551,6 +5558,11 @@ is-path-inside@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
   integrity sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
+
+is-plain-obj@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-3.0.0.tgz#af6f2ea14ac5a646183a5bbdb5baabbc156ad9d7"
+  integrity sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==
 
 is-plain-object@^5.0.0:
   version "5.0.0"

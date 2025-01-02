@@ -13,6 +13,8 @@ import { locales } from '@src/i18n/config';
 export async function generateMetadata() {
   const metatadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+    title: 'Contenful - Best CMS',
+    description: 'Content that takes you from anywhere to everywhere',
   } as Metadata;
 
   return metatadata;

@@ -13,6 +13,7 @@ export default async function NotFound() {
 
   return (
     <Container>
+      <title>{t('notFound.title')}</title>
       <h1 className="h2">{t('notFound.title')}</h1>
       <p className="mt-4">
         <Trans i18nKey="notFound.description" t={t}>

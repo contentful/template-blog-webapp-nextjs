@@ -10,7 +10,7 @@ import { Header } from '@src/components/templates/header';
 import initTranslations from '@src/i18n';
 import { locales } from '@src/i18n/config';
 
-export async function generateMetadata(): Promise<Metadata> {
+export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
     twitter: {

@@ -7,7 +7,7 @@ import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { Container } from '@src/components/shared/container';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
 import initTranslations from '@src/i18n';
-import { locales } from '@src/i18n/config';
+import { defaultLocale, locales } from '@src/i18n/config';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
 
@@ -22,32 +22,22 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
   const gqlClient = preview ? previewClient : client;
   const landingPageData = await gqlClient.pageLanding({ locale: params.locale, preview });
   const page = landingPageData.pageLandingCollection?.items[0];
-  const languages = locales.length > 1 ? {} : undefined;
 
-  if (languages) {
-    for (const locale of locales) {
-      languages[locale] = `/${locale}`;
-    }
-  }
-
-  let metadata: Metadata = {
+  const languages = Object.fromEntries(
+    locales.map(locale => [locale, locale === defaultLocale ? '/' : `/${locale}`]),
+  );
+  const metadata: Metadata = {
     alternates: {
       canonical: '/',
-      languages,
-    },
-    twitter: {
-      card: 'summary_large_image',
+      languages: languages,
     },
   };
-
   if (page?.seoFields) {
-    metadata = {
-      title: page.seoFields.pageTitle,
-      description: page.seoFields.pageDescription,
-      robots: {
-        follow: !page.seoFields.nofollow,
-        index: !page.seoFields.noindex,
-      },
+    metadata.title = page.seoFields.pageTitle;
+    metadata.description = page.seoFields.pageDescription;
+    metadata.robots = {
+      follow: !page.seoFields.nofollow,
+      index: !page.seoFields.noindex,
     };
   }
 

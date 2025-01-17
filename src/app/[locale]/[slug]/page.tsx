@@ -1,10 +1,43 @@
+import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 import { ArticleContent, ArticleHero, ArticleTileGrid } from '@src/components/features/article';
 import { Container } from '@src/components/shared/container';
 import initTranslations from '@src/i18n';
+import { defaultLocale, locales } from '@src/i18n/config';
 import { client, previewClient } from '@src/lib/client';
+
+export async function generateMetadata({
+  params: { locale, slug },
+}: BlogPageProps): Promise<Metadata> {
+  const { isEnabled: preview } = draftMode();
+  const gqlClient = preview ? previewClient : client;
+
+  const { pageBlogPostCollection } = await gqlClient.pageBlogPost({ locale, slug, preview });
+  const blogPost = pageBlogPostCollection?.items[0];
+
+  const languages = Object.fromEntries(
+    locales.map(locale => [locale, locale === defaultLocale ? `/${slug}` : `/${locale}/${slug}`]),
+  );
+  const metadata: Metadata = {
+    alternates: {
+      canonical: slug,
+      languages,
+    },
+  };
+
+  if (blogPost?.seoFields) {
+    metadata.title = blogPost.seoFields.pageTitle;
+    metadata.description = blogPost.seoFields.pageDescription;
+    metadata.robots = {
+      follow: !blogPost.seoFields.nofollow,
+      index: !blogPost.seoFields.noindex,
+    };
+  }
+
+  return metadata;
+}
 
 export async function generateStaticParams({
   params: { locale },

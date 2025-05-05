@@ -3,7 +3,9 @@
     "config:js-app",
     "schedule:nonOfficeHours",
     ":semanticCommits",
-    ":semanticCommitScopeDisabled"
+    ":semanticCommitScopeDisabled",
+    ":automergeRequireAllStatusChecks",
+    ":automergeAll"
   ],
   "timezone": "UTC",
   "prConcurrentLimit": 15,

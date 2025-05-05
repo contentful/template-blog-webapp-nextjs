@@ -8,5 +8,5 @@
   "timezone": "UTC",
   "prConcurrentLimit": 15,
   "reviewers": ["contentful/team-isotopes"],
-  "basebranches": ["main", "main-private"]
+  "baseBranches": ["main", "main-private"]
 }

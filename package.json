@@ -53,7 +53,7 @@
     "@graphql-codegen/introspection": "2.2.1",
     "@graphql-codegen/typescript-graphql-request": "6.2.0",
     "@svgr/webpack": "6.5.1",
-    "@tailwindcss/typography": "0.5.8",
+    "@tailwindcss/typography": "0.5.16",
     "@types/negotiator": "0.6.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",

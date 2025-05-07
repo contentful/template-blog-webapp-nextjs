@@ -60,7 +60,7 @@
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.21",
     "eslint": "8.26.0",
     "eslint-config-next": "14.2.7",
     "eslint-config-prettier": "8.5.0",

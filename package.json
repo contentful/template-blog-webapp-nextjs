@@ -55,7 +55,7 @@
     "@svgr/webpack": "6.5.1",
     "@tailwindcss/typography": "0.5.16",
     "@types/negotiator": "0.6.3",
-    "@types/node": "18.11.9",
+    "@types/node": "18.19.99",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "5.45.0",

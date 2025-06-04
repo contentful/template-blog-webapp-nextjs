@@ -3352,10 +3352,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/segment-analytics@0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@types/segment-analytics/-/segment-analytics-0.0.34.tgz#e88fd5286e27eefafbc1b98c8c7e143b9aab5fb5"
-  integrity sha512-fiOyEgyqJY2Mv9k72WG4XoY4fVE31byiSUrEFcNh+MgHcH3HuJmoz2J7ktO3YizBrN6/RuaH1tY5J/5I5BJHJQ==
+"@types/segment-analytics@0.0.38":
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/@types/segment-analytics/-/segment-analytics-0.0.38.tgz#1fa2e3d6b6e31d57c52861a1adbe75abbaf01dd4"
+  integrity sha512-0clAuA7t6HxtpyXl4veE/oNVdcQFhlxnxgYlk0LeEYSoW3s3zZV5xa6DVHcOtozUO4u15Ipet5TdP88GbwKHvg==
 
 "@types/semver@^7.3.12":
   version "7.3.13"

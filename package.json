@@ -64,7 +64,7 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "@types/segment-analytics": "0.0.34",
+    "@types/segment-analytics": "0.0.38",
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
     "autoprefixer": "10.4.13",

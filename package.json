@@ -29,7 +29,7 @@
   "dependencies": {
     "@contentful/f36-icons": "4.29.0",
     "@contentful/f36-tokens": "4.2.0",
-    "@contentful/live-preview": "4.6.18",
+    "@contentful/live-preview": "4.6.20",
     "@contentful/rich-text-react-renderer": "16.0.1",
     "@next/bundle-analyzer": "15.3.3",
     "dotenv": "16.5.0",

@@ -73,7 +73,7 @@
     "i18next": "25.2.0",
     "i18next-http-backend": "3.0.2",
     "lint-staged": "16.0.0",
-    "postcss": "8.5.3",
+    "postcss": "8.5.4",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
     "tailwind-merge": "3.3.0",

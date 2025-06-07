@@ -67,7 +67,7 @@
     "@types/segment-analytics": "0.0.38",
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.21",
     "enforce-branch-name": "1.1.2",
     "eslint": "8.57.1",
     "eslint-config-next": "13.0.1",

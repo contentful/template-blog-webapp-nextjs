@@ -54,7 +54,7 @@
     "@graphql-codegen/typescript-graphql-request": "6.3.0",
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/typography": "0.5.16",
-    "@types/negotiator": "0.6.3",
+    "@types/negotiator": "0.6.4",
     "@types/node": "22.15.30",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",

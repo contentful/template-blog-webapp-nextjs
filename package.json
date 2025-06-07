@@ -60,7 +60,7 @@
     "@graphql-codegen/client-preset": "1.1.4",
     "@graphql-codegen/introspection": "2.2.1",
     "@svgr/webpack": "6.5.1",
-    "@tailwindcss/typography": "0.5.8",
+    "@tailwindcss/typography": "0.5.16",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",

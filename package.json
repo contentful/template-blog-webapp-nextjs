@@ -86,7 +86,7 @@
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "0.6.12",
     "tailwind-merge": "1.8.0",
-    "tailwindcss": "3.2.4",
+    "tailwindcss": "3.4.17",
     "typescript": "4.9.5",
     "typescript-graphql-request": "4.4.6",
     "typewriter": "8.1.0"

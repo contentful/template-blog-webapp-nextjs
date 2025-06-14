@@ -39,7 +39,7 @@
     "@sentry/nextjs": "7.109.0",
     "dotenv": "16.0.3",
     "graphql": "16.8.1",
-    "next": "13.4.1",
+    "next": "14.2.30",
     "next-compose-plugins": "2.2.1",
     "next-i18next": "12.1.0",
     "next-pwa": "5.6.0",

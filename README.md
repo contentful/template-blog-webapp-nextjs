@@ -92,12 +92,6 @@ $~$
 
 ## Development
 
-### Node
-
-It is recommended to use the Node version listed in the `.nvmrc` file, we recommend using [nvm](https://github.com/nvm-sh/nvm) to easily switch between Node versions.
-
-$~$
-
 ### Husky & git hooks
 
 This repository makes use of [Husky](https://github.com/typicode/husky) to enforce commit hooks.

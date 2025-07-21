@@ -14,14 +14,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
-        id: nvm
-
-      - name: Use Node.js (.nvmrc)
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: lts/*
 
       - name: Get Yarn cache directory
         id: yarn-cache-dir-path

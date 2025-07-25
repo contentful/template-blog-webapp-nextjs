@@ -54,7 +54,7 @@
     "zustand": "4.1.5"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.19.1",
+    "@babel/eslint-parser": "7.28.0",
     "@contentful/rich-text-types": "16.0.2",
     "@graphql-codegen/cli": "2.13.12",
     "@graphql-codegen/client-preset": "1.1.4",

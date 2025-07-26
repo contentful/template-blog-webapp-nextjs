@@ -1606,37 +1606,37 @@
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
 
-"@contentful/f36-core@^4.67.3", "@contentful/f36-core@^4.69.0":
-  version "4.69.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-core/-/f36-core-4.69.0.tgz#d58dc2bcc5453ec5553dd06cb67508adbd855248"
-  integrity sha512-DkgBuqn5dIyx7sI+bajSIJkAkYHMQC6H9tvEvyG1qRC/I3KaFkzSl2XZp9DkV2NQ8XsoUhJNAdL2+KEYQbQNCw==
+"@contentful/f36-core@^4.80.4", "@contentful/f36-core@^4.81.0":
+  version "4.81.0"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-core/-/f36-core-4.81.0.tgz#7424657abea727b2d9e1b1ba38b102c7453bb3c8"
+  integrity sha512-NVay2xYmxg30fRnV15oD9Szfi7VGO0M+9FCfimGXqC2/50yjJJ/rsswgzsAtamY6GO5oiLYJO+7eM4XqOF5gJw==
   dependencies:
-    "@contentful/f36-tokens" "^4.0.4"
+    "@contentful/f36-tokens" "^4.2.0"
     "@emotion/core" "^10.1.1"
     "@emotion/is-prop-valid" "^1.2.0"
     csstype "^3.1.1"
     emotion "^10.0.17"
 
-"@contentful/f36-icon@^4.67.3":
-  version "4.69.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-icon/-/f36-icon-4.69.0.tgz#e444d1bb8b6077c20a76516833d28d3a2bdf89b3"
-  integrity sha512-oXE3SuCu61SBHMy6IwD82n0IikLzitU1QDUVaNXoH3MI5IQwrfiZD/Ib0VqI2+hUvG308Gw/BOuDXWWNndvJkw==
+"@contentful/f36-icon@^4.80.4":
+  version "4.81.0"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-icon/-/f36-icon-4.81.0.tgz#b8e89c47b8a0b80f6fefde59fb3d637a70591d73"
+  integrity sha512-1CxzdLPElLBjUP7fvqEDQ/puaZtHkSkx3IOABdXryQUpfq90DEMSfteQ1EBPKZvbIiRCQkzPe1OkBPmyvag0uQ==
   dependencies:
-    "@contentful/f36-core" "^4.69.0"
-    "@contentful/f36-tokens" "^4.0.4"
+    "@contentful/f36-core" "^4.81.0"
+    "@contentful/f36-tokens" "^4.2.0"
     emotion "^10.0.17"
 
-"@contentful/f36-icons@4.29.0":
-  version "4.29.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-icons/-/f36-icons-4.29.0.tgz#760b566d52a4dbe1c517d34e2bf7e803bf25305a"
-  integrity sha512-oo/e2UhugDuSw5AXp7aDPMaUMIJEuWTAk0UaYSqaDh3+cv/7yctyvhcU0mrolmhC8HDKBHXK4Z0/QZkvqNb+Mw==
+"@contentful/f36-icons@4.29.1":
+  version "4.29.1"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-icons/-/f36-icons-4.29.1.tgz#2230b9dd47b39e76a7d85acc16f23a34c76d8dac"
+  integrity sha512-Klqewgt+CoU9BgWhVdFDEmQAWgI+KpsFYuYFsgdr7GCaMgHuecFSGN44SdW/bcv1Ijch3A1xEoYIOqTbLUAP7w==
   dependencies:
-    "@contentful/f36-core" "^4.67.3"
-    "@contentful/f36-icon" "^4.67.3"
+    "@contentful/f36-core" "^4.80.4"
+    "@contentful/f36-icon" "^4.80.4"
     "@contentful/f36-tokens" "^4.0.1"
     emotion "^10.0.17"
 
-"@contentful/f36-tokens@4.2.0":
+"@contentful/f36-tokens@4.2.0", "@contentful/f36-tokens@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.2.0.tgz#bb12fb8730c71a7fdc568d2a66ce5a7b438863e0"
   integrity sha512-fB7ZEO8+NJPlcGvx6EHuEoPdhgpaFAeCnymXlgC+xVLTXYKXSk8JJD4WEr9rBLcXpyyS+e3g51kNFv90cDOeEQ==
@@ -1645,11 +1645,6 @@
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
   integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
-
-"@contentful/f36-tokens@^4.0.4":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.5.tgz#20fbaa7f58115be7b31998fb1af618c3bb85bfbe"
-  integrity sha512-s2EB5De7ZCRASS6LnUIg42nyckP3yvZXAK+unROeYEzsV1hyV2WtdCfedHrNa3FA/mYnkPE7U/2XTUXNMKk+mA==
 
 "@contentful/live-preview@4.6.21":
   version "4.6.21"

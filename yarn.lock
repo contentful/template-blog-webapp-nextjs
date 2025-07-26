@@ -6820,10 +6820,10 @@ next-compose-plugins@2.2.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
   integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
-next-i18n-router@5.5.2:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/next-i18n-router/-/next-i18n-router-5.5.2.tgz#915fc2ae3492a779f34f5d946579964edae83535"
-  integrity sha512-RI4mMu3ew8hUIHjA94hbRX4NptmJQzDoq/qayBilnj8MPsoLmr6juP/b3YH0awGkWP/R+8gfk28qjb8HpBGhdw==
+next-i18n-router@5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/next-i18n-router/-/next-i18n-router-5.5.3.tgz#0526830808445c023703f642387dced5cc93ccca"
+  integrity sha512-btKVR/Mup05scxJp3EdPNALlufnZ/BO/zkIZc8a5ESdu+CNnmLW1AOkziTfRawXiZcznACCQtyfKNobC/WBTEA==
   dependencies:
     "@formatjs/intl-localematcher" "^0.5.2"
     negotiator "^0.6.3"

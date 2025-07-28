@@ -30,7 +30,7 @@
     "@contentful/f36-icons": "4.29.1",
     "@contentful/f36-tokens": "4.2.0",
     "@contentful/live-preview": "4.6.35",
-    "@contentful/rich-text-react-renderer": "16.0.1",
+    "@contentful/rich-text-react-renderer": "16.1.0",
     "@next/bundle-analyzer": "15.3.3",
     "dotenv": "16.5.0",
     "graphql": "16.11.0",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.0",
-    "@contentful/rich-text-types": "17.0.0",
+    "@contentful/rich-text-types": "17.1.0",
     "@graphql-codegen/cli": "5.0.7",
     "@graphql-codegen/client-preset": "4.8.3",
     "@graphql-codegen/introspection": "4.0.3",

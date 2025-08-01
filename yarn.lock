@@ -1162,10 +1162,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@^0.10.0":
-  version "0.10.0"
-  resolved "https://npm.pkg.github.com/download/@contentful/content-source-maps/0.10.0/ff77954daa74da79aa2aa9e8f3692302e2a4c48f#ff77954daa74da79aa2aa9e8f3692302e2a4c48f"
-  integrity sha512-MFuZQSznXmNGuxTNUeL0Nrt8h0tMfGEOODqkgUxRSfqDorP3e1pJNlgXL8SuTQfx+3Ho4De0liZaLJHBDWyMWg==
+"@contentful/content-source-maps@^0.11.30":
+  version "0.11.30"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.11.30.tgz#9c4051d8bc1055aba60c612b7d3054b7f22ccbee"
+  integrity sha512-pZ5FLK0owJldlVw+yomNijMTjkg++19uU3Rq3suYDsGQ4/liTJmnwu+7hf82WADGtk28BNbZWzl8hNisg2OZpQ==
   dependencies:
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
@@ -1657,13 +1657,13 @@
   dependencies:
     emotion "^10.0.17"
 
-"@contentful/live-preview@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.5.1.tgz#b01146e25d68018fba759b607c84bd22612874b8"
-  integrity sha512-UEnmvoAsS80QkLx1qVOyO+1igKiM7uwT+Jpo6I3JpTBx86RkTjj/M9W9+hc3vNMvRWEXHLxPCpxqMjeIvXwQpg==
+"@contentful/live-preview@4.6.36":
+  version "4.6.36"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.6.36.tgz#29584cb958c09f9feed0ffeaf04709b022f6c7ed"
+  integrity sha512-UbNHmqhrhHkmuQEKtbO7HtAEcnRm5w3faHoOM3mE4ApxhAnmpHxG+OquoyjzHoogBWJn0i1qdQfPirMArkJN6w==
   dependencies:
-    "@contentful/content-source-maps" "^0.10.0"
-    "@contentful/rich-text-types" "^16.2.0"
+    "@contentful/content-source-maps" "^0.11.30"
+    "@contentful/rich-text-types" "^17.0.0"
     flatted "^3.2.9"
     graphql-tag "^2.12.6"
     json-pointer "^0.6.2"
@@ -1681,10 +1681,12 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.8.5.tgz#832c8b428612f5181908bc1033c6ef9f48f1ce83"
   integrity sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==
 
-"@contentful/rich-text-types@^16.2.0":
-  version "16.8.3"
-  resolved "https://npm.pkg.github.com/download/@contentful/rich-text-types/16.8.3/f0effea5d0ed23f9abfd992c9b1be8a00f4d63e9#f0effea5d0ed23f9abfd992c9b1be8a00f4d63e9"
-  integrity sha512-vXwXDQMDbqITCWfTkU5R/q+uvXWCc1eYNvdZyjtrs0YDIYr4L7QJ2s1r4ZheIs3iVf3AFucKIHgDSpwCAm2wKA==
+"@contentful/rich-text-types@^17.0.0":
+  version "17.1.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-17.1.0.tgz#48be22639d2b645dc3d41a8f48c7792be532029b"
+  integrity sha512-L0rok1VoMUbtQPJefR0Oxr5z1ow9/ZDIvuNWu16VT4IVVOKkeL4sVsjNj08cCT3ON+HUUzbPWVzyTuyvee2TSg==
+  dependencies:
+    is-plain-obj "^3.0.0"
 
 "@corex/deepmerge@^4.0.29":
   version "4.0.29"
@@ -7208,6 +7210,11 @@ is-plain-obj@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
   integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
+
+is-plain-obj@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-3.0.0.tgz#af6f2ea14ac5a646183a5bbdb5baabbc156ad9d7"
+  integrity sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==
 
 is-reference@1.2.1:
   version "1.2.1"

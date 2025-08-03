@@ -78,7 +78,7 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "4.6.0",
     "husky": "9.1.7",
-    "i18next": "21.10.0",
+    "i18next": "25.3.2",
     "i18next-http-backend": "1.4.5",
     "js-yaml": "4.1.0",
     "lint-staged": "13.3.0",

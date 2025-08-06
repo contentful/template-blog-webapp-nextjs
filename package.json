@@ -89,6 +89,6 @@
     "tailwindcss": "4.1.11",
     "typescript": "5.9.2",
     "typescript-graphql-request": "4.4.6",
-    "typewriter": "8.1.0"
+    "typewriter": "9.2.0"
   }
 }

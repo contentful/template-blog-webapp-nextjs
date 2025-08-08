@@ -81,7 +81,7 @@
     "i18next": "25.3.2",
     "i18next-http-backend": "3.0.2",
     "js-yaml": "4.1.0",
-    "lint-staged": "13.3.0",
+    "lint-staged": "16.1.5",
     "postcss": "8.5.6",
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "0.6.14",

@@ -46,7 +46,7 @@
     "sharp": "0.34.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.28.0",
+    "@babel/eslint-parser": "7.28.4",
     "@contentful/rich-text-types": "17.1.0",
     "@graphql-codegen/cli": "5.0.7",
     "@graphql-codegen/client-preset": "4.8.3",

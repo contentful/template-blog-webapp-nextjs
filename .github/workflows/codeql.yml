@@ -19,7 +19,7 @@ jobs:
       security-events: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3

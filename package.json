@@ -69,7 +69,7 @@
     "@typescript-eslint/parser": "5.62.0",
     "autoprefixer": "10.4.22",
     "enforce-branch-name": "1.1.2",
-    "eslint": "8.57.1",
+    "eslint": "9.39.1",
     "eslint-config-next": "13.5.11",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.4",

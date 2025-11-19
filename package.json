@@ -61,7 +61,7 @@
     "@graphql-codegen/introspection": "2.2.1",
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/typography": "0.5.19",
-    "@types/node": "18.11.9",
+    "@types/node": "18.19.130",
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
     "@types/segment-analytics": "0.0.38",

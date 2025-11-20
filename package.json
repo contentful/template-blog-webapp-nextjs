@@ -56,9 +56,9 @@
   "devDependencies": {
     "@babel/eslint-parser": "7.28.5",
     "@contentful/rich-text-types": "16.8.5",
-    "@graphql-codegen/cli": "2.13.12",
-    "@graphql-codegen/client-preset": "1.1.4",
-    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/cli": "6.1.0",
+    "@graphql-codegen/client-preset": "5.2.0",
+    "@graphql-codegen/introspection": "5.0.0",
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/typography": "0.5.19",
     "@types/node": "18.11.9",

@@ -1611,50 +1611,42 @@
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
 
-"@contentful/f36-core@^4.80.4", "@contentful/f36-core@^4.81.0":
-  version "4.81.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-core/-/f36-core-4.81.0.tgz#7424657abea727b2d9e1b1ba38b102c7453bb3c8"
-  integrity sha512-NVay2xYmxg30fRnV15oD9Szfi7VGO0M+9FCfimGXqC2/50yjJJ/rsswgzsAtamY6GO5oiLYJO+7eM4XqOF5gJw==
+"@contentful/f36-core@^5.8.1":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-core/-/f36-core-5.8.1.tgz#abb5400d034ab1ade9700cd015e4ab72b660c98c"
+  integrity sha512-IV7gEA8mfx8skzLS6PAAutzoZHpr/Le++8GxRvPgsRtlpT2sSIpBZD+os4Y+XiwILYsDpMLFSeoPsRDQHQuxRQ==
   dependencies:
-    "@contentful/f36-tokens" "^4.2.0"
+    "@contentful/f36-tokens" "^5.1.0"
     "@emotion/core" "^10.1.1"
     "@emotion/is-prop-valid" "^1.2.0"
     csstype "^3.1.1"
     emotion "^10.0.17"
 
-"@contentful/f36-icon@^4.80.4":
-  version "4.81.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-icon/-/f36-icon-4.81.0.tgz#b8e89c47b8a0b80f6fefde59fb3d637a70591d73"
-  integrity sha512-1CxzdLPElLBjUP7fvqEDQ/puaZtHkSkx3IOABdXryQUpfq90DEMSfteQ1EBPKZvbIiRCQkzPe1OkBPmyvag0uQ==
+"@contentful/f36-icon@^5.8.1":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-icon/-/f36-icon-5.8.1.tgz#b10a7918d3c6205c37e8bcaa700ef0d936b6519a"
+  integrity sha512-HUHcSD780uuFqqi2+3y0egLF9UyX6J9apFoc6oMyVy9jZXEvX4J12bhHdhl0KvYoQ3BQnWwMC/wE9LVFV80qwQ==
   dependencies:
-    "@contentful/f36-core" "^4.81.0"
-    "@contentful/f36-tokens" "^4.2.0"
+    "@contentful/f36-core" "^5.8.1"
+    "@contentful/f36-tokens" "^5.1.0"
+    "@phosphor-icons/react" "2.1.8"
     emotion "^10.0.17"
 
-"@contentful/f36-icons@4.29.1":
-  version "4.29.1"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-icons/-/f36-icons-4.29.1.tgz#2230b9dd47b39e76a7d85acc16f23a34c76d8dac"
-  integrity sha512-Klqewgt+CoU9BgWhVdFDEmQAWgI+KpsFYuYFsgdr7GCaMgHuecFSGN44SdW/bcv1Ijch3A1xEoYIOqTbLUAP7w==
+"@contentful/f36-icons@5.8.1":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-icons/-/f36-icons-5.8.1.tgz#a71074bd740320c610ae2f63b692b92e59cb3559"
+  integrity sha512-mKXLSMVeDxjCvf9bJUcPYZPCrvKhYOPDL2cAeDpeh4ApgVr0EX5Vq2vdmQHUVS0ApinjZULDMpuHffeSuRs5Qw==
   dependencies:
-    "@contentful/f36-core" "^4.80.4"
-    "@contentful/f36-icon" "^4.80.4"
-    "@contentful/f36-tokens" "^4.0.1"
+    "@contentful/f36-core" "^5.8.1"
+    "@contentful/f36-icon" "^5.8.1"
+    "@contentful/f36-tokens" "^5.1.0"
+    "@phosphor-icons/react" "2.1.8"
     emotion "^10.0.17"
 
-"@contentful/f36-tokens@5.1.0":
+"@contentful/f36-tokens@5.1.0", "@contentful/f36-tokens@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-5.1.0.tgz#0ace4246cd204de0c4052cb73897bed7c9ffdd84"
   integrity sha512-7++MPQiizK6qLhPkilWIKqM5Mhdr199tK7dL4iZ689iTwA82uvXXOojJr+0wVOurG2Odb+6/3WLe1XdveDZHEA==
-
-"@contentful/f36-tokens@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.0.1.tgz#1b6a2e3fce11a61b84a855dbeed660989259ba54"
-  integrity sha512-NTyMAQcfvhPP8kJgOK5mtjKpErg799iglEb9B45ii4N7aMdph2GNqgv7KBgpogfbTEGBrlKIoH8MUDSV9YNREg==
-
-"@contentful/f36-tokens@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.2.0.tgz#bb12fb8730c71a7fdc568d2a66ce5a7b438863e0"
-  integrity sha512-fB7ZEO8+NJPlcGvx6EHuEoPdhgpaFAeCnymXlgC+xVLTXYKXSk8JJD4WEr9rBLcXpyyS+e3g51kNFv90cDOeEQ==
 
 "@contentful/live-preview@4.6.57":
   version "4.6.57"
@@ -2842,6 +2834,11 @@
   version "1.0.39"
   resolved "https://registry.yarnpkg.com/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz#3dc35ba0f1e66b403c00b39344f870298ebb1c8e"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
+
+"@phosphor-icons/react@2.1.8":
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@phosphor-icons/react/-/react-2.1.8.tgz#17cc4abfeead6d843e4cca2164725c07e50cb5c0"
+  integrity sha512-RxJlAkErO+t50DsY82ga9RGOULK6Jux0MdmXqvDjtOzG3PYQFz6rjdUU2q06lPMMbJTT+d+qurKYmF7i2Uv74A==
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"

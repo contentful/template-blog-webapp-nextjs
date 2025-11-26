@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@contentful/f36-icons": "4.29.1",
+    "@contentful/f36-icons": "5.9.0",
     "@contentful/f36-tokens": "5.1.0",
     "@contentful/live-preview": "4.6.57",
     "@contentful/rich-text-react-renderer": "16.1.6",

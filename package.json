@@ -48,7 +48,7 @@
     "query-string": "8.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-focus-lock": "2.13.6",
+    "react-focus-lock": "2.13.7",
     "react-query": "3.39.3",
     "sharp": "0.32.6",
     "zustand": "4.5.7"

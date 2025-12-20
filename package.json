@@ -37,7 +37,7 @@
     "@contentful/rich-text-react-renderer": "15.22.11",
     "@next/bundle-analyzer": "13.5.11",
     "@sentry/nextjs": "7.120.4",
-    "dotenv": "16.6.1",
+    "dotenv": "17.2.3",
     "graphql": "16.12.0",
     "next": "13.5.11",
     "next-compose-plugins": "2.2.1",

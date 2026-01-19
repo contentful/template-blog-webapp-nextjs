@@ -5,7 +5,7 @@ import Logo from './CtfLogo.svg';
 import typewriter from 'analytics';
 
 const signUpLink =
-  'https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog';
+  'https://www.contentful.com/sign-up/?action=create_starter_template&template_name=blog';
 
 const CtfSignUpBanner = () => {
   const handleSignUpLinkClick = () => typewriter.signUpBannerInteracted({ ctaClicked: true });
@@ -20,7 +20,7 @@ const CtfSignUpBanner = () => {
         The content on this template is managed via Contentful
       </p>
       <Link href={signUpLink} target="_blank" onClick={handleSignUpLinkClick}>
-        <button className="signup-button-transition h-[38px] rounded-[50px] bg-[#FFDA00] py-2 px-6 hover:bg-[#EFC800]">
+        <button className="signup-button-transition h-[38px] rounded-[50px] bg-[#FFDA00] px-6 py-2 hover:bg-[#EFC800]">
           <p className="block font-systemUIFontFamilies text-sm font-semibold text-[#464E5B] md:hidden">
             Use template
           </p>

@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
-      - uses: contentful/github-auto-merge@v2
+      - uses: contentful/github-auto-merge@444341c4254cc5ce1b2c6819e43b4455c7168b79
         with:
           VAULT_URL: ${{ secrets.VAULT_URL }}

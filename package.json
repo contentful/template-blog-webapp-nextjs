@@ -36,7 +36,7 @@
     "@contentful/live-preview": "4.9.0",
     "@contentful/rich-text-react-renderer": "15.22.11",
     "@next/bundle-analyzer": "13.5.11",
-    "@sentry/nextjs": "7.120.4",
+    "@sentry/nextjs": "10.39.0",
     "dotenv": "17.2.3",
     "graphql": "16.12.0",
     "next": "13.5.11",

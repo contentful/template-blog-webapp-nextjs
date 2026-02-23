@@ -4,6 +4,10 @@ name: ESLint & TSC
 # Event for the workflow
 on: [pull_request]
 
+# Permissions
+permissions:
+ contents: read
+
 # List of jobs
 jobs:
  eslint-tsc:

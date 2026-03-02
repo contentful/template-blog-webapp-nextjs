@@ -9,6 +9,6 @@
   ],
   "timezone": "UTC",
   "prConcurrentLimit": 15,
-  "reviewers": ["contentful/team-isotopes"],
+  "reviewers": ["contentful/team-workflows"],
   "baseBranches": ["main", "main-private"]
 }

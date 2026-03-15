@@ -53,7 +53,7 @@
     "@graphql-codegen/cli": "5.0.7",
     "@graphql-codegen/client-preset": "4.8.3",
     "@graphql-codegen/introspection": "4.0.3",
-    "@graphql-codegen/typescript-graphql-request": "6.3.0",
+    "@graphql-codegen/typescript-graphql-request": "6.4.0",
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/typography": "0.5.19",
     "@types/negotiator": "0.6.4",

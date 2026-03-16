@@ -1785,10 +1785,10 @@
   resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-4.2.0.tgz#bb12fb8730c71a7fdc568d2a66ce5a7b438863e0"
   integrity sha512-fB7ZEO8+NJPlcGvx6EHuEoPdhgpaFAeCnymXlgC+xVLTXYKXSk8JJD4WEr9rBLcXpyyS+e3g51kNFv90cDOeEQ==
 
-"@contentful/live-preview@4.9.9":
-  version "4.9.9"
-  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.9.9.tgz#177280a00ecaab922cd2be2e194a6d9ee9b3062f"
-  integrity sha512-HGZ0rw8+ZehHdxy3+IrzQnPXlvnZKNcMwXSP9eHX8qftKA0L3OKFUW7GaItVLaQOdz8BqBXejC1rZKQK03V08g==
+"@contentful/live-preview@4.9.10":
+  version "4.9.10"
+  resolved "https://registry.yarnpkg.com/@contentful/live-preview/-/live-preview-4.9.10.tgz#d0b78cc7ab274d9431c056825e4a2f35bca82516"
+  integrity sha512-zrp4cRJd4cyHsvDvFFC8C20T0WHgnRyYmqH3tEPjKwjXbI+XBPxxBBkH7btm6tcJibz+tEvkDCuXQDYZ488m8w==
   dependencies:
     "@contentful/content-source-maps" "^0.12.1"
     "@contentful/rich-text-types" "^17.0.0"

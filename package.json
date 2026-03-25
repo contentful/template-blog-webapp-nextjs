@@ -33,7 +33,7 @@
     "@contentful/rich-text-react-renderer": "16.1.6",
     "@next/bundle-analyzer": "15.5.14",
     "dotenv": "17.3.1",
-    "graphql": "16.13.1",
+    "graphql": "16.13.2",
     "i18next-browser-languagedetector": "8.2.1",
     "i18next-resources-to-backend": "1.2.1",
     "next": "14.2.35",

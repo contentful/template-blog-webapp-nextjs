@@ -1770,10 +1770,10 @@
     "@contentful/f36-tokens" "^4.0.1"
     emotion "^10.0.17"
 
-"@contentful/f36-tokens@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-5.1.0.tgz#0ace4246cd204de0c4052cb73897bed7c9ffdd84"
-  integrity sha512-7++MPQiizK6qLhPkilWIKqM5Mhdr199tK7dL4iZ689iTwA82uvXXOojJr+0wVOurG2Odb+6/3WLe1XdveDZHEA==
+"@contentful/f36-tokens@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@contentful/f36-tokens/-/f36-tokens-6.1.2.tgz#cf2f92fedcab7e9fd90a4d2cfb3a0b1c9ecd9715"
+  integrity sha512-oj9HC4fDsXkUmUbq5izCX7WJNZoQxpmXqQ1f8gB+oz+wAXtdFq1/iW1vuYhQaNaZVXgb/qU4zvu39SWp8IYMsg==
 
 "@contentful/f36-tokens@^4.0.1":
   version "4.0.1"

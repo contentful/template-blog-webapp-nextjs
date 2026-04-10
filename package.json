@@ -73,7 +73,7 @@
     "eslint-plugin-react-hooks": "4.6.2",
     "husky": "9.1.7",
     "i18next": "25.10.10",
-    "i18next-http-backend": "3.0.2",
+    "i18next-http-backend": "3.0.4",
     "lint-staged": "16.4.0",
     "postcss": "8.5.8",
     "prettier": "3.8.1",

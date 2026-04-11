@@ -2916,10 +2916,10 @@
     "@emnapi/runtime" "^1.4.3"
     "@tybys/wasm-util" "^0.9.0"
 
-"@next/bundle-analyzer@15.5.14":
-  version "15.5.14"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-15.5.14.tgz#065b43aba7f2da750b6867b264d3f23c93db6e8d"
-  integrity sha512-Q8rK9QXAqnJ2Ct1XXRJALBccINg9rX0Zl8QSPrYCuL/J1c+k7cfGcRTUNDAP9WIvhYk8JfxZEm1JpcHi+MUKiw==
+"@next/bundle-analyzer@15.5.15":
+  version "15.5.15"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-15.5.15.tgz#e5d1bebc4c38b499c94e7ee1cf0d3cbae5e980ca"
+  integrity sha512-Y9XFxAGfk7E9Se1WYmmZWhznfWFVugsroZy+gD7qv8vZmHSIlI0izLESz3yRXJ8FPTuDSdIqP1Azw1u88gDx5g==
   dependencies:
     webpack-bundle-analyzer "4.10.1"
 
@@ -2928,10 +2928,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-14.2.35.tgz#e979016d0ca8500a47d41ffd02625fe29b8df35a"
   integrity sha512-DuhvCtj4t9Gwrx80dmz2F4t/zKQ4ktN8WrMwOuVzkJfBilwAwGr6v16M5eI8yCuZ63H9TTuEU09Iu2HqkzFPVQ==
 
-"@next/eslint-plugin-next@15.5.14":
-  version "15.5.14"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.5.14.tgz#380a56374c32ef7d985f2e20e10b2816ab11d8c7"
-  integrity sha512-ogBjgsFrPPz19abP3VwcYSahbkUOMMvJjxCOYWYndw+PydeMuLuB4XrvNkNutFrTjC9St2KFULRdKID8Sd/CMQ==
+"@next/eslint-plugin-next@15.5.15":
+  version "15.5.15"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.5.15.tgz#9ca2ef8e89518b786d183d74a8168eb1f8d4a31a"
+  integrity sha512-ExQoBfyKMjAUQ2nuF39ryQsG26H374ZfH13dlOZqf6TaE9ycRbIm+qUbUFCliU4BtQhiqtS7cnGA1yWfPMQ+jA==
   dependencies:
     fast-glob "3.3.1"
 
@@ -5247,12 +5247,12 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-next@15.5.14:
-  version "15.5.14"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-15.5.14.tgz#a73538f5555d52a3a65182bb50bfdc677196d2d1"
-  integrity sha512-lmJ5F8ZgOYogq0qtH4L5SpxuASY2SPdOzqUprN2/56+P3GPsIpXaUWIJC66kYIH+yZdsM4nkHE5MIBP6s1NiBw==
+eslint-config-next@15.5.15:
+  version "15.5.15"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-15.5.15.tgz#0d134d4da3f6eb962dd12cbbf0267e834d2ed38b"
+  integrity sha512-mI5KIONOIosjF3jK2z9a8fY2LePNeW5C4lRJ+XZoJHAKkwx2MQjMPQ2/kL7tsMRPcQPZc/UBtCfqxElluL1CBg==
   dependencies:
-    "@next/eslint-plugin-next" "15.5.14"
+    "@next/eslint-plugin-next" "15.5.15"
     "@rushstack/eslint-patch" "^1.10.3"
     "@typescript-eslint/eslint-plugin" "^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
     "@typescript-eslint/parser" "^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"

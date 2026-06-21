@@ -46,7 +46,7 @@
     "sharp": "0.34.5"
   },
   "devDependencies": {
-    "@babel/core": "7.29.0",
+    "@babel/core": "7.29.6",
     "@babel/eslint-parser": "7.28.6",
     "@babel/helper-globals": "7.28.0",
     "@contentful/rich-text-types": "17.2.7",

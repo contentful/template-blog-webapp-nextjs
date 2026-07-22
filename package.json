@@ -43,7 +43,7 @@
     "react-dom": "18.3.1",
     "react-focus-lock": "2.13.7",
     "react-i18next": "17.0.8",
-    "sharp": "0.34.5"
+    "sharp": "0.35.0"
   },
   "devDependencies": {
     "@babel/core": "7.29.6",

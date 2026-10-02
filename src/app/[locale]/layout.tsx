@@ -23,7 +23,7 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
 };
 
-export async function generateStaticParams(): Promise<LayoutProps['params'][]> {
+export async function generateStaticParams(): Promise<Awaited<LayoutProps['params']>[]> {
   return locales.map(locale => ({ locale }));
 }
 
@@ -33,12 +33,12 @@ const allowedOriginList = ['https://app.contentful.com', 'https://app.eu.content
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function PageLayout({ children, params }: LayoutProps) {
-  const { isEnabled: preview } = draftMode();
-  const { locale } = params;
+  const { isEnabled: preview } = await draftMode();
+  const { locale } = await params;
   const { resources } = await initTranslations({ locale });
 
   return (

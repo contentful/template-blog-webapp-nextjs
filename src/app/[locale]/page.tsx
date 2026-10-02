@@ -12,15 +12,16 @@ import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
 
 interface LandingPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: LandingPageProps): Promise<Metadata> {
-  const { isEnabled: preview } = draftMode();
+  const { locale } = await params;
+  const { isEnabled: preview } = await draftMode();
   const gqlClient = preview ? previewClient : client;
-  const landingPageData = await gqlClient.pageLanding({ locale: params.locale, preview });
+  const landingPageData = await gqlClient.pageLanding({ locale, preview });
   const page = landingPageData.pageLandingCollection?.items[0];
 
   const languages = Object.fromEntries(
@@ -44,8 +45,9 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
   return metadata;
 }
 
-export default async function Page({ params: { locale } }: LandingPageProps) {
-  const { isEnabled: preview } = draftMode();
+export default async function Page({ params }: LandingPageProps) {
+  const { locale } = await params;
+  const { isEnabled: preview } = await draftMode();
   const { t, resources } = await initTranslations({ locale });
   const gqlClient = preview ? previewClient : client;
 
@@ -85,7 +87,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
       {/*  <div className="my-5 bg-colorTextLightest p-5 text-colorBlueLightest">{page.greeting}</div>*/}
       {/*</Container>*/}
 
-      <Container className="my-8  md:mb-10 lg:mb-16">
+      <Container className="my-8 md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>

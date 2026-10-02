@@ -8,10 +8,9 @@ import initTranslations from '@src/i18n';
 import { defaultLocale, locales } from '@src/i18n/config';
 import { client, previewClient } from '@src/lib/client';
 
-export async function generateMetadata({
-  params: { locale, slug },
-}: BlogPageProps): Promise<Metadata> {
-  const { isEnabled: preview } = draftMode();
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const { isEnabled: preview } = await draftMode();
   const gqlClient = preview ? previewClient : client;
 
   const { pageBlogPostCollection } = await gqlClient.pageBlogPost({ locale, slug, preview });
@@ -43,7 +42,7 @@ export async function generateStaticParams({
   params: { locale },
 }: {
   params: { locale: string };
-}): Promise<BlogPageProps['params'][]> {
+}): Promise<Awaited<BlogPageProps['params']>[]> {
   const gqlClient = client;
   const { pageBlogPostCollection } = await gqlClient.pageBlogPostCollection({ locale, limit: 100 });
 
@@ -62,14 +61,15 @@ export async function generateStaticParams({
 }
 
 interface BlogPageProps {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
-  };
+  }>;
 }
 
-export default async function Page({ params: { locale, slug } }: BlogPageProps) {
-  const { isEnabled: preview } = draftMode();
+export default async function Page({ params }: BlogPageProps) {
+  const { locale, slug } = await params;
+  const { isEnabled: preview } = await draftMode();
   const gqlClient = preview ? previewClient : client;
   const { t } = await initTranslations({ locale });
   const { pageBlogPostCollection } = await gqlClient.pageBlogPost({ locale, slug, preview });

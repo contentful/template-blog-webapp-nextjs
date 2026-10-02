@@ -7,7 +7,7 @@ import initTranslations from '@src/i18n';
 import { defaultLocale } from '@src/i18n/config';
 
 export default async function NotFound() {
-  const headersList = headers();
+  const headersList = await headers();
   const locale = headersList.get('x-next-i18n-router-locale') || defaultLocale;
   const { t } = await initTranslations({ locale });
 

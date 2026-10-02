@@ -84,11 +84,11 @@ const buildRedirectUrl = ({
   return redirectUrl.toString();
 };
 
-function enableDraftMode() {
-  draftMode().enable();
-  const cookieStore = cookies();
+async function enableDraftMode() {
+  (await draftMode()).enable();
+  const cookieStore = await cookies();
   const cookie = cookieStore.get('__prerender_bypass')!;
-  cookies().set({
+  cookieStore.set({
     name: '__prerender_bypass',
     value: cookie?.value,
     httpOnly: true,
@@ -108,7 +108,7 @@ export async function GET(request: NextRequest): Promise<Response | void> {
   } = parseRequestUrl(request.url);
   // if we're in development, we don't need to check, we can just enable draft mode
   if (process.env.NODE_ENV === 'development') {
-    enableDraftMode();
+    await enableDraftMode();
     const redirectUrl = buildRedirectUrl({ path, base, bypassTokenFromQuery });
     return redirect(redirectUrl);
   }
@@ -169,7 +169,7 @@ export async function GET(request: NextRequest): Promise<Response | void> {
     });
   }
 
-  enableDraftMode();
+  await enableDraftMode();
 
   // if a _vercel_jwt cookie was found, we do _not_ want to pass through the bypassToken to the redirect query. this
   // is because Vercel will not "process" (and remove) the query parameter when a _vercel_jwt cookie is present.

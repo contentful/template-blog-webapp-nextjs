@@ -1817,10 +1817,10 @@
     json-pointer "^0.6.2"
     lodash.isequal "^4.5.0"
 
-"@contentful/rich-text-react-renderer@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-16.2.1.tgz#9dd3f9e7b08c6080b10bf5d1f83ed0ee0cfdd8ca"
-  integrity sha512-CZTqlaa/Je3T6JfFaHDAaDWuJrDAYBlBEptedlyBml+hojpMFRRz3Vmv5iU7AI7d80BJ1MlXdA7srLXK7ik/HA==
+"@contentful/rich-text-react-renderer@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-16.2.2.tgz#e046c3de605784181c12bb9513aac081dce68155"
+  integrity sha512-3hwKp+tYHRxKyzYTjFpwpI+laczYO1VS0sldSEVqPXfLcQnQabfUmYAL4dGtA35r2ce0+Wp4XVy9u4c7jxH20Q==
   dependencies:
     "@contentful/rich-text-types" "^17.2.7"
 

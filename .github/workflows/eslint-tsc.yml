@@ -21,9 +21,13 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: Enable Corepack
+        # Makes `yarn` resolve to the version pinned in `packageManager` (Yarn 4)
+        run: corepack enable
+
       - name: Get Yarn cache directory
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> "$GITHUB_OUTPUT"
 
       - name: Use Yarn cache
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
@@ -33,8 +37,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --prefer-offline
-        # `--prefer-offline` gives cache priority
+        run: yarn install --immutable
 
       - name: ESLint
         run: yarn lint

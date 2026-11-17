@@ -36,5 +36,6 @@ done
 
 # install node_modules and run dev
 echo Installing dependencies
+corepack enable
 yarn
 yarn dev
